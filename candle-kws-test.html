@@ -7945,5 +7945,19 @@ paginate();
 
 </script>
 
+
+<script>
+function sendHeight() {
+  const height = document.body.scrollHeight;
+  window.parent.postMessage({ iframeHeight: height }, "*");
+}
+
+window.addEventListener("load", sendHeight);
+window.addEventListener("resize", sendHeight);
+
+// update height regularly so filtering & pagination resize correctly
+setInterval(sendHeight, 500);
+</script>
+
 </body>
 </html>
