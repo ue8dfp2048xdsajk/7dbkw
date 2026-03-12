@@ -1,0 +1,7949 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Etsy Keyword Database</title>
+
+<style>
+
+body {
+font-family: Arial, sans-serif;
+margin: 20px;
+background:#fafafa;
+max-width:1400px;
+margin-left:auto;
+margin-right:auto;
+}
+
+h1 {
+margin-bottom:20px;
+}
+
+#searchBox {
+padding:12px;
+width:100%;
+max-width:400px;
+font-size:16px;
+border:1px solid #ccc;
+border-radius:6px;
+margin-bottom:20px;
+}
+
+table {
+border-collapse: collapse;
+width:100%;
+background:white;
+font-size:16px;
+box-shadow:0 2px 8px rgba(0,0,0,0.05);
+}
+
+th, td {
+padding:14px 16px;
+border-bottom:1px solid #ddd;
+text-align:left;
+}
+
+th {
+cursor:pointer;
+background:#f4f4f4;
+position:sticky;
+top:0;
+}
+
+th:hover {
+background:#e8e8e8;
+}
+
+tr:hover {
+background:#f9f9f9;
+}
+
+.copyBtn {
+margin-right:10px;
+padding:4px 8px;
+font-size:12px;
+cursor:pointer;
+}
+
+.pagination {
+margin-top:20px;
+display:flex;
+gap:10px;
+flex-wrap:wrap;
+}
+
+.pagination button {
+padding:6px 12px;
+cursor:pointer;
+}
+
+/* Mobile */
+
+@media (max-width:700px) {
+th:nth-child(3), td:nth-child(3),
+th:nth-child(4), td:nth-child(4) {
+display:none;
+}
+}
+
+</style>
+</head>
+
+<body>
+
+<h1>Ultimate Etsy Keyword Database</h1>
+
+<input type="text" id="searchBox" placeholder="Filter keywords...">
+
+<table id="keywordTable">
+
+<thead>
+<tr>
+<th onclick="sortTable(0,'text')">Keyword</th>
+<th onclick="sortTable(1,'num')">Searches</th>
+<th onclick="sortTable(2,'num')">Results</th>
+<th onclick="sortTable(3,'num')">Searches:Results</th>
+</tr>
+</thead>
+
+<tbody id="tableBody">
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('summer beach candle favor')">Copy</button>
+<span>summer beach candle favor</span>
+</td>
+<td data-num="7500">7500</td>
+<td data-num="64">64</td>
+<td data-num="117.1875">117.1875</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('aesthetic coffee candle')">Copy</button>
+<span>aesthetic coffee candle</span>
+</td>
+<td data-num="540">540</td>
+<td data-num="110">110</td>
+<td data-num="4.909090909">4.909090909</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('personalized pink candle favor')">Copy</button>
+<span>personalized pink candle favor</span>
+</td>
+<td data-num="1800">1800</td>
+<td data-num="380">380</td>
+<td data-num="4.736842105">4.736842105</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('i wish you lived next door container candles')">Copy</button>
+<span>i wish you lived next door container candles</span>
+</td>
+<td data-num="4600">4600</td>
+<td data-num="1100">1100</td>
+<td data-num="4.181818182">4.181818182</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('personalized glass candle favor')">Copy</button>
+<span>personalized glass candle favor</span>
+</td>
+<td data-num="1100">1100</td>
+<td data-num="920">920</td>
+<td data-num="1.195652174">1.195652174</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('bridal shower mica candle gifts')">Copy</button>
+<span>bridal shower mica candle gifts</span>
+</td>
+<td data-num="144">144</td>
+<td data-num="153">153</td>
+<td data-num="0.9411764706">0.9411764706</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('first birthday candle favor')">Copy</button>
+<span>first birthday candle favor</span>
+</td>
+<td data-num="374">374</td>
+<td data-num="535">535</td>
+<td data-num="0.6990654206">0.6990654206</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('sweet 16 candle favor')">Copy</button>
+<span>sweet 16 candle favor</span>
+</td>
+<td data-num="752">752</td>
+<td data-num="1100">1100</td>
+<td data-num="0.6836363636">0.6836363636</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('beach wedding candle favor')">Copy</button>
+<span>beach wedding candle favor</span>
+</td>
+<td data-num="302">302</td>
+<td data-num="472">472</td>
+<td data-num="0.6398305085">0.6398305085</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('massage candle')">Copy</button>
+<span>massage candle</span>
+</td>
+<td data-num="1500">1500</td>
+<td data-num="2500">2500</td>
+<td data-num="0.6">0.6</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('unity candle')">Copy</button>
+<span>unity candle</span>
+</td>
+<td data-num="2800">2800</td>
+<td data-num="5200">5200</td>
+<td data-num="0.5384615385">0.5384615385</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('baptism candle')">Copy</button>
+<span>baptism candle</span>
+</td>
+<td data-num="5300">5300</td>
+<td data-num="12600">12600</td>
+<td data-num="0.4206349206">0.4206349206</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('espresso martini candle')">Copy</button>
+<span>espresso martini candle</span>
+</td>
+<td data-num="1100">1100</td>
+<td data-num="2800">2800</td>
+<td data-num="0.3928571429">0.3928571429</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('seashell wedding candle favor')">Copy</button>
+<span>seashell wedding candle favor</span>
+</td>
+<td data-num="172">172</td>
+<td data-num="451">451</td>
+<td data-num="0.3813747228">0.3813747228</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('christening candle')">Copy</button>
+<span>christening candle</span>
+</td>
+<td data-num="2000">2000</td>
+<td data-num="5800">5800</td>
+<td data-num="0.3448275862">0.3448275862</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('30th birthday candle')">Copy</button>
+<span>30th birthday candle</span>
+</td>
+<td data-num="826">826</td>
+<td data-num="3300">3300</td>
+<td data-num="0.2503030303">0.2503030303</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('60th birthday candle')">Copy</button>
+<span>60th birthday candle</span>
+</td>
+<td data-num="491">491</td>
+<td data-num="2000">2000</td>
+<td data-num="0.2455">0.2455</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('orthodox wedding candles')">Copy</button>
+<span>orthodox wedding candles</span>
+</td>
+<td data-num="407">407</td>
+<td data-num="1700">1700</td>
+<td data-num="0.2394117647">0.2394117647</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('1st birthday candle')">Copy</button>
+<span>1st birthday candle</span>
+</td>
+<td data-num="988">988</td>
+<td data-num="4300">4300</td>
+<td data-num="0.2297674419">0.2297674419</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('personalized birthday candle')">Copy</button>
+<span>personalized birthday candle</span>
+</td>
+<td data-num="3900">3900</td>
+<td data-num="18100">18100</td>
+<td data-num="0.2154696133">0.2154696133</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('baptism candle favor')">Copy</button>
+<span>baptism candle favor</span>
+</td>
+<td data-num="839">839</td>
+<td data-num="4000">4000</td>
+<td data-num="0.20975">0.20975</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('baptism candle set')">Copy</button>
+<span>baptism candle set</span>
+</td>
+<td data-num="1500">1500</td>
+<td data-num="7400">7400</td>
+<td data-num="0.2027027027">0.2027027027</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('bridesmaid candle')">Copy</button>
+<span>bridesmaid candle</span>
+</td>
+<td data-num="3500">3500</td>
+<td data-num="17400">17400</td>
+<td data-num="0.2011494253">0.2011494253</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('first birthday candle favors')">Copy</button>
+<span>first birthday candle favors</span>
+</td>
+<td data-num="89">89</td>
+<td data-num="456">456</td>
+<td data-num="0.1951754386">0.1951754386</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('lemon wedding candle favor')">Copy</button>
+<span>lemon wedding candle favor</span>
+</td>
+<td data-num="70">70</td>
+<td data-num="375">375</td>
+<td data-num="0.1866666667">0.1866666667</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('leopard print candle')">Copy</button>
+<span>leopard print candle</span>
+</td>
+<td data-num="197">197</td>
+<td data-num="1200">1200</td>
+<td data-num="0.1641666667">0.1641666667</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('clearance soy candle')">Copy</button>
+<span>clearance soy candle</span>
+</td>
+<td data-num="180">180</td>
+<td data-num="1100">1100</td>
+<td data-num="0.1636363636">0.1636363636</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('dried flower wedding candle')">Copy</button>
+<span>dried flower wedding candle</span>
+</td>
+<td data-num="127">127</td>
+<td data-num="807">807</td>
+<td data-num="0.1573729864">0.1573729864</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('gold wedding candle favor')">Copy</button>
+<span>gold wedding candle favor</span>
+</td>
+<td data-num="215">215</td>
+<td data-num="1400">1400</td>
+<td data-num="0.1535714286">0.1535714286</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('21st birthday candle')">Copy</button>
+<span>21st birthday candle</span>
+</td>
+<td data-num="304">304</td>
+<td data-num="2100">2100</td>
+<td data-num="0.1447619048">0.1447619048</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('coastal wedding candle')">Copy</button>
+<span>coastal wedding candle</span>
+</td>
+<td data-num="81">81</td>
+<td data-num="596">596</td>
+<td data-num="0.1359060403">0.1359060403</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('scented glass wedding candle favor')">Copy</button>
+<span>scented glass wedding candle favor</span>
+</td>
+<td data-num="146">146</td>
+<td data-num="1100">1100</td>
+<td data-num="0.1327272727">0.1327272727</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('18th birthday candle')">Copy</button>
+<span>18th birthday candle</span>
+</td>
+<td data-num="284">284</td>
+<td data-num="2300">2300</td>
+<td data-num="0.1234782609">0.1234782609</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('memorial candle')">Copy</button>
+<span>memorial candle</span>
+</td>
+<td data-num="3300">3300</td>
+<td data-num="26800">26800</td>
+<td data-num="0.1231343284">0.1231343284</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('greek orthodox wedding candles')">Copy</button>
+<span>greek orthodox wedding candles</span>
+</td>
+<td data-num="168">168</td>
+<td data-num="1400">1400</td>
+<td data-num="0.12">0.12</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('70th birthday candle')">Copy</button>
+<span>70th birthday candle</span>
+</td>
+<td data-num="191">191</td>
+<td data-num="1700">1700</td>
+<td data-num="0.1123529412">0.1123529412</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('money candle')">Copy</button>
+<span>money candle</span>
+</td>
+<td data-num="1000">1000</td>
+<td data-num="9800">9800</td>
+<td data-num="0.1020408163">0.1020408163</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('baby shower candle favor')">Copy</button>
+<span>baby shower candle favor</span>
+</td>
+<td data-num="816">816</td>
+<td data-num="8300">8300</td>
+<td data-num="0.09831325301">0.09831325301</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('spell candles')">Copy</button>
+<span>spell candles</span>
+</td>
+<td data-num="3100">3100</td>
+<td data-num="32400">32400</td>
+<td data-num="0.09567901235">0.09567901235</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('80th birthday candle')">Copy</button>
+<span>80th birthday candle</span>
+</td>
+<td data-num="177">177</td>
+<td data-num="1900">1900</td>
+<td data-num="0.09315789474">0.09315789474</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('luxury glass wedding candle')">Copy</button>
+<span>luxury glass wedding candle</span>
+</td>
+<td data-num="189">189</td>
+<td data-num="2100">2100</td>
+<td data-num="0.09">0.09</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('2nd birthday candle')">Copy</button>
+<span>2nd birthday candle</span>
+</td>
+<td data-num="160">160</td>
+<td data-num="1800">1800</td>
+<td data-num="0.08888888889">0.08888888889</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('heavenly birthday candle')">Copy</button>
+<span>heavenly birthday candle</span>
+</td>
+<td data-num="86">86</td>
+<td data-num="986">986</td>
+<td data-num="0.08722109533">0.08722109533</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('first birthday candle')">Copy</button>
+<span>first birthday candle</span>
+</td>
+<td data-num="813">813</td>
+<td data-num="9400">9400</td>
+<td data-num="0.0864893617">0.0864893617</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('irish wedding candle')">Copy</button>
+<span>irish wedding candle</span>
+</td>
+<td data-num="83">83</td>
+<td data-num="970">970</td>
+<td data-num="0.08556701031">0.08556701031</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('personalised candle next day delivery')">Copy</button>
+<span>personalised candle next day delivery</span>
+</td>
+<td data-num="78">78</td>
+<td data-num="944">944</td>
+<td data-num="0.08262711864">0.08262711864</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('led candles')">Copy</button>
+<span>led candles</span>
+</td>
+<td data-num="1100">1100</td>
+<td data-num="13600">13600</td>
+<td data-num="0.08088235294">0.08088235294</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('glass wedding candle favor')">Copy</button>
+<span>glass wedding candle favor</span>
+</td>
+<td data-num="122">122</td>
+<td data-num="1600">1600</td>
+<td data-num="0.07625">0.07625</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('baptism candles')">Copy</button>
+<span>baptism candles</span>
+</td>
+<td data-num="1000">1000</td>
+<td data-num="13500">13500</td>
+<td data-num="0.07407407407">0.07407407407</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('70th birthday candles')">Copy</button>
+<span>70th birthday candles</span>
+</td>
+<td data-num="167">167</td>
+<td data-num="2300">2300</td>
+<td data-num="0.07260869565">0.07260869565</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('dinosaur birthday candle')">Copy</button>
+<span>dinosaur birthday candle</span>
+</td>
+<td data-num="108">108</td>
+<td data-num="1500">1500</td>
+<td data-num="0.072">0.072</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('pillar candles')">Copy</button>
+<span>pillar candles</span>
+</td>
+<td data-num="3900">3900</td>
+<td data-num="55100">55100</td>
+<td data-num="0.07078039927">0.07078039927</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('flameless candles')">Copy</button>
+<span>flameless candles</span>
+</td>
+<td data-num="2100">2100</td>
+<td data-num="29900">29900</td>
+<td data-num="0.07023411371">0.07023411371</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('snowflake soy candle')">Copy</button>
+<span>snowflake soy candle</span>
+</td>
+<td data-num="131">131</td>
+<td data-num="1900">1900</td>
+<td data-num="0.06894736842">0.06894736842</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('weds candle')">Copy</button>
+<span>weds candle</span>
+</td>
+<td data-num="19">19</td>
+<td data-num="286">286</td>
+<td data-num="0.06643356643">0.06643356643</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('poland soy candle')">Copy</button>
+<span>poland soy candle</span>
+</td>
+<td data-num="61">61</td>
+<td data-num="937">937</td>
+<td data-num="0.06510138741">0.06510138741</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('greek wedding candles')">Copy</button>
+<span>greek wedding candles</span>
+</td>
+<td data-num="90">90</td>
+<td data-num="1400">1400</td>
+<td data-num="0.06428571429">0.06428571429</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('60th birthday candles')">Copy</button>
+<span>60th birthday candles</span>
+</td>
+<td data-num="185">185</td>
+<td data-num="2900">2900</td>
+<td data-num="0.06379310345">0.06379310345</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('candles')">Copy</button>
+<span>candles</span>
+</td>
+<td data-num="68800">68800</td>
+<td data-num="1100000">1100000</td>
+<td data-num="0.06254545455">0.06254545455</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('prayer candle')">Copy</button>
+<span>prayer candle</span>
+</td>
+<td data-num="2000">2000</td>
+<td data-num="32100">32100</td>
+<td data-num="0.06230529595">0.06230529595</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('baby shower candles')">Copy</button>
+<span>baby shower candles</span>
+</td>
+<td data-num="1400">1400</td>
+<td data-num="22600">22600</td>
+<td data-num="0.06194690265">0.06194690265</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('bridesmaid candles')">Copy</button>
+<span>bridesmaid candles</span>
+</td>
+<td data-num="1000">1000</td>
+<td data-num="16300">16300</td>
+<td data-num="0.06134969325">0.06134969325</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('easter candles')">Copy</button>
+<span>easter candles</span>
+</td>
+<td data-num="1200">1200</td>
+<td data-num="19700">19700</td>
+<td data-num="0.06091370558">0.06091370558</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('kpop birthday candle')">Copy</button>
+<span>kpop birthday candle</span>
+</td>
+<td data-num="73">73</td>
+<td data-num="1200">1200</td>
+<td data-num="0.06083333333">0.06083333333</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('26 birthday candles')">Copy</button>
+<span>26 birthday candles</span>
+</td>
+<td data-num="85">85</td>
+<td data-num="1400">1400</td>
+<td data-num="0.06071428571">0.06071428571</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('half birthday candle')">Copy</button>
+<span>half birthday candle</span>
+</td>
+<td data-num="84">84</td>
+<td data-num="1400">1400</td>
+<td data-num="0.06">0.06</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('ear wax candles')">Copy</button>
+<span>ear wax candles</span>
+</td>
+<td data-num="66">66</td>
+<td data-num="1100">1100</td>
+<td data-num="0.06">0.06</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('zebra print candles')">Copy</button>
+<span>zebra print candles</span>
+</td>
+<td data-num="60">60</td>
+<td data-num="1000">1000</td>
+<td data-num="0.06">0.06</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('candle rings')">Copy</button>
+<span>candle rings</span>
+</td>
+<td data-num="1100">1100</td>
+<td data-num="18400">18400</td>
+<td data-num="0.0597826087">0.0597826087</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('custom wedding candle set')">Copy</button>
+<span>custom wedding candle set</span>
+</td>
+<td data-num="159">159</td>
+<td data-num="2700">2700</td>
+<td data-num="0.05888888889">0.05888888889</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('frozen birthday candle')">Copy</button>
+<span>frozen birthday candle</span>
+</td>
+<td data-num="69">69</td>
+<td data-num="1200">1200</td>
+<td data-num="0.0575">0.0575</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('custom name wedding candle')">Copy</button>
+<span>custom name wedding candle</span>
+</td>
+<td data-num="102">102</td>
+<td data-num="1800">1800</td>
+<td data-num="0.05666666667">0.05666666667</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('easter candle')">Copy</button>
+<span>easter candle</span>
+</td>
+<td data-num="1100">1100</td>
+<td data-num="19700">19700</td>
+<td data-num="0.05583756345">0.05583756345</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('african print candles')">Copy</button>
+<span>african print candles</span>
+</td>
+<td data-num="83">83</td>
+<td data-num="1500">1500</td>
+<td data-num="0.05533333333">0.05533333333</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('leopard print candles')">Copy</button>
+<span>leopard print candles</span>
+</td>
+<td data-num="66">66</td>
+<td data-num="1200">1200</td>
+<td data-num="0.055">0.055</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('orthodox wedding candle')">Copy</button>
+<span>orthodox wedding candle</span>
+</td>
+<td data-num="69">69</td>
+<td data-num="1300">1300</td>
+<td data-num="0.05307692308">0.05307692308</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('engagement candle')">Copy</button>
+<span>engagement candle</span>
+</td>
+<td data-num="2800">2800</td>
+<td data-num="52800">52800</td>
+<td data-num="0.05303030303">0.05303030303</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('luxury wedding candle favors')">Copy</button>
+<span>luxury wedding candle favors</span>
+</td>
+<td data-num="164">164</td>
+<td data-num="3100">3100</td>
+<td data-num="0.05290322581">0.05290322581</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('dragon birthday candle')">Copy</button>
+<span>dragon birthday candle</span>
+</td>
+<td data-num="104">104</td>
+<td data-num="2000">2000</td>
+<td data-num="0.052">0.052</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('personalized candles baptism')">Copy</button>
+<span>personalized candles baptism</span>
+</td>
+<td data-num="374">374</td>
+<td data-num="7200">7200</td>
+<td data-num="0.05194444444">0.05194444444</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('rain scented candle')">Copy</button>
+<span>rain scented candle</span>
+</td>
+<td data-num="66">66</td>
+<td data-num="1300">1300</td>
+<td data-num="0.05076923077">0.05076923077</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('wedding candle favor')">Copy</button>
+<span>wedding candle favor</span>
+</td>
+<td data-num="1200">1200</td>
+<td data-num="23700">23700</td>
+<td data-num="0.05063291139">0.05063291139</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('baby shower candle')">Copy</button>
+<span>baby shower candle</span>
+</td>
+<td data-num="1100">1100</td>
+<td data-num="21900">21900</td>
+<td data-num="0.0502283105">0.0502283105</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('sausage dog birthday candles')">Copy</button>
+<span>sausage dog birthday candles</span>
+</td>
+<td data-num="49">49</td>
+<td data-num="993">993</td>
+<td data-num="0.04934541793">0.04934541793</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('candle')">Copy</button>
+<span>candle</span>
+</td>
+<td data-num="49000">49000</td>
+<td data-num="1000000">1000000</td>
+<td data-num="0.049">0.049</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('dublin custom candles')">Copy</button>
+<span>dublin custom candles</span>
+</td>
+<td data-num="40">40</td>
+<td data-num="817">817</td>
+<td data-num="0.04895960832">0.04895960832</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('video game scented candle')">Copy</button>
+<span>video game scented candle</span>
+</td>
+<td data-num="41">41</td>
+<td data-num="855">855</td>
+<td data-num="0.04795321637">0.04795321637</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('luxury wedding candle favor')">Copy</button>
+<span>luxury wedding candle favor</span>
+</td>
+<td data-num="143">143</td>
+<td data-num="3000">3000</td>
+<td data-num="0.04766666667">0.04766666667</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('heart candle')">Copy</button>
+<span>heart candle</span>
+</td>
+<td data-num="1600">1600</td>
+<td data-num="34700">34700</td>
+<td data-num="0.04610951009">0.04610951009</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('giant soy candle')">Copy</button>
+<span>giant soy candle</span>
+</td>
+<td data-num="55">55</td>
+<td data-num="1200">1200</td>
+<td data-num="0.04583333333">0.04583333333</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('cherry birthday candles')">Copy</button>
+<span>cherry birthday candles</span>
+</td>
+<td data-num="82">82</td>
+<td data-num="1800">1800</td>
+<td data-num="0.04555555556">0.04555555556</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('custom wedding candle favor')">Copy</button>
+<span>custom wedding candle favor</span>
+</td>
+<td data-num="286">286</td>
+<td data-num="6400">6400</td>
+<td data-num="0.0446875">0.0446875</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('taper candles')">Copy</button>
+<span>taper candles</span>
+</td>
+<td data-num="4900">4900</td>
+<td data-num="109700">109700</td>
+<td data-num="0.04466727438">0.04466727438</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('40th birthday candles')">Copy</button>
+<span>40th birthday candles</span>
+</td>
+<td data-num="191">191</td>
+<td data-num="4300">4300</td>
+<td data-num="0.04441860465">0.04441860465</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('weird scented candles')">Copy</button>
+<span>weird scented candles</span>
+</td>
+<td data-num="71">71</td>
+<td data-num="1600">1600</td>
+<td data-num="0.044375">0.044375</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('personalized wedding candle favor')">Copy</button>
+<span>personalized wedding candle favor</span>
+</td>
+<td data-num="411">411</td>
+<td data-num="9300">9300</td>
+<td data-num="0.04419354839">0.04419354839</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('coffee candle')">Copy</button>
+<span>coffee candle</span>
+</td>
+<td data-num="1800">1800</td>
+<td data-num="42500">42500</td>
+<td data-num="0.04235294118">0.04235294118</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('zebra print candle')">Copy</button>
+<span>zebra print candle</span>
+</td>
+<td data-num="42">42</td>
+<td data-num="994">994</td>
+<td data-num="0.04225352113">0.04225352113</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('unity wedding candles')">Copy</button>
+<span>unity wedding candles</span>
+</td>
+<td data-num="114">114</td>
+<td data-num="2700">2700</td>
+<td data-num="0.04222222222">0.04222222222</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('birthday candle earrings')">Copy</button>
+<span>birthday candle earrings</span>
+</td>
+<td data-num="184">184</td>
+<td data-num="4400">4400</td>
+<td data-num="0.04181818182">0.04181818182</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('fairy first birthday candle')">Copy</button>
+<span>fairy first birthday candle</span>
+</td>
+<td data-num="46">46</td>
+<td data-num="1100">1100</td>
+<td data-num="0.04181818182">0.04181818182</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('wedding candle favors oyster')">Copy</button>
+<span>wedding candle favors oyster</span>
+</td>
+<td data-num="36">36</td>
+<td data-num="861">861</td>
+<td data-num="0.04181184669">0.04181184669</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('crystal candle')">Copy</button>
+<span>crystal candle</span>
+</td>
+<td data-num="1800">1800</td>
+<td data-num="43200">43200</td>
+<td data-num="0.04166666667">0.04166666667</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('tractor birthday candle')">Copy</button>
+<span>tractor birthday candle</span>
+</td>
+<td data-num="49">49</td>
+<td data-num="1200">1200</td>
+<td data-num="0.04083333333">0.04083333333</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('18th birthday candles')">Copy</button>
+<span>18th birthday candles</span>
+</td>
+<td data-num="105">105</td>
+<td data-num="2600">2600</td>
+<td data-num="0.04038461538">0.04038461538</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('personalized candle favor')">Copy</button>
+<span>personalized candle favor</span>
+</td>
+<td data-num="858">858</td>
+<td data-num="22100">22100</td>
+<td data-num="0.03882352941">0.03882352941</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('book candle')">Copy</button>
+<span>book candle</span>
+</td>
+<td data-num="1200">1200</td>
+<td data-num="31100">31100</td>
+<td data-num="0.038585209">0.038585209</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('no words just hugs gift candle')">Copy</button>
+<span>no words just hugs gift candle</span>
+</td>
+<td data-num="31">31</td>
+<td data-num="819">819</td>
+<td data-num="0.03785103785">0.03785103785</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('catholic wedding candle')">Copy</button>
+<span>catholic wedding candle</span>
+</td>
+<td data-num="67">67</td>
+<td data-num="1800">1800</td>
+<td data-num="0.03722222222">0.03722222222</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('bulk candles')">Copy</button>
+<span>bulk candles</span>
+</td>
+<td data-num="1100">1100</td>
+<td data-num="29600">29600</td>
+<td data-num="0.03716216216">0.03716216216</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('wedding candles ireland')">Copy</button>
+<span>wedding candles ireland</span>
+</td>
+<td data-num="31">31</td>
+<td data-num="844">844</td>
+<td data-num="0.03672985782">0.03672985782</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('birthday candles numbers')">Copy</button>
+<span>birthday candles numbers</span>
+</td>
+<td data-num="62">62</td>
+<td data-num="1700">1700</td>
+<td data-num="0.03647058824">0.03647058824</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('50th birthday candles')">Copy</button>
+<span>50th birthday candles</span>
+</td>
+<td data-num="153">153</td>
+<td data-num="4200">4200</td>
+<td data-num="0.03642857143">0.03642857143</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('birthday candles cookie cutter')">Copy</button>
+<span>birthday candles cookie cutter</span>
+</td>
+<td data-num="69">69</td>
+<td data-num="1900">1900</td>
+<td data-num="0.03631578947">0.03631578947</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('dough bowl candle')">Copy</button>
+<span>dough bowl candle</span>
+</td>
+<td data-num="1200">1200</td>
+<td data-num="33100">33100</td>
+<td data-num="0.03625377644">0.03625377644</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('coal scented candle')">Copy</button>
+<span>coal scented candle</span>
+</td>
+<td data-num="27">27</td>
+<td data-num="745">745</td>
+<td data-num="0.03624161074">0.03624161074</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('tombstone birthday candle')">Copy</button>
+<span>tombstone birthday candle</span>
+</td>
+<td data-num="29">29</td>
+<td data-num="810">810</td>
+<td data-num="0.03580246914">0.03580246914</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('memorial candles')">Copy</button>
+<span>memorial candles</span>
+</td>
+<td data-num="1200">1200</td>
+<td data-num="33700">33700</td>
+<td data-num="0.03560830861">0.03560830861</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('princess birthday candle')">Copy</button>
+<span>princess birthday candle</span>
+</td>
+<td data-num="66">66</td>
+<td data-num="1900">1900</td>
+<td data-num="0.03473684211">0.03473684211</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('votive candles')">Copy</button>
+<span>votive candles</span>
+</td>
+<td data-num="1000">1000</td>
+<td data-num="29100">29100</td>
+<td data-num="0.03436426117">0.03436426117</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('mermaid birthday candle')">Copy</button>
+<span>mermaid birthday candle</span>
+</td>
+<td data-num="48">48</td>
+<td data-num="1400">1400</td>
+<td data-num="0.03428571429">0.03428571429</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('croissant scented candle')">Copy</button>
+<span>croissant scented candle</span>
+</td>
+<td data-num="21">21</td>
+<td data-num="614">614</td>
+<td data-num="0.0342019544">0.0342019544</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('silly goose birthday candle')">Copy</button>
+<span>silly goose birthday candle</span>
+</td>
+<td data-num="41">41</td>
+<td data-num="1200">1200</td>
+<td data-num="0.03416666667">0.03416666667</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('hockey birthday candle')">Copy</button>
+<span>hockey birthday candle</span>
+</td>
+<td data-num="74">74</td>
+<td data-num="2200">2200</td>
+<td data-num="0.03363636364">0.03363636364</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('animal print candle sticks')">Copy</button>
+<span>animal print candle sticks</span>
+</td>
+<td data-num="40">40</td>
+<td data-num="1200">1200</td>
+<td data-num="0.03333333333">0.03333333333</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('ramadan candle gift')">Copy</button>
+<span>ramadan candle gift</span>
+</td>
+<td data-num="73">73</td>
+<td data-num="2200">2200</td>
+<td data-num="0.03318181818">0.03318181818</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('intention candles')">Copy</button>
+<span>intention candles</span>
+</td>
+<td data-num="936">936</td>
+<td data-num="28300">28300</td>
+<td data-num="0.03307420495">0.03307420495</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('30th birthday candles')">Copy</button>
+<span>30th birthday candles</span>
+</td>
+<td data-num="152">152</td>
+<td data-num="4600">4600</td>
+<td data-num="0.03304347826">0.03304347826</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('personalised candles australia')">Copy</button>
+<span>personalised candles australia</span>
+</td>
+<td data-num="33">33</td>
+<td data-num="1000">1000</td>
+<td data-num="0.033">0.033</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('flameless birthday candles')">Copy</button>
+<span>flameless birthday candles</span>
+</td>
+<td data-num="62">62</td>
+<td data-num="1900">1900</td>
+<td data-num="0.03263157895">0.03263157895</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('capybara birthday candle')">Copy</button>
+<span>capybara birthday candle</span>
+</td>
+<td data-num="39">39</td>
+<td data-num="1200">1200</td>
+<td data-num="0.0325">0.0325</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('buffalo chicken scented candle')">Copy</button>
+<span>buffalo chicken scented candle</span>
+</td>
+<td data-num="35">35</td>
+<td data-num="1100">1100</td>
+<td data-num="0.03181818182">0.03181818182</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('gothic candle')">Copy</button>
+<span>gothic candle</span>
+</td>
+<td data-num="1200">1200</td>
+<td data-num="38100">38100</td>
+<td data-num="0.03149606299">0.03149606299</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('personalised candle')">Copy</button>
+<span>personalised candle</span>
+</td>
+<td data-num="2700">2700</td>
+<td data-num="86300">86300</td>
+<td data-num="0.03128621089">0.03128621089</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('coffee scented candle favor')">Copy</button>
+<span>coffee scented candle favor</span>
+</td>
+<td data-num="46">46</td>
+<td data-num="1500">1500</td>
+<td data-num="0.03066666667">0.03066666667</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('new home candle')">Copy</button>
+<span>new home candle</span>
+</td>
+<td data-num="1200">1200</td>
+<td data-num="39500">39500</td>
+<td data-num="0.03037974684">0.03037974684</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('ramadan gift candles')">Copy</button>
+<span>ramadan gift candles</span>
+</td>
+<td data-num="48">48</td>
+<td data-num="1600">1600</td>
+<td data-num="0.03">0.03</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('16th birthday candle')">Copy</button>
+<span>16th birthday candle</span>
+</td>
+<td data-num="80">80</td>
+<td data-num="2700">2700</td>
+<td data-num="0.02962962963">0.02962962963</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('flower candle')">Copy</button>
+<span>flower candle</span>
+</td>
+<td data-num="2300">2300</td>
+<td data-num="78300">78300</td>
+<td data-num="0.02937420179">0.02937420179</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('26 wishes birthday candles')">Copy</button>
+<span>26 wishes birthday candles</span>
+</td>
+<td data-num="24">24</td>
+<td data-num="872">872</td>
+<td data-num="0.02752293578">0.02752293578</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('train birthday candle')">Copy</button>
+<span>train birthday candle</span>
+</td>
+<td data-num="44">44</td>
+<td data-num="1600">1600</td>
+<td data-num="0.0275">0.0275</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('wedding candle favours')">Copy</button>
+<span>wedding candle favours</span>
+</td>
+<td data-num="156">156</td>
+<td data-num="5800">5800</td>
+<td data-num="0.02689655172">0.02689655172</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('shark birthday candle')">Copy</button>
+<span>shark birthday candle</span>
+</td>
+<td data-num="40">40</td>
+<td data-num="1500">1500</td>
+<td data-num="0.02666666667">0.02666666667</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('soy candle capybara')">Copy</button>
+<span>soy candle capybara</span>
+</td>
+<td data-num="29">29</td>
+<td data-num="1100">1100</td>
+<td data-num="0.02636363636">0.02636363636</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('wedding candles')">Copy</button>
+<span>wedding candles</span>
+</td>
+<td data-num="3500">3500</td>
+<td data-num="134100">134100</td>
+<td data-num="0.02609992543">0.02609992543</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('21st birthday candles')">Copy</button>
+<span>21st birthday candles</span>
+</td>
+<td data-num="57">57</td>
+<td data-num="2200">2200</td>
+<td data-num="0.02590909091">0.02590909091</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('thrifted container candles')">Copy</button>
+<span>thrifted container candles</span>
+</td>
+<td data-num="31">31</td>
+<td data-num="1200">1200</td>
+<td data-num="0.02583333333">0.02583333333</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('80th birthday candles')">Copy</button>
+<span>80th birthday candles</span>
+</td>
+<td data-num="103">103</td>
+<td data-num="4000">4000</td>
+<td data-num="0.02575">0.02575</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('cool birthday candles')">Copy</button>
+<span>cool birthday candles</span>
+</td>
+<td data-num="69">69</td>
+<td data-num="2700">2700</td>
+<td data-num="0.02555555556">0.02555555556</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('bug birthday candle')">Copy</button>
+<span>bug birthday candle</span>
+</td>
+<td data-num="35">35</td>
+<td data-num="1400">1400</td>
+<td data-num="0.025">0.025</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('wax candle bouquet')">Copy</button>
+<span>wax candle bouquet</span>
+</td>
+<td data-num="52">52</td>
+<td data-num="2100">2100</td>
+<td data-num="0.02476190476">0.02476190476</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('farm birthday candle')">Copy</button>
+<span>farm birthday candle</span>
+</td>
+<td data-num="47">47</td>
+<td data-num="1900">1900</td>
+<td data-num="0.02473684211">0.02473684211</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('beary first birthday candle')">Copy</button>
+<span>beary first birthday candle</span>
+</td>
+<td data-num="37">37</td>
+<td data-num="1500">1500</td>
+<td data-num="0.02466666667">0.02466666667</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('airplane birthday candle')">Copy</button>
+<span>airplane birthday candle</span>
+</td>
+<td data-num="32">32</td>
+<td data-num="1300">1300</td>
+<td data-num="0.02461538462">0.02461538462</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('monster truck birthday candle')">Copy</button>
+<span>monster truck birthday candle</span>
+</td>
+<td data-num="32">32</td>
+<td data-num="1300">1300</td>
+<td data-num="0.02461538462">0.02461538462</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('bunny birthday candle')">Copy</button>
+<span>bunny birthday candle</span>
+</td>
+<td data-num="49">49</td>
+<td data-num="2000">2000</td>
+<td data-num="0.0245">0.0245</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('witch candles')">Copy</button>
+<span>witch candles</span>
+</td>
+<td data-num="1100">1100</td>
+<td data-num="44900">44900</td>
+<td data-num="0.02449888641">0.02449888641</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('concrete candle')">Copy</button>
+<span>concrete candle</span>
+</td>
+<td data-num="843">843</td>
+<td data-num="34500">34500</td>
+<td data-num="0.02443478261">0.02443478261</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('best selling funny candles')">Copy</button>
+<span>best selling funny candles</span>
+</td>
+<td data-num="34">34</td>
+<td data-num="1400">1400</td>
+<td data-num="0.02428571429">0.02428571429</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('duck birthday candle')">Copy</button>
+<span>duck birthday candle</span>
+</td>
+<td data-num="29">29</td>
+<td data-num="1200">1200</td>
+<td data-num="0.02416666667">0.02416666667</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('crystal candles')">Copy</button>
+<span>crystal candles</span>
+</td>
+<td data-num="1000">1000</td>
+<td data-num="41700">41700</td>
+<td data-num="0.02398081535">0.02398081535</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('soy candle making kit')">Copy</button>
+<span>soy candle making kit</span>
+</td>
+<td data-num="331">331</td>
+<td data-num="13900">13900</td>
+<td data-num="0.02381294964">0.02381294964</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('bleach scented candles')">Copy</button>
+<span>bleach scented candles</span>
+</td>
+<td data-num="21">21</td>
+<td data-num="883">883</td>
+<td data-num="0.02378255946">0.02378255946</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('chrism scented candle')">Copy</button>
+<span>chrism scented candle</span>
+</td>
+<td data-num="26">26</td>
+<td data-num="1100">1100</td>
+<td data-num="0.02363636364">0.02363636364</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('wedding candles as favours')">Copy</button>
+<span>wedding candles as favours</span>
+</td>
+<td data-num="67">67</td>
+<td data-num="2900">2900</td>
+<td data-num="0.02310344828">0.02310344828</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('ritual candles')">Copy</button>
+<span>ritual candles</span>
+</td>
+<td data-num="1400">1400</td>
+<td data-num="61500">61500</td>
+<td data-num="0.02276422764">0.02276422764</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('calpol scented candle')">Copy</button>
+<span>calpol scented candle</span>
+</td>
+<td data-num="22">22</td>
+<td data-num="982">982</td>
+<td data-num="0.02240325866">0.02240325866</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('personalized wedding candle')">Copy</button>
+<span>personalized wedding candle</span>
+</td>
+<td data-num="620">620</td>
+<td data-num="27800">27800</td>
+<td data-num="0.02230215827">0.02230215827</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('4th birthday candle')">Copy</button>
+<span>4th birthday candle</span>
+</td>
+<td data-num="51">51</td>
+<td data-num="2300">2300</td>
+<td data-num="0.02217391304">0.02217391304</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('40th birthday candle')">Copy</button>
+<span>40th birthday candle</span>
+</td>
+<td data-num="719">719</td>
+<td data-num="33100">33100</td>
+<td data-num="0.02172205438">0.02172205438</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('lavender candle')">Copy</button>
+<span>lavender candle</span>
+</td>
+<td data-num="847">847</td>
+<td data-num="39000">39000</td>
+<td data-num="0.02171794872">0.02171794872</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('cake candles')">Copy</button>
+<span>cake candles</span>
+</td>
+<td data-num="829">829</td>
+<td data-num="38400">38400</td>
+<td data-num="0.02158854167">0.02158854167</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('funny candle sayings')">Copy</button>
+<span>funny candle sayings</span>
+</td>
+<td data-num="164">164</td>
+<td data-num="7600">7600</td>
+<td data-num="0.02157894737">0.02157894737</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('personalized candle for deceased')">Copy</button>
+<span>personalized candle for deceased</span>
+</td>
+<td data-num="19">19</td>
+<td data-num="893">893</td>
+<td data-num="0.02127659574">0.02127659574</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('personalised candles')">Copy</button>
+<span>personalised candles</span>
+</td>
+<td data-num="1900">1900</td>
+<td data-num="89800">89800</td>
+<td data-num="0.02115812918">0.02115812918</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('29 birthday candle')">Copy</button>
+<span>29 birthday candle</span>
+</td>
+<td data-num="38">38</td>
+<td data-num="1800">1800</td>
+<td data-num="0.02111111111">0.02111111111</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('birthday candle number')">Copy</button>
+<span>birthday candle number</span>
+</td>
+<td data-num="84">84</td>
+<td data-num="4000">4000</td>
+<td data-num="0.021">0.021</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('cat birthday candles')">Copy</button>
+<span>cat birthday candles</span>
+</td>
+<td data-num="75">75</td>
+<td data-num="3600">3600</td>
+<td data-num="0.02083333333">0.02083333333</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('wedding candle')">Copy</button>
+<span>wedding candle</span>
+</td>
+<td data-num="2100">2100</td>
+<td data-num="102200">102200</td>
+<td data-num="0.02054794521">0.02054794521</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('diffuser and candle gift set')">Copy</button>
+<span>diffuser and candle gift set</span>
+</td>
+<td data-num="34">34</td>
+<td data-num="1700">1700</td>
+<td data-num="0.02">0.02</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('led wax candle fountain')">Copy</button>
+<span>led wax candle fountain</span>
+</td>
+<td data-num="24">24</td>
+<td data-num="1200">1200</td>
+<td data-num="0.02">0.02</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('custom candle votive')">Copy</button>
+<span>custom candle votive</span>
+</td>
+<td data-num="88">88</td>
+<td data-num="4500">4500</td>
+<td data-num="0.01955555556">0.01955555556</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('number 1 birthday candle')">Copy</button>
+<span>number 1 birthday candle</span>
+</td>
+<td data-num="84">84</td>
+<td data-num="4300">4300</td>
+<td data-num="0.01953488372">0.01953488372</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('best selling scented candles')">Copy</button>
+<span>best selling scented candles</span>
+</td>
+<td data-num="37">37</td>
+<td data-num="1900">1900</td>
+<td data-num="0.01947368421">0.01947368421</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('smells like hit the jackpot custom candle')">Copy</button>
+<span>smells like hit the jackpot custom candle</span>
+</td>
+<td data-num="13">13</td>
+<td data-num="669">669</td>
+<td data-num="0.01943198804">0.01943198804</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('custom candle lighters')">Copy</button>
+<span>custom candle lighters</span>
+</td>
+<td data-num="29">29</td>
+<td data-num="1500">1500</td>
+<td data-num="0.01933333333">0.01933333333</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('wedding candle poem')">Copy</button>
+<span>wedding candle poem</span>
+</td>
+<td data-num="27">27</td>
+<td data-num="1400">1400</td>
+<td data-num="0.01928571429">0.01928571429</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('wedding return gift candle')">Copy</button>
+<span>wedding return gift candle</span>
+</td>
+<td data-num="21">21</td>
+<td data-num="1100">1100</td>
+<td data-num="0.01909090909">0.01909090909</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('wedding bridal shower candle gift')">Copy</button>
+<span>wedding bridal shower candle gift</span>
+</td>
+<td data-num="129">129</td>
+<td data-num="6900">6900</td>
+<td data-num="0.01869565217">0.01869565217</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('lily scented candles')">Copy</button>
+<span>lily scented candles</span>
+</td>
+<td data-num="35">35</td>
+<td data-num="1900">1900</td>
+<td data-num="0.01842105263">0.01842105263</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('custom candle')">Copy</button>
+<span>custom candle</span>
+</td>
+<td data-num="4700">4700</td>
+<td data-num="257600">257600</td>
+<td data-num="0.01824534161">0.01824534161</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('21 birthday candle')">Copy</button>
+<span>21 birthday candle</span>
+</td>
+<td data-num="62">62</td>
+<td data-num="3400">3400</td>
+<td data-num="0.01823529412">0.01823529412</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('vanilla candle')">Copy</button>
+<span>vanilla candle</span>
+</td>
+<td data-num="856">856</td>
+<td data-num="48800">48800</td>
+<td data-num="0.01754098361">0.01754098361</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('birthday candle cookie cutter')">Copy</button>
+<span>birthday candle cookie cutter</span>
+</td>
+<td data-num="77">77</td>
+<td data-num="4400">4400</td>
+<td data-num="0.0175">0.0175</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('wedding candles for orthodox wedding')">Copy</button>
+<span>wedding candles for orthodox wedding</span>
+</td>
+<td data-num="21">21</td>
+<td data-num="1200">1200</td>
+<td data-num="0.0175">0.0175</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('race fuel wax candle')">Copy</button>
+<span>race fuel wax candle</span>
+</td>
+<td data-num="21">21</td>
+<td data-num="1200">1200</td>
+<td data-num="0.0175">0.0175</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('dog walker candle gift')">Copy</button>
+<span>dog walker candle gift</span>
+</td>
+<td data-num="24">24</td>
+<td data-num="1400">1400</td>
+<td data-num="0.01714285714">0.01714285714</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('personalized wedding candle favors')">Copy</button>
+<span>personalized wedding candle favors</span>
+</td>
+<td data-num="150">150</td>
+<td data-num="8800">8800</td>
+<td data-num="0.01704545455">0.01704545455</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('soap and candle gift set')">Copy</button>
+<span>soap and candle gift set</span>
+</td>
+<td data-num="75">75</td>
+<td data-num="4400">4400</td>
+<td data-num="0.01704545455">0.01704545455</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('happy birthday candle gift')">Copy</button>
+<span>happy birthday candle gift</span>
+</td>
+<td data-num="109">109</td>
+<td data-num="6400">6400</td>
+<td data-num="0.01703125">0.01703125</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('funny candle snuffer')">Copy</button>
+<span>funny candle snuffer</span>
+</td>
+<td data-num="17">17</td>
+<td data-num="1000">1000</td>
+<td data-num="0.017">0.017</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('wedding candles orthodox')">Copy</button>
+<span>wedding candles orthodox</span>
+</td>
+<td data-num="21">21</td>
+<td data-num="1300">1300</td>
+<td data-num="0.01615384615">0.01615384615</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('large candle')">Copy</button>
+<span>large candle</span>
+</td>
+<td data-num="1000">1000</td>
+<td data-num="62200">62200</td>
+<td data-num="0.01607717042">0.01607717042</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('flower candles')">Copy</button>
+<span>flower candles</span>
+</td>
+<td data-num="1300">1300</td>
+<td data-num="81500">81500</td>
+<td data-num="0.01595092025">0.01595092025</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('funny candles')">Copy</button>
+<span>funny candles</span>
+</td>
+<td data-num="2200">2200</td>
+<td data-num="138200">138200</td>
+<td data-num="0.01591895803">0.01591895803</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('birthday candles for cake')">Copy</button>
+<span>birthday candles for cake</span>
+</td>
+<td data-num="387">387</td>
+<td data-num="24400">24400</td>
+<td data-num="0.01586065574">0.01586065574</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('retirement candle gift')">Copy</button>
+<span>retirement candle gift</span>
+</td>
+<td data-num="105">105</td>
+<td data-num="6700">6700</td>
+<td data-num="0.01567164179">0.01567164179</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('cat birthday candle')">Copy</button>
+<span>cat birthday candle</span>
+</td>
+<td data-num="56">56</td>
+<td data-num="3600">3600</td>
+<td data-num="0.01555555556">0.01555555556</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('90th birthday candles')">Copy</button>
+<span>90th birthday candles</span>
+</td>
+<td data-num="57">57</td>
+<td data-num="3700">3700</td>
+<td data-num="0.01540540541">0.01540540541</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('personalized candles bulk')">Copy</button>
+<span>personalized candles bulk</span>
+</td>
+<td data-num="174">174</td>
+<td data-num="11400">11400</td>
+<td data-num="0.01526315789">0.01526315789</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('food candles')">Copy</button>
+<span>food candles</span>
+</td>
+<td data-num="986">986</td>
+<td data-num="65100">65100</td>
+<td data-num="0.01514592934">0.01514592934</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('wedding candle favors')">Copy</button>
+<span>wedding candle favors</span>
+</td>
+<td data-num="1100">1100</td>
+<td data-num="73300">73300</td>
+<td data-num="0.01500682128">0.01500682128</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('taper candle')">Copy</button>
+<span>taper candle</span>
+</td>
+<td data-num="1600">1600</td>
+<td data-num="107100">107100</td>
+<td data-num="0.01493930906">0.01493930906</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('bread scented candle')">Copy</button>
+<span>bread scented candle</span>
+</td>
+<td data-num="34">34</td>
+<td data-num="2300">2300</td>
+<td data-num="0.0147826087">0.0147826087</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('countdown birthday candle')">Copy</button>
+<span>countdown birthday candle</span>
+</td>
+<td data-num="56">56</td>
+<td data-num="3800">3800</td>
+<td data-num="0.01473684211">0.01473684211</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('soy candles uk')">Copy</button>
+<span>soy candles uk</span>
+</td>
+<td data-num="80">80</td>
+<td data-num="5500">5500</td>
+<td data-num="0.01454545455">0.01454545455</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('animal print candles')">Copy</button>
+<span>animal print candles</span>
+</td>
+<td data-num="74">74</td>
+<td data-num="5200">5200</td>
+<td data-num="0.01423076923">0.01423076923</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('unity wedding candle')">Copy</button>
+<span>unity wedding candle</span>
+</td>
+<td data-num="65">65</td>
+<td data-num="4600">4600</td>
+<td data-num="0.01413043478">0.01413043478</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('21st personalised candle gift')">Copy</button>
+<span>21st personalised candle gift</span>
+</td>
+<td data-num="24">24</td>
+<td data-num="1700">1700</td>
+<td data-num="0.01411764706">0.01411764706</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('birthday candle')">Copy</button>
+<span>birthday candle</span>
+</td>
+<td data-num="2900">2900</td>
+<td data-num="206000">206000</td>
+<td data-num="0.0140776699">0.0140776699</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('tiger print candle')">Copy</button>
+<span>tiger print candle</span>
+</td>
+<td data-num="12">12</td>
+<td data-num="857">857</td>
+<td data-num="0.01400233372">0.01400233372</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('funny candle')">Copy</button>
+<span>funny candle</span>
+</td>
+<td data-num="2000">2000</td>
+<td data-num="143200">143200</td>
+<td data-num="0.01396648045">0.01396648045</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('30th birthday candle for cake')">Copy</button>
+<span>30th birthday candle for cake</span>
+</td>
+<td data-num="56">56</td>
+<td data-num="4100">4100</td>
+<td data-num="0.01365853659">0.01365853659</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('olive wax candle')">Copy</button>
+<span>olive wax candle</span>
+</td>
+<td data-num="19">19</td>
+<td data-num="1400">1400</td>
+<td data-num="0.01357142857">0.01357142857</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('rose candle')">Copy</button>
+<span>rose candle</span>
+</td>
+<td data-num="1200">1200</td>
+<td data-num="89700">89700</td>
+<td data-num="0.01337792642">0.01337792642</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('led personalised candle')">Copy</button>
+<span>led personalised candle</span>
+</td>
+<td data-num="20">20</td>
+<td data-num="1500">1500</td>
+<td data-num="0.01333333333">0.01333333333</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('50th birthday candle')">Copy</button>
+<span>50th birthday candle</span>
+</td>
+<td data-num="782">782</td>
+<td data-num="58800">58800</td>
+<td data-num="0.01329931973">0.01329931973</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('birthday candles')">Copy</button>
+<span>birthday candles</span>
+</td>
+<td data-num="4000">4000</td>
+<td data-num="301000">301000</td>
+<td data-num="0.01328903654">0.01328903654</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('reusable birthday candles')">Copy</button>
+<span>reusable birthday candles</span>
+</td>
+<td data-num="111">111</td>
+<td data-num="8400">8400</td>
+<td data-num="0.01321428571">0.01321428571</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('james wax candles')">Copy</button>
+<span>james wax candles</span>
+</td>
+<td data-num="17">17</td>
+<td data-num="1300">1300</td>
+<td data-num="0.01307692308">0.01307692308</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('50 birthday candle')">Copy</button>
+<span>50 birthday candle</span>
+</td>
+<td data-num="80">80</td>
+<td data-num="6200">6200</td>
+<td data-num="0.01290322581">0.01290322581</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('peony scented candle')">Copy</button>
+<span>peony scented candle</span>
+</td>
+<td data-num="45">45</td>
+<td data-num="3500">3500</td>
+<td data-num="0.01285714286">0.01285714286</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('wedding candles bulk')">Copy</button>
+<span>wedding candles bulk</span>
+</td>
+<td data-num="123">123</td>
+<td data-num="9800">9800</td>
+<td data-num="0.01255102041">0.01255102041</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('whipped wax candles')">Copy</button>
+<span>whipped wax candles</span>
+</td>
+<td data-num="20">20</td>
+<td data-num="1600">1600</td>
+<td data-num="0.0125">0.0125</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('mini candles')">Copy</button>
+<span>mini candles</span>
+</td>
+<td data-num="1300">1300</td>
+<td data-num="104800">104800</td>
+<td data-num="0.01240458015">0.01240458015</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('candle gift hamper')">Copy</button>
+<span>candle gift hamper</span>
+</td>
+<td data-num="47">47</td>
+<td data-num="3800">3800</td>
+<td data-num="0.01236842105">0.01236842105</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('cheetah print candle')">Copy</button>
+<span>cheetah print candle</span>
+</td>
+<td data-num="16">16</td>
+<td data-num="1300">1300</td>
+<td data-num="0.01230769231">0.01230769231</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('candle sticks')">Copy</button>
+<span>candle sticks</span>
+</td>
+<td data-num="3000">3000</td>
+<td data-num="244600">244600</td>
+<td data-num="0.01226492232">0.01226492232</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('personalised candles uk')">Copy</button>
+<span>personalised candles uk</span>
+</td>
+<td data-num="51">51</td>
+<td data-num="4200">4200</td>
+<td data-num="0.01214285714">0.01214285714</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('candle gift set')">Copy</button>
+<span>candle gift set</span>
+</td>
+<td data-num="1300">1300</td>
+<td data-num="109500">109500</td>
+<td data-num="0.01187214612">0.01187214612</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('book scented candle')">Copy</button>
+<span>book scented candle</span>
+</td>
+<td data-num="201">201</td>
+<td data-num="17300">17300</td>
+<td data-num="0.01161849711">0.01161849711</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('40 birthday candle')">Copy</button>
+<span>40 birthday candle</span>
+</td>
+<td data-num="61">61</td>
+<td data-num="5300">5300</td>
+<td data-num="0.01150943396">0.01150943396</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('soy candles free shipping')">Copy</button>
+<span>soy candles free shipping</span>
+</td>
+<td data-num="27">27</td>
+<td data-num="2400">2400</td>
+<td data-num="0.01125">0.01125</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('wedding candle favor rose candle gifts')">Copy</button>
+<span>wedding candle favor rose candle gifts</span>
+</td>
+<td data-num="28">28</td>
+<td data-num="2500">2500</td>
+<td data-num="0.0112">0.0112</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('love candle')">Copy</button>
+<span>love candle</span>
+</td>
+<td data-num="1100">1100</td>
+<td data-num="99400">99400</td>
+<td data-num="0.01106639839">0.01106639839</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('custom candle sticks')">Copy</button>
+<span>custom candle sticks</span>
+</td>
+<td data-num="22">22</td>
+<td data-num="2000">2000</td>
+<td data-num="0.011">0.011</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('massage wax candle')">Copy</button>
+<span>massage wax candle</span>
+</td>
+<td data-num="23">23</td>
+<td data-num="2100">2100</td>
+<td data-num="0.01095238095">0.01095238095</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('scented candles')">Copy</button>
+<span>scented candles</span>
+</td>
+<td data-num="3700">3700</td>
+<td data-num="338900">338900</td>
+<td data-num="0.01091767483">0.01091767483</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('tall birthday candles')">Copy</button>
+<span>tall birthday candles</span>
+</td>
+<td data-num="72">72</td>
+<td data-num="6600">6600</td>
+<td data-num="0.01090909091">0.01090909091</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('handmade candles')">Copy</button>
+<span>handmade candles</span>
+</td>
+<td data-num="2900">2900</td>
+<td data-num="270000">270000</td>
+<td data-num="0.01074074074">0.01074074074</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('personalised candle stick')">Copy</button>
+<span>personalised candle stick</span>
+</td>
+<td data-num="15">15</td>
+<td data-num="1400">1400</td>
+<td data-num="0.01071428571">0.01071428571</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('30 birthday candle')">Copy</button>
+<span>30 birthday candle</span>
+</td>
+<td data-num="69">69</td>
+<td data-num="6600">6600</td>
+<td data-num="0.01045454545">0.01045454545</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('soy candle')">Copy</button>
+<span>soy candle</span>
+</td>
+<td data-num="3900">3900</td>
+<td data-num="375100">375100</td>
+<td data-num="0.01039722741">0.01039722741</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('honey scented candle')">Copy</button>
+<span>honey scented candle</span>
+</td>
+<td data-num="68">68</td>
+<td data-num="6600">6600</td>
+<td data-num="0.0103030303">0.0103030303</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('tapered candles')">Copy</button>
+<span>tapered candles</span>
+</td>
+<td data-num="882">882</td>
+<td data-num="87100">87100</td>
+<td data-num="0.01012629162">0.01012629162</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('bear birthday candle')">Copy</button>
+<span>bear birthday candle</span>
+</td>
+<td data-num="42">42</td>
+<td data-num="4200">4200</td>
+<td data-num="0.01">0.01</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('whimsical birthday candle')">Copy</button>
+<span>whimsical birthday candle</span>
+</td>
+<td data-num="36">36</td>
+<td data-num="3600">3600</td>
+<td data-num="0.01">0.01</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('scented candle set')">Copy</button>
+<span>scented candle set</span>
+</td>
+<td data-num="1000">1000</td>
+<td data-num="105600">105600</td>
+<td data-num="0.00946969697">0.00946969697</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('scented candle')">Copy</button>
+<span>scented candle</span>
+</td>
+<td data-num="2800">2800</td>
+<td data-num="295800">295800</td>
+<td data-num="0.009465855308">0.009465855308</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('coffee scented candles for favors')">Copy</button>
+<span>coffee scented candles for favors</span>
+</td>
+<td data-num="26">26</td>
+<td data-num="2800">2800</td>
+<td data-num="0.009285714286">0.009285714286</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('birthday candle kit')">Copy</button>
+<span>birthday candle kit</span>
+</td>
+<td data-num="129">129</td>
+<td data-num="14000">14000</td>
+<td data-num="0.009214285714">0.009214285714</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('fairy birthday candle')">Copy</button>
+<span>fairy birthday candle</span>
+</td>
+<td data-num="57">57</td>
+<td data-num="6300">6300</td>
+<td data-num="0.009047619048">0.009047619048</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('happy birthday candles')">Copy</button>
+<span>happy birthday candles</span>
+</td>
+<td data-num="122">122</td>
+<td data-num="13500">13500</td>
+<td data-num="0.009037037037">0.009037037037</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('gold birthday candles')">Copy</button>
+<span>gold birthday candles</span>
+</td>
+<td data-num="114">114</td>
+<td data-num="12800">12800</td>
+<td data-num="0.00890625">0.00890625</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('60 birthday candle')">Copy</button>
+<span>60 birthday candle</span>
+</td>
+<td data-num="32">32</td>
+<td data-num="3600">3600</td>
+<td data-num="0.008888888889">0.008888888889</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('cow print candle')">Copy</button>
+<span>cow print candle</span>
+</td>
+<td data-num="23">23</td>
+<td data-num="2600">2600</td>
+<td data-num="0.008846153846">0.008846153846</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('soy candle homemade')">Copy</button>
+<span>soy candle homemade</span>
+</td>
+<td data-num="126">126</td>
+<td data-num="14500">14500</td>
+<td data-num="0.008689655172">0.008689655172</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('personalized candle')">Copy</button>
+<span>personalized candle</span>
+</td>
+<td data-num="2200">2200</td>
+<td data-num="258500">258500</td>
+<td data-num="0.008510638298">0.008510638298</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('candle making supplies')">Copy</button>
+<span>candle making supplies</span>
+</td>
+<td data-num="1200">1200</td>
+<td data-num="141800">141800</td>
+<td data-num="0.008462623413">0.008462623413</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('soy candles')">Copy</button>
+<span>soy candles</span>
+</td>
+<td data-num="3500">3500</td>
+<td data-num="415200">415200</td>
+<td data-num="0.008429672447">0.008429672447</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('flower bouquet gift candle')">Copy</button>
+<span>flower bouquet gift candle</span>
+</td>
+<td data-num="35">35</td>
+<td data-num="4200">4200</td>
+<td data-num="0.008333333333">0.008333333333</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('star birthday candles')">Copy</button>
+<span>star birthday candles</span>
+</td>
+<td data-num="62">62</td>
+<td data-num="7500">7500</td>
+<td data-num="0.008266666667">0.008266666667</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('personalized candles')">Copy</button>
+<span>personalized candles</span>
+</td>
+<td data-num="2000">2000</td>
+<td data-num="243600">243600</td>
+<td data-num="0.008210180624">0.008210180624</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('vintage birthday candles')">Copy</button>
+<span>vintage birthday candles</span>
+</td>
+<td data-num="178">178</td>
+<td data-num="21800">21800</td>
+<td data-num="0.008165137615">0.008165137615</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('mini scented candles')">Copy</button>
+<span>mini scented candles</span>
+</td>
+<td data-num="53">53</td>
+<td data-num="6500">6500</td>
+<td data-num="0.008153846154">0.008153846154</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('unique candles')">Copy</button>
+<span>unique candles</span>
+</td>
+<td data-num="2500">2500</td>
+<td data-num="307100">307100</td>
+<td data-num="0.008140670791">0.008140670791</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('baptism candle gift')">Copy</button>
+<span>baptism candle gift</span>
+</td>
+<td data-num="72">72</td>
+<td data-num="8900">8900</td>
+<td data-num="0.00808988764">0.00808988764</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('almond scented candle')">Copy</button>
+<span>almond scented candle</span>
+</td>
+<td data-num="25">25</td>
+<td data-num="3100">3100</td>
+<td data-num="0.008064516129">0.008064516129</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('mens candle gift set')">Copy</button>
+<span>mens candle gift set</span>
+</td>
+<td data-num="52">52</td>
+<td data-num="6500">6500</td>
+<td data-num="0.008">0.008</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('birthday candles clip art')">Copy</button>
+<span>birthday candles clip art</span>
+</td>
+<td data-num="27">27</td>
+<td data-num="3400">3400</td>
+<td data-num="0.007941176471">0.007941176471</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('8oz soy candle')">Copy</button>
+<span>8oz soy candle</span>
+</td>
+<td data-num="120">120</td>
+<td data-num="15300">15300</td>
+<td data-num="0.007843137255">0.007843137255</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('funny candles with sayings')">Copy</button>
+<span>funny candles with sayings</span>
+</td>
+<td data-num="41">41</td>
+<td data-num="5300">5300</td>
+<td data-num="0.007735849057">0.007735849057</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('engagement personalised candle')">Copy</button>
+<span>engagement personalised candle</span>
+</td>
+<td data-num="43">43</td>
+<td data-num="5600">5600</td>
+<td data-num="0.007678571429">0.007678571429</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('6 oz soy candle')">Copy</button>
+<span>6 oz soy candle</span>
+</td>
+<td data-num="53">53</td>
+<td data-num="7000">7000</td>
+<td data-num="0.007571428571">0.007571428571</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('cheetah print candles')">Copy</button>
+<span>cheetah print candles</span>
+</td>
+<td data-num="9">9</td>
+<td data-num="1200">1200</td>
+<td data-num="0.0075">0.0075</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('mini scented candle')">Copy</button>
+<span>mini scented candle</span>
+</td>
+<td data-num="47">47</td>
+<td data-num="6300">6300</td>
+<td data-num="0.00746031746">0.00746031746</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('11 birthday candle')">Copy</button>
+<span>11 birthday candle</span>
+</td>
+<td data-num="34">34</td>
+<td data-num="4600">4600</td>
+<td data-num="0.007391304348">0.007391304348</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('lemon scented candle')">Copy</button>
+<span>lemon scented candle</span>
+</td>
+<td data-num="43">43</td>
+<td data-num="6000">6000</td>
+<td data-num="0.007166666667">0.007166666667</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('funny candle names')">Copy</button>
+<span>funny candle names</span>
+</td>
+<td data-num="113">113</td>
+<td data-num="15800">15800</td>
+<td data-num="0.007151898734">0.007151898734</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('13th birthday candle')">Copy</button>
+<span>13th birthday candle</span>
+</td>
+<td data-num="73">73</td>
+<td data-num="10600">10600</td>
+<td data-num="0.006886792453">0.006886792453</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('in loving memory wedding candle')">Copy</button>
+<span>in loving memory wedding candle</span>
+</td>
+<td data-num="24">24</td>
+<td data-num="3500">3500</td>
+<td data-num="0.006857142857">0.006857142857</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('bulk soy candles')">Copy</button>
+<span>bulk soy candles</span>
+</td>
+<td data-num="85">85</td>
+<td data-num="12500">12500</td>
+<td data-num="0.0068">0.0068</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('leather scented candle')">Copy</button>
+<span>leather scented candle</span>
+</td>
+<td data-num="65">65</td>
+<td data-num="9600">9600</td>
+<td data-num="0.006770833333">0.006770833333</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('small personalised candle')">Copy</button>
+<span>small personalised candle</span>
+</td>
+<td data-num="16">16</td>
+<td data-num="2400">2400</td>
+<td data-num="0.006666666667">0.006666666667</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('new home candle gift')">Copy</button>
+<span>new home candle gift</span>
+</td>
+<td data-num="200">200</td>
+<td data-num="30400">30400</td>
+<td data-num="0.006578947368">0.006578947368</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('container candles')">Copy</button>
+<span>container candles</span>
+</td>
+<td data-num="1100">1100</td>
+<td data-num="167300">167300</td>
+<td data-num="0.006575014943">0.006575014943</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('first communion candle gifts')">Copy</button>
+<span>first communion candle gifts</span>
+</td>
+<td data-num="19">19</td>
+<td data-num="2900">2900</td>
+<td data-num="0.006551724138">0.006551724138</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('rose scented candle')">Copy</button>
+<span>rose scented candle</span>
+</td>
+<td data-num="158">158</td>
+<td data-num="24200">24200</td>
+<td data-num="0.00652892562">0.00652892562</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('pink wedding candles')">Copy</button>
+<span>pink wedding candles</span>
+</td>
+<td data-num="43">43</td>
+<td data-num="6600">6600</td>
+<td data-num="0.006515151515">0.006515151515</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('body oil wax candle')">Copy</button>
+<span>body oil wax candle</span>
+</td>
+<td data-num="13">13</td>
+<td data-num="2000">2000</td>
+<td data-num="0.0065">0.0065</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('yearly birthday candle')">Copy</button>
+<span>yearly birthday candle</span>
+</td>
+<td data-num="50">50</td>
+<td data-num="7700">7700</td>
+<td data-num="0.006493506494">0.006493506494</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('dinosaur birthday candles')">Copy</button>
+<span>dinosaur birthday candles</span>
+</td>
+<td data-num="33">33</td>
+<td data-num="5100">5100</td>
+<td data-num="0.006470588235">0.006470588235</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('cherry scented candle')">Copy</button>
+<span>cherry scented candle</span>
+</td>
+<td data-num="26">26</td>
+<td data-num="4200">4200</td>
+<td data-num="0.00619047619">0.00619047619</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('decorative candles')">Copy</button>
+<span>decorative candles</span>
+</td>
+<td data-num="1600">1600</td>
+<td data-num="260800">260800</td>
+<td data-num="0.006134969325">0.006134969325</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('custom candles')">Copy</button>
+<span>custom candles</span>
+</td>
+<td data-num="1800">1800</td>
+<td data-num="293700">293700</td>
+<td data-num="0.006128702758">0.006128702758</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('wedding candle church')">Copy</button>
+<span>wedding candle church</span>
+</td>
+<td data-num="33">33</td>
+<td data-num="5400">5400</td>
+<td data-num="0.006111111111">0.006111111111</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('crystal scented candle')">Copy</button>
+<span>crystal scented candle</span>
+</td>
+<td data-num="22">22</td>
+<td data-num="3600">3600</td>
+<td data-num="0.006111111111">0.006111111111</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('james wax candle')">Copy</button>
+<span>james wax candle</span>
+</td>
+<td data-num="11">11</td>
+<td data-num="1800">1800</td>
+<td data-num="0.006111111111">0.006111111111</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('candle gifts for friends')">Copy</button>
+<span>candle gifts for friends</span>
+</td>
+<td data-num="117">117</td>
+<td data-num="19200">19200</td>
+<td data-num="0.00609375">0.00609375</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('cute candles')">Copy</button>
+<span>cute candles</span>
+</td>
+<td data-num="1100">1100</td>
+<td data-num="180700">180700</td>
+<td data-num="0.006087437742">0.006087437742</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('personalized candle lamp')">Copy</button>
+<span>personalized candle lamp</span>
+</td>
+<td data-num="15">15</td>
+<td data-num="2600">2600</td>
+<td data-num="0.005769230769">0.005769230769</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('rose scented candles')">Copy</button>
+<span>rose scented candles</span>
+</td>
+<td data-num="120">120</td>
+<td data-num="21000">21000</td>
+<td data-num="0.005714285714">0.005714285714</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('paw print candles')">Copy</button>
+<span>paw print candles</span>
+</td>
+<td data-num="37">37</td>
+<td data-num="6500">6500</td>
+<td data-num="0.005692307692">0.005692307692</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('custom candle shape')">Copy</button>
+<span>custom candle shape</span>
+</td>
+<td data-num="21">21</td>
+<td data-num="3700">3700</td>
+<td data-num="0.005675675676">0.005675675676</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('10 oz soy candle')">Copy</button>
+<span>10 oz soy candle</span>
+</td>
+<td data-num="55">55</td>
+<td data-num="9900">9900</td>
+<td data-num="0.005555555556">0.005555555556</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('unicorn birthday candle')">Copy</button>
+<span>unicorn birthday candle</span>
+</td>
+<td data-num="50">50</td>
+<td data-num="9000">9000</td>
+<td data-num="0.005555555556">0.005555555556</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('scented candles uk')">Copy</button>
+<span>scented candles uk</span>
+</td>
+<td data-num="31">31</td>
+<td data-num="5600">5600</td>
+<td data-num="0.005535714286">0.005535714286</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('wine scented candles')">Copy</button>
+<span>wine scented candles</span>
+</td>
+<td data-num="60">60</td>
+<td data-num="11000">11000</td>
+<td data-num="0.005454545455">0.005454545455</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('funny candles for men')">Copy</button>
+<span>funny candles for men</span>
+</td>
+<td data-num="68">68</td>
+<td data-num="12500">12500</td>
+<td data-num="0.00544">0.00544</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('dessert scented candles')">Copy</button>
+<span>dessert scented candles</span>
+</td>
+<td data-num="38">38</td>
+<td data-num="7000">7000</td>
+<td data-num="0.005428571429">0.005428571429</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('baby powder scented candle')">Copy</button>
+<span>baby powder scented candle</span>
+</td>
+<td data-num="46">46</td>
+<td data-num="8500">8500</td>
+<td data-num="0.005411764706">0.005411764706</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('engagement candle gift')">Copy</button>
+<span>engagement candle gift</span>
+</td>
+<td data-num="129">129</td>
+<td data-num="24000">24000</td>
+<td data-num="0.005375">0.005375</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('number birthday candles')">Copy</button>
+<span>number birthday candles</span>
+</td>
+<td data-num="269">269</td>
+<td data-num="50500">50500</td>
+<td data-num="0.005326732673">0.005326732673</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('1 birthday candle')">Copy</button>
+<span>1 birthday candle</span>
+</td>
+<td data-num="312">312</td>
+<td data-num="60300">60300</td>
+<td data-num="0.005174129353">0.005174129353</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('oud scented candle')">Copy</button>
+<span>oud scented candle</span>
+</td>
+<td data-num="30">30</td>
+<td data-num="5800">5800</td>
+<td data-num="0.005172413793">0.005172413793</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('soy tea candle gift')">Copy</button>
+<span>soy tea candle gift</span>
+</td>
+<td data-num="18">18</td>
+<td data-num="3500">3500</td>
+<td data-num="0.005142857143">0.005142857143</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('large soy candle')">Copy</button>
+<span>large soy candle</span>
+</td>
+<td data-num="119">119</td>
+<td data-num="23200">23200</td>
+<td data-num="0.005129310345">0.005129310345</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('scented candles for party favors')">Copy</button>
+<span>scented candles for party favors</span>
+</td>
+<td data-num="51">51</td>
+<td data-num="10000">10000</td>
+<td data-num="0.0051">0.0051</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('dog memorial gift candle')">Copy</button>
+<span>dog memorial gift candle</span>
+</td>
+<td data-num="32">32</td>
+<td data-num="6300">6300</td>
+<td data-num="0.005079365079">0.005079365079</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('50th birthday gift candle')">Copy</button>
+<span>50th birthday gift candle</span>
+</td>
+<td data-num="22">22</td>
+<td data-num="4400">4400</td>
+<td data-num="0.005">0.005</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('gold wedding candle favors')">Copy</button>
+<span>gold wedding candle favors</span>
+</td>
+<td data-num="99">99</td>
+<td data-num="20100">20100</td>
+<td data-num="0.004925373134">0.004925373134</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('birthday cake candles')">Copy</button>
+<span>birthday cake candles</span>
+</td>
+<td data-num="816">816</td>
+<td data-num="166100">166100</td>
+<td data-num="0.004912703191">0.004912703191</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('soy candle kit')">Copy</button>
+<span>soy candle kit</span>
+</td>
+<td data-num="54">54</td>
+<td data-num="11200">11200</td>
+<td data-num="0.004821428571">0.004821428571</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('12 oz soy candle')">Copy</button>
+<span>12 oz soy candle</span>
+</td>
+<td data-num="30">30</td>
+<td data-num="6400">6400</td>
+<td data-num="0.0046875">0.0046875</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('digital print candle in the dark')">Copy</button>
+<span>digital print candle in the dark</span>
+</td>
+<td data-num="15">15</td>
+<td data-num="3200">3200</td>
+<td data-num="0.0046875">0.0046875</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('personalised wedding candles')">Copy</button>
+<span>personalised wedding candles</span>
+</td>
+<td data-num="101">101</td>
+<td data-num="21800">21800</td>
+<td data-num="0.004633027523">0.004633027523</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('funny candles for boyfriend')">Copy</button>
+<span>funny candles for boyfriend</span>
+</td>
+<td data-num="135">135</td>
+<td data-num="29300">29300</td>
+<td data-num="0.004607508532">0.004607508532</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('easter soy candles')">Copy</button>
+<span>easter soy candles</span>
+</td>
+<td data-num="28">28</td>
+<td data-num="6100">6100</td>
+<td data-num="0.004590163934">0.004590163934</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('jasmine scented candles')">Copy</button>
+<span>jasmine scented candles</span>
+</td>
+<td data-num="25">25</td>
+<td data-num="5500">5500</td>
+<td data-num="0.004545454545">0.004545454545</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('unique birthday candles')">Copy</button>
+<span>unique birthday candles</span>
+</td>
+<td data-num="633">633</td>
+<td data-num="140500">140500</td>
+<td data-num="0.004505338078">0.004505338078</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('candle stick')">Copy</button>
+<span>candle stick</span>
+</td>
+<td data-num="868">868</td>
+<td data-num="194000">194000</td>
+<td data-num="0.004474226804">0.004474226804</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('pet memorial gift candle')">Copy</button>
+<span>pet memorial gift candle</span>
+</td>
+<td data-num="43">43</td>
+<td data-num="9800">9800</td>
+<td data-num="0.004387755102">0.004387755102</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('soy candles bulk')">Copy</button>
+<span>soy candles bulk</span>
+</td>
+<td data-num="56">56</td>
+<td data-num="13200">13200</td>
+<td data-num="0.004242424242">0.004242424242</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('soy candle mockup')">Copy</button>
+<span>soy candle mockup</span>
+</td>
+<td data-num="25">25</td>
+<td data-num="5900">5900</td>
+<td data-num="0.004237288136">0.004237288136</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('personalised wedding candle')">Copy</button>
+<span>personalised wedding candle</span>
+</td>
+<td data-num="148">148</td>
+<td data-num="35000">35000</td>
+<td data-num="0.004228571429">0.004228571429</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('coffee scented candle')">Copy</button>
+<span>coffee scented candle</span>
+</td>
+<td data-num="178">178</td>
+<td data-num="42400">42400</td>
+<td data-num="0.004198113208">0.004198113208</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('first birthday candles')">Copy</button>
+<span>first birthday candles</span>
+</td>
+<td data-num="39">39</td>
+<td data-num="9300">9300</td>
+<td data-num="0.004193548387">0.004193548387</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('cute birthday candles')">Copy</button>
+<span>cute birthday candles</span>
+</td>
+<td data-num="95">95</td>
+<td data-num="22800">22800</td>
+<td data-num="0.004166666667">0.004166666667</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('jasmine scented candle')">Copy</button>
+<span>jasmine scented candle</span>
+</td>
+<td data-num="22">22</td>
+<td data-num="5300">5300</td>
+<td data-num="0.004150943396">0.004150943396</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('funny birthday candles')">Copy</button>
+<span>funny birthday candles</span>
+</td>
+<td data-num="216">216</td>
+<td data-num="52200">52200</td>
+<td data-num="0.004137931034">0.004137931034</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('funny candles for coworkers')">Copy</button>
+<span>funny candles for coworkers</span>
+</td>
+<td data-num="74">74</td>
+<td data-num="17900">17900</td>
+<td data-num="0.004134078212">0.004134078212</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('funny candle quotes')">Copy</button>
+<span>funny candle quotes</span>
+</td>
+<td data-num="40">40</td>
+<td data-num="9900">9900</td>
+<td data-num="0.00404040404">0.00404040404</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('candle favors')">Copy</button>
+<span>candle favors</span>
+</td>
+<td data-num="2000">2000</td>
+<td data-num="499300">499300</td>
+<td data-num="0.004005607851">0.004005607851</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('personalised candle baby shower')">Copy</button>
+<span>personalised candle baby shower</span>
+</td>
+<td data-num="18">18</td>
+<td data-num="4500">4500</td>
+<td data-num="0.004">0.004</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('paw print candle')">Copy</button>
+<span>paw print candle</span>
+</td>
+<td data-num="12">12</td>
+<td data-num="3000">3000</td>
+<td data-num="0.004">0.004</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('personalized candles wedding')">Copy</button>
+<span>personalized candles wedding</span>
+</td>
+<td data-num="191">191</td>
+<td data-num="48500">48500</td>
+<td data-num="0.00393814433">0.00393814433</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('honey wax candles')">Copy</button>
+<span>honey wax candles</span>
+</td>
+<td data-num="20">20</td>
+<td data-num="5200">5200</td>
+<td data-num="0.003846153846">0.003846153846</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('retirement gift candle')">Copy</button>
+<span>retirement gift candle</span>
+</td>
+<td data-num="40">40</td>
+<td data-num="10600">10600</td>
+<td data-num="0.003773584906">0.003773584906</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('custom candle name')">Copy</button>
+<span>custom candle name</span>
+</td>
+<td data-num="29">29</td>
+<td data-num="7800">7800</td>
+<td data-num="0.003717948718">0.003717948718</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('honey wax candle')">Copy</button>
+<span>honey wax candle</span>
+</td>
+<td data-num="13">13</td>
+<td data-num="3500">3500</td>
+<td data-num="0.003714285714">0.003714285714</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('large scented candles')">Copy</button>
+<span>large scented candles</span>
+</td>
+<td data-num="64">64</td>
+<td data-num="17300">17300</td>
+<td data-num="0.003699421965">0.003699421965</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('7 oz soy candle')">Copy</button>
+<span>7 oz soy candle</span>
+</td>
+<td data-num="32">32</td>
+<td data-num="8700">8700</td>
+<td data-num="0.00367816092">0.00367816092</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('lemon scented candles')">Copy</button>
+<span>lemon scented candles</span>
+</td>
+<td data-num="32">32</td>
+<td data-num="8700">8700</td>
+<td data-num="0.00367816092">0.00367816092</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('wedding candles set')">Copy</button>
+<span>wedding candles set</span>
+</td>
+<td data-num="82">82</td>
+<td data-num="22600">22600</td>
+<td data-num="0.003628318584">0.003628318584</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('boyfriend gift candle')">Copy</button>
+<span>boyfriend gift candle</span>
+</td>
+<td data-num="35">35</td>
+<td data-num="9800">9800</td>
+<td data-num="0.003571428571">0.003571428571</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('sand wax candle')">Copy</button>
+<span>sand wax candle</span>
+</td>
+<td data-num="105">105</td>
+<td data-num="29500">29500</td>
+<td data-num="0.003559322034">0.003559322034</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('animal print candle')">Copy</button>
+<span>animal print candle</span>
+</td>
+<td data-num="48">48</td>
+<td data-num="13500">13500</td>
+<td data-num="0.003555555556">0.003555555556</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('happy birthday candle')">Copy</button>
+<span>happy birthday candle</span>
+</td>
+<td data-num="447">447</td>
+<td data-num="127400">127400</td>
+<td data-num="0.003508634223">0.003508634223</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('orange scented candle')">Copy</button>
+<span>orange scented candle</span>
+</td>
+<td data-num="87">87</td>
+<td data-num="25000">25000</td>
+<td data-num="0.00348">0.00348</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('mother’s day scented candle gift for mum')">Copy</button>
+<span>mother’s day scented candle gift for mum</span>
+</td>
+<td data-num="17">17</td>
+<td data-num="4900">4900</td>
+<td data-num="0.003469387755">0.003469387755</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('wedding gift candles for guests')">Copy</button>
+<span>wedding gift candles for guests</span>
+</td>
+<td data-num="19">19</td>
+<td data-num="5500">5500</td>
+<td data-num="0.003454545455">0.003454545455</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('4oz soy candle')">Copy</button>
+<span>4oz soy candle</span>
+</td>
+<td data-num="30">30</td>
+<td data-num="8700">8700</td>
+<td data-num="0.003448275862">0.003448275862</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('16oz soy candle')">Copy</button>
+<span>16oz soy candle</span>
+</td>
+<td data-num="20">20</td>
+<td data-num="5800">5800</td>
+<td data-num="0.003448275862">0.003448275862</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('scented fall soy candle')">Copy</button>
+<span>scented fall soy candle</span>
+</td>
+<td data-num="111">111</td>
+<td data-num="32300">32300</td>
+<td data-num="0.003436532508">0.003436532508</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('chocolate scented candle')">Copy</button>
+<span>chocolate scented candle</span>
+</td>
+<td data-num="40">40</td>
+<td data-num="11700">11700</td>
+<td data-num="0.003418803419">0.003418803419</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('fun birthday candle')">Copy</button>
+<span>fun birthday candle</span>
+</td>
+<td data-num="29">29</td>
+<td data-num="8500">8500</td>
+<td data-num="0.003411764706">0.003411764706</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('birthday candle clipart')">Copy</button>
+<span>birthday candle clipart</span>
+</td>
+<td data-num="34">34</td>
+<td data-num="10000">10000</td>
+<td data-num="0.0034">0.0034</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('wedding candles favors')">Copy</button>
+<span>wedding candles favors</span>
+</td>
+<td data-num="105">105</td>
+<td data-num="31200">31200</td>
+<td data-num="0.003365384615">0.003365384615</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('chocolate scented candles')">Copy</button>
+<span>chocolate scented candles</span>
+</td>
+<td data-num="38">38</td>
+<td data-num="11300">11300</td>
+<td data-num="0.003362831858">0.003362831858</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('8 oz soy candle')">Copy</button>
+<span>8 oz soy candle</span>
+</td>
+<td data-num="130">130</td>
+<td data-num="38700">38700</td>
+<td data-num="0.003359173127">0.003359173127</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('birthday candle for cake')">Copy</button>
+<span>birthday candle for cake</span>
+</td>
+<td data-num="78">78</td>
+<td data-num="23300">23300</td>
+<td data-num="0.003347639485">0.003347639485</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('personalized candle gifts')">Copy</button>
+<span>personalized candle gifts</span>
+</td>
+<td data-num="544">544</td>
+<td data-num="165400">165400</td>
+<td data-num="0.003288996372">0.003288996372</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('bulk scented candles')">Copy</button>
+<span>bulk scented candles</span>
+</td>
+<td data-num="55">55</td>
+<td data-num="16900">16900</td>
+<td data-num="0.00325443787">0.00325443787</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('food scented candle')">Copy</button>
+<span>food scented candle</span>
+</td>
+<td data-num="70">70</td>
+<td data-num="21600">21600</td>
+<td data-num="0.003240740741">0.003240740741</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('candle gift')">Copy</button>
+<span>candle gift</span>
+</td>
+<td data-num="1800">1800</td>
+<td data-num="558300">558300</td>
+<td data-num="0.003224073079">0.003224073079</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('wedding candle centerpieces')">Copy</button>
+<span>wedding candle centerpieces</span>
+</td>
+<td data-num="74">74</td>
+<td data-num="23100">23100</td>
+<td data-num="0.003203463203">0.003203463203</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('green birthday candles')">Copy</button>
+<span>green birthday candles</span>
+</td>
+<td data-num="76">76</td>
+<td data-num="24700">24700</td>
+<td data-num="0.003076923077">0.003076923077</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('black birthday candles')">Copy</button>
+<span>black birthday candles</span>
+</td>
+<td data-num="86">86</td>
+<td data-num="28500">28500</td>
+<td data-num="0.00301754386">0.00301754386</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('6 oz soy candles')">Copy</button>
+<span>6 oz soy candles</span>
+</td>
+<td data-num="23">23</td>
+<td data-num="7700">7700</td>
+<td data-num="0.002987012987">0.002987012987</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('30 birthday candles')">Copy</button>
+<span>30 birthday candles</span>
+</td>
+<td data-num="47">47</td>
+<td data-num="16100">16100</td>
+<td data-num="0.002919254658">0.002919254658</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('personalised candle sticks')">Copy</button>
+<span>personalised candle sticks</span>
+</td>
+<td data-num="37">37</td>
+<td data-num="12800">12800</td>
+<td data-num="0.002890625">0.002890625</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('vegan candle gift set')">Copy</button>
+<span>vegan candle gift set</span>
+</td>
+<td data-num="26">26</td>
+<td data-num="9100">9100</td>
+<td data-num="0.002857142857">0.002857142857</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('custom candle favors')">Copy</button>
+<span>custom candle favors</span>
+</td>
+<td data-num="109">109</td>
+<td data-num="38900">38900</td>
+<td data-num="0.002802056555">0.002802056555</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('natural candles')">Copy</button>
+<span>natural candles</span>
+</td>
+<td data-num="752">752</td>
+<td data-num="268900">268900</td>
+<td data-num="0.002796578654">0.002796578654</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('scented candles gift special')">Copy</button>
+<span>scented candles gift special</span>
+</td>
+<td data-num="24">24</td>
+<td data-num="8700">8700</td>
+<td data-num="0.00275862069">0.00275862069</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('thank you candle gift')">Copy</button>
+<span>thank you candle gift</span>
+</td>
+<td data-num="76">76</td>
+<td data-num="27600">27600</td>
+<td data-num="0.002753623188">0.002753623188</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('engagement gifts candle')">Copy</button>
+<span>engagement gifts candle</span>
+</td>
+<td data-num="52">52</td>
+<td data-num="19200">19200</td>
+<td data-num="0.002708333333">0.002708333333</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('wedding candle gift')">Copy</button>
+<span>wedding candle gift</span>
+</td>
+<td data-num="212">212</td>
+<td data-num="78800">78800</td>
+<td data-num="0.00269035533">0.00269035533</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('custom birthday candles')">Copy</button>
+<span>custom birthday candles</span>
+</td>
+<td data-num="331">331</td>
+<td data-num="123400">123400</td>
+<td data-num="0.002682333874">0.002682333874</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('fun birthday candles')">Copy</button>
+<span>fun birthday candles</span>
+</td>
+<td data-num="157">157</td>
+<td data-num="58600">58600</td>
+<td data-num="0.002679180887">0.002679180887</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('funny candle for boyfriend')">Copy</button>
+<span>funny candle for boyfriend</span>
+</td>
+<td data-num="93">93</td>
+<td data-num="35200">35200</td>
+<td data-num="0.002642045455">0.002642045455</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('lavender soy candle')">Copy</button>
+<span>lavender soy candle</span>
+</td>
+<td data-num="90">90</td>
+<td data-num="34200">34200</td>
+<td data-num="0.002631578947">0.002631578947</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('personalized candle gift')">Copy</button>
+<span>personalized candle gift</span>
+</td>
+<td data-num="511">511</td>
+<td data-num="195600">195600</td>
+<td data-num="0.002612474438">0.002612474438</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('catholic wedding candles')">Copy</button>
+<span>catholic wedding candles</span>
+</td>
+<td data-num="34">34</td>
+<td data-num="13200">13200</td>
+<td data-num="0.002575757576">0.002575757576</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('mini custom candles')">Copy</button>
+<span>mini custom candles</span>
+</td>
+<td data-num="27">27</td>
+<td data-num="10500">10500</td>
+<td data-num="0.002571428571">0.002571428571</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('4oz soy candles')">Copy</button>
+<span>4oz soy candles</span>
+</td>
+<td data-num="27">27</td>
+<td data-num="10500">10500</td>
+<td data-num="0.002571428571">0.002571428571</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('wedding candles flowers')">Copy</button>
+<span>wedding candles flowers</span>
+</td>
+<td data-num="30">30</td>
+<td data-num="11700">11700</td>
+<td data-num="0.002564102564">0.002564102564</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('sympathy candle gift')">Copy</button>
+<span>sympathy candle gift</span>
+</td>
+<td data-num="38">38</td>
+<td data-num="14900">14900</td>
+<td data-num="0.00255033557">0.00255033557</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('memorial wedding candle')">Copy</button>
+<span>memorial wedding candle</span>
+</td>
+<td data-num="48">48</td>
+<td data-num="19100">19100</td>
+<td data-num="0.002513089005">0.002513089005</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('pink birthday candles')">Copy</button>
+<span>pink birthday candles</span>
+</td>
+<td data-num="77">77</td>
+<td data-num="30700">30700</td>
+<td data-num="0.002508143322">0.002508143322</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('sparkly birthday candles')">Copy</button>
+<span>sparkly birthday candles</span>
+</td>
+<td data-num="12">12</td>
+<td data-num="4800">4800</td>
+<td data-num="0.0025">0.0025</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('glitter birthday candles')">Copy</button>
+<span>glitter birthday candles</span>
+</td>
+<td data-num="46">46</td>
+<td data-num="18600">18600</td>
+<td data-num="0.00247311828">0.00247311828</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('coconut soy candles')">Copy</button>
+<span>coconut soy candles</span>
+</td>
+<td data-num="93">93</td>
+<td data-num="37800">37800</td>
+<td data-num="0.00246031746">0.00246031746</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('cake scented candle')">Copy</button>
+<span>cake scented candle</span>
+</td>
+<td data-num="39">39</td>
+<td data-num="16000">16000</td>
+<td data-num="0.0024375">0.0024375</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('scented candles gift sets')">Copy</button>
+<span>scented candles gift sets</span>
+</td>
+<td data-num="45">45</td>
+<td data-num="18500">18500</td>
+<td data-num="0.002432432432">0.002432432432</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('smells like custom candle')">Copy</button>
+<span>smells like custom candle</span>
+</td>
+<td data-num="147">147</td>
+<td data-num="60600">60600</td>
+<td data-num="0.002425742574">0.002425742574</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('mini candle gifts')">Copy</button>
+<span>mini candle gifts</span>
+</td>
+<td data-num="28">28</td>
+<td data-num="11600">11600</td>
+<td data-num="0.002413793103">0.002413793103</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('scented soy candle')">Copy</button>
+<span>scented soy candle</span>
+</td>
+<td data-num="542">542</td>
+<td data-num="225000">225000</td>
+<td data-num="0.002408888889">0.002408888889</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('bereavement candle gift')">Copy</button>
+<span>bereavement candle gift</span>
+</td>
+<td data-num="23">23</td>
+<td data-num="9700">9700</td>
+<td data-num="0.002371134021">0.002371134021</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('soy candles handmade')">Copy</button>
+<span>soy candles handmade</span>
+</td>
+<td data-num="300">300</td>
+<td data-num="127200">127200</td>
+<td data-num="0.002358490566">0.002358490566</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('coconut soy candle')">Copy</button>
+<span>coconut soy candle</span>
+</td>
+<td data-num="84">84</td>
+<td data-num="35900">35900</td>
+<td data-num="0.002339832869">0.002339832869</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('customized candle')">Copy</button>
+<span>customized candle</span>
+</td>
+<td data-num="502">502</td>
+<td data-num="219300">219300</td>
+<td data-num="0.002289101687">0.002289101687</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('wine scented candle')">Copy</button>
+<span>wine scented candle</span>
+</td>
+<td data-num="27">27</td>
+<td data-num="11900">11900</td>
+<td data-num="0.002268907563">0.002268907563</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('bridesmaid gift candle')">Copy</button>
+<span>bridesmaid gift candle</span>
+</td>
+<td data-num="34">34</td>
+<td data-num="15100">15100</td>
+<td data-num="0.002251655629">0.002251655629</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('thank you soy candle gift')">Copy</button>
+<span>thank you soy candle gift</span>
+</td>
+<td data-num="17">17</td>
+<td data-num="7700">7700</td>
+<td data-num="0.002207792208">0.002207792208</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('baby shower custom candle')">Copy</button>
+<span>baby shower custom candle</span>
+</td>
+<td data-num="11">11</td>
+<td data-num="5000">5000</td>
+<td data-num="0.0022">0.0022</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('custom candle tin')">Copy</button>
+<span>custom candle tin</span>
+</td>
+<td data-num="11">11</td>
+<td data-num="5000">5000</td>
+<td data-num="0.0022">0.0022</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('pear scented candle')">Copy</button>
+<span>pear scented candle</span>
+</td>
+<td data-num="23">23</td>
+<td data-num="10500">10500</td>
+<td data-num="0.00219047619">0.00219047619</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('funny candle for men')">Copy</button>
+<span>funny candle for men</span>
+</td>
+<td data-num="76">76</td>
+<td data-num="34700">34700</td>
+<td data-num="0.002190201729">0.002190201729</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('wedding candle centerpiece')">Copy</button>
+<span>wedding candle centerpiece</span>
+</td>
+<td data-num="60">60</td>
+<td data-num="27400">27400</td>
+<td data-num="0.002189781022">0.002189781022</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('engagement soy candle')">Copy</button>
+<span>engagement soy candle</span>
+</td>
+<td data-num="22">22</td>
+<td data-num="10200">10200</td>
+<td data-num="0.002156862745">0.002156862745</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('vanilla scented candle')">Copy</button>
+<span>vanilla scented candle</span>
+</td>
+<td data-num="45">45</td>
+<td data-num="20900">20900</td>
+<td data-num="0.002153110048">0.002153110048</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('unscented soy candle')">Copy</button>
+<span>unscented soy candle</span>
+</td>
+<td data-num="98">98</td>
+<td data-num="46000">46000</td>
+<td data-num="0.002130434783">0.002130434783</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('large scented candle')">Copy</button>
+<span>large scented candle</span>
+</td>
+<td data-num="59">59</td>
+<td data-num="28100">28100</td>
+<td data-num="0.002099644128">0.002099644128</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('sand wax candles')">Copy</button>
+<span>sand wax candles</span>
+</td>
+<td data-num="105">105</td>
+<td data-num="50500">50500</td>
+<td data-num="0.002079207921">0.002079207921</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('rose soy candle')">Copy</button>
+<span>rose soy candle</span>
+</td>
+<td data-num="31">31</td>
+<td data-num="15200">15200</td>
+<td data-num="0.002039473684">0.002039473684</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('hand poured soy candles')">Copy</button>
+<span>hand poured soy candles</span>
+</td>
+<td data-num="143">143</td>
+<td data-num="70400">70400</td>
+<td data-num="0.00203125">0.00203125</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('wedding candle favour')">Copy</button>
+<span>wedding candle favour</span>
+</td>
+<td data-num="47">47</td>
+<td data-num="23400">23400</td>
+<td data-num="0.002008547009">0.002008547009</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('mini scented candles bulk')">Copy</button>
+<span>mini scented candles bulk</span>
+</td>
+<td data-num="19">19</td>
+<td data-num="9500">9500</td>
+<td data-num="0.002">0.002</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('wedding gift candle')">Copy</button>
+<span>wedding gift candle</span>
+</td>
+<td data-num="153">153</td>
+<td data-num="77100">77100</td>
+<td data-num="0.001984435798">0.001984435798</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('body wax candle')">Copy</button>
+<span>body wax candle</span>
+</td>
+<td data-num="20">20</td>
+<td data-num="10100">10100</td>
+<td data-num="0.00198019802">0.00198019802</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('custom candle with photo')">Copy</button>
+<span>custom candle with photo</span>
+</td>
+<td data-num="28">28</td>
+<td data-num="14400">14400</td>
+<td data-num="0.001944444444">0.001944444444</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('apple scented candle')">Copy</button>
+<span>apple scented candle</span>
+</td>
+<td data-num="30">30</td>
+<td data-num="15500">15500</td>
+<td data-num="0.001935483871">0.001935483871</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('candle gift set birthday')">Copy</button>
+<span>candle gift set birthday</span>
+</td>
+<td data-num="26">26</td>
+<td data-num="13600">13600</td>
+<td data-num="0.001911764706">0.001911764706</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('pine scented candle')">Copy</button>
+<span>pine scented candle</span>
+</td>
+<td data-num="53">53</td>
+<td data-num="27900">27900</td>
+<td data-num="0.001899641577">0.001899641577</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('long birthday candles')">Copy</button>
+<span>long birthday candles</span>
+</td>
+<td data-num="58">58</td>
+<td data-num="30800">30800</td>
+<td data-num="0.001883116883">0.001883116883</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('funny candles for women')">Copy</button>
+<span>funny candles for women</span>
+</td>
+<td data-num="148">148</td>
+<td data-num="78600">78600</td>
+<td data-num="0.001882951654">0.001882951654</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('personalized candles wedding favors')">Copy</button>
+<span>personalized candles wedding favors</span>
+</td>
+<td data-num="52">52</td>
+<td data-num="28100">28100</td>
+<td data-num="0.001850533808">0.001850533808</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('3rd birthday candle')">Copy</button>
+<span>3rd birthday candle</span>
+</td>
+<td data-num="85">85</td>
+<td data-num="46200">46200</td>
+<td data-num="0.00183982684">0.00183982684</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('wedding gift candles')">Copy</button>
+<span>wedding gift candles</span>
+</td>
+<td data-num="144">144</td>
+<td data-num="78500">78500</td>
+<td data-num="0.001834394904">0.001834394904</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('4 oz soy candle')">Copy</button>
+<span>4 oz soy candle</span>
+</td>
+<td data-num="48">48</td>
+<td data-num="26200">26200</td>
+<td data-num="0.001832061069">0.001832061069</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('custom candles wedding favors')">Copy</button>
+<span>custom candles wedding favors</span>
+</td>
+<td data-num="29">29</td>
+<td data-num="16400">16400</td>
+<td data-num="0.001768292683">0.001768292683</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('engagement gift candle')">Copy</button>
+<span>engagement gift candle</span>
+</td>
+<td data-num="100">100</td>
+<td data-num="56900">56900</td>
+<td data-num="0.001757469244">0.001757469244</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('organic soy candles')">Copy</button>
+<span>organic soy candles</span>
+</td>
+<td data-num="101">101</td>
+<td data-num="57700">57700</td>
+<td data-num="0.001750433276">0.001750433276</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('birthday candle set')">Copy</button>
+<span>birthday candle set</span>
+</td>
+<td data-num="97">97</td>
+<td data-num="56600">56600</td>
+<td data-num="0.001713780919">0.001713780919</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('soya wax candle')">Copy</button>
+<span>soya wax candle</span>
+</td>
+<td data-num="81">81</td>
+<td data-num="47500">47500</td>
+<td data-num="0.001705263158">0.001705263158</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('smells like candle')">Copy</button>
+<span>smells like candle</span>
+</td>
+<td data-num="1100">1100</td>
+<td data-num="646500">646500</td>
+<td data-num="0.001701469451">0.001701469451</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('number birthday candle')">Copy</button>
+<span>number birthday candle</span>
+</td>
+<td data-num="117">117</td>
+<td data-num="68800">68800</td>
+<td data-num="0.001700581395">0.001700581395</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('custom candle wedding favor')">Copy</button>
+<span>custom candle wedding favor</span>
+</td>
+<td data-num="30">30</td>
+<td data-num="17700">17700</td>
+<td data-num="0.001694915254">0.001694915254</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('remembrance gift candle')">Copy</button>
+<span>remembrance gift candle</span>
+</td>
+<td data-num="29">29</td>
+<td data-num="17300">17300</td>
+<td data-num="0.001676300578">0.001676300578</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('best soy candles')">Copy</button>
+<span>best soy candles</span>
+</td>
+<td data-num="70">70</td>
+<td data-num="42500">42500</td>
+<td data-num="0.001647058824">0.001647058824</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('scented candles bulk')">Copy</button>
+<span>scented candles bulk</span>
+</td>
+<td data-num="52">52</td>
+<td data-num="31600">31600</td>
+<td data-num="0.00164556962">0.00164556962</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('personalised candle gift set')">Copy</button>
+<span>personalised candle gift set</span>
+</td>
+<td data-num="15">15</td>
+<td data-num="9200">9200</td>
+<td data-num="0.001630434783">0.001630434783</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('candle gift basket')">Copy</button>
+<span>candle gift basket</span>
+</td>
+<td data-num="79">79</td>
+<td data-num="50000">50000</td>
+<td data-num="0.00158">0.00158</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('soy candle gift set')">Copy</button>
+<span>soy candle gift set</span>
+</td>
+<td data-num="104">104</td>
+<td data-num="66200">66200</td>
+<td data-num="0.001570996979">0.001570996979</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('custom candle for him')">Copy</button>
+<span>custom candle for him</span>
+</td>
+<td data-num="52">52</td>
+<td data-num="34000">34000</td>
+<td data-num="0.001529411765">0.001529411765</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('scented candle favor')">Copy</button>
+<span>scented candle favor</span>
+</td>
+<td data-num="46">46</td>
+<td data-num="30200">30200</td>
+<td data-num="0.001523178808">0.001523178808</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('personalised candle party favour')">Copy</button>
+<span>personalised candle party favour</span>
+</td>
+<td data-num="17">17</td>
+<td data-num="11200">11200</td>
+<td data-num="0.001517857143">0.001517857143</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('funny candle for boss')">Copy</button>
+<span>funny candle for boss</span>
+</td>
+<td data-num="13">13</td>
+<td data-num="8600">8600</td>
+<td data-num="0.001511627907">0.001511627907</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('cute birthday candle')">Copy</button>
+<span>cute birthday candle</span>
+</td>
+<td data-num="34">34</td>
+<td data-num="22700">22700</td>
+<td data-num="0.001497797357">0.001497797357</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('custom candle favor')">Copy</button>
+<span>custom candle favor</span>
+</td>
+<td data-num="31">31</td>
+<td data-num="20700">20700</td>
+<td data-num="0.001497584541">0.001497584541</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('wax candle flowers')">Copy</button>
+<span>wax candle flowers</span>
+</td>
+<td data-num="28">28</td>
+<td data-num="18700">18700</td>
+<td data-num="0.001497326203">0.001497326203</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('bulk custom candle')">Copy</button>
+<span>bulk custom candle</span>
+</td>
+<td data-num="16">16</td>
+<td data-num="10700">10700</td>
+<td data-num="0.001495327103">0.001495327103</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('wedding candles for tables')">Copy</button>
+<span>wedding candles for tables</span>
+</td>
+<td data-num="33">33</td>
+<td data-num="22100">22100</td>
+<td data-num="0.00149321267">0.00149321267</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('incense soy candle')">Copy</button>
+<span>incense soy candle</span>
+</td>
+<td data-num="20">20</td>
+<td data-num="13400">13400</td>
+<td data-num="0.001492537313">0.001492537313</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('vintage wax candle')">Copy</button>
+<span>vintage wax candle</span>
+</td>
+<td data-num="17">17</td>
+<td data-num="11400">11400</td>
+<td data-num="0.00149122807">0.00149122807</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('1/2 birthday candle')">Copy</button>
+<span>1/2 birthday candle</span>
+</td>
+<td data-num="75">75</td>
+<td data-num="50400">50400</td>
+<td data-num="0.001488095238">0.001488095238</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('best friend candle gift')">Copy</button>
+<span>best friend candle gift</span>
+</td>
+<td data-num="30">30</td>
+<td data-num="20400">20400</td>
+<td data-num="0.001470588235">0.001470588235</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('custom scented candle')">Copy</button>
+<span>custom scented candle</span>
+</td>
+<td data-num="176">176</td>
+<td data-num="121600">121600</td>
+<td data-num="0.001447368421">0.001447368421</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('personalised birthday candle')">Copy</button>
+<span>personalised birthday candle</span>
+</td>
+<td data-num="85">85</td>
+<td data-num="59000">59000</td>
+<td data-num="0.001440677966">0.001440677966</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('soy candle sticks')">Copy</button>
+<span>soy candle sticks</span>
+</td>
+<td data-num="35">35</td>
+<td data-num="24400">24400</td>
+<td data-num="0.00143442623">0.00143442623</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('6 birthday candle')">Copy</button>
+<span>6 birthday candle</span>
+</td>
+<td data-num="40">40</td>
+<td data-num="27900">27900</td>
+<td data-num="0.001433691756">0.001433691756</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('handmade soy candle')">Copy</button>
+<span>handmade soy candle</span>
+</td>
+<td data-num="244">244</td>
+<td data-num="170300">170300</td>
+<td data-num="0.001432765708">0.001432765708</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('scented candles wedding favors')">Copy</button>
+<span>scented candles wedding favors</span>
+</td>
+<td data-num="28">28</td>
+<td data-num="19600">19600</td>
+<td data-num="0.001428571429">0.001428571429</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('custom birthday candle')">Copy</button>
+<span>custom birthday candle</span>
+</td>
+<td data-num="381">381</td>
+<td data-num="272100">272100</td>
+<td data-num="0.001400220507">0.001400220507</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('baby shower candle gift')">Copy</button>
+<span>baby shower candle gift</span>
+</td>
+<td data-num="28">28</td>
+<td data-num="20200">20200</td>
+<td data-num="0.001386138614">0.001386138614</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('custom candle anniversary')">Copy</button>
+<span>custom candle anniversary</span>
+</td>
+<td data-num="12">12</td>
+<td data-num="8700">8700</td>
+<td data-num="0.001379310345">0.001379310345</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('scented candles set of 4')">Copy</button>
+<span>scented candles set of 4</span>
+</td>
+<td data-num="21">21</td>
+<td data-num="15400">15400</td>
+<td data-num="0.001363636364">0.001363636364</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('funny birthday candle')">Copy</button>
+<span>funny birthday candle</span>
+</td>
+<td data-num="69">69</td>
+<td data-num="51400">51400</td>
+<td data-num="0.001342412451">0.001342412451</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('funny candle for wife')">Copy</button>
+<span>funny candle for wife</span>
+</td>
+<td data-num="15">15</td>
+<td data-num="11300">11300</td>
+<td data-num="0.001327433628">0.001327433628</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('2 birthday candle')">Copy</button>
+<span>2 birthday candle</span>
+</td>
+<td data-num="148">148</td>
+<td data-num="112100">112100</td>
+<td data-num="0.001320249777">0.001320249777</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('custom candles favors')">Copy</button>
+<span>custom candles favors</span>
+</td>
+<td data-num="51">51</td>
+<td data-num="39000">39000</td>
+<td data-num="0.001307692308">0.001307692308</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('flower birthday candle')">Copy</button>
+<span>flower birthday candle</span>
+</td>
+<td data-num="30">30</td>
+<td data-num="23100">23100</td>
+<td data-num="0.001298701299">0.001298701299</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('birthday candle svg')">Copy</button>
+<span>birthday candle svg</span>
+</td>
+<td data-num="35">35</td>
+<td data-num="27000">27000</td>
+<td data-num="0.001296296296">0.001296296296</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('5 birthday candle')">Copy</button>
+<span>5 birthday candle</span>
+</td>
+<td data-num="56">56</td>
+<td data-num="43300">43300</td>
+<td data-num="0.00129330254">0.00129330254</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('sonic birthday candle')">Copy</button>
+<span>sonic birthday candle</span>
+</td>
+<td data-num="49">49</td>
+<td data-num="37900">37900</td>
+<td data-num="0.001292875989">0.001292875989</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('lavender scented candle')">Copy</button>
+<span>lavender scented candle</span>
+</td>
+<td data-num="43">43</td>
+<td data-num="33300">33300</td>
+<td data-num="0.001291291291">0.001291291291</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('luxury candle gift set')">Copy</button>
+<span>luxury candle gift set</span>
+</td>
+<td data-num="32">32</td>
+<td data-num="24800">24800</td>
+<td data-num="0.001290322581">0.001290322581</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('custom candle party favor')">Copy</button>
+<span>custom candle party favor</span>
+</td>
+<td data-num="33">33</td>
+<td data-num="25600">25600</td>
+<td data-num="0.0012890625">0.0012890625</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('memorial gift candle')">Copy</button>
+<span>memorial gift candle</span>
+</td>
+<td data-num="32">32</td>
+<td data-num="25100">25100</td>
+<td data-num="0.001274900398">0.001274900398</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('personalized wedding candles')">Copy</button>
+<span>personalized wedding candles</span>
+</td>
+<td data-num="136">136</td>
+<td data-num="107100">107100</td>
+<td data-num="0.00126984127">0.00126984127</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('wedding candles for centerpiece')">Copy</button>
+<span>wedding candles for centerpiece</span>
+</td>
+<td data-num="27">27</td>
+<td data-num="21600">21600</td>
+<td data-num="0.00125">0.00125</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('memorial candle gift')">Copy</button>
+<span>memorial candle gift</span>
+</td>
+<td data-num="35">35</td>
+<td data-num="28100">28100</td>
+<td data-num="0.001245551601">0.001245551601</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('birthday candle gift')">Copy</button>
+<span>birthday candle gift</span>
+</td>
+<td data-num="181">181</td>
+<td data-num="145500">145500</td>
+<td data-num="0.001243986254">0.001243986254</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('funny candles for friends')">Copy</button>
+<span>funny candles for friends</span>
+</td>
+<td data-num="66">66</td>
+<td data-num="53100">53100</td>
+<td data-num="0.001242937853">0.001242937853</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('custom candle packaging')">Copy</button>
+<span>custom candle packaging</span>
+</td>
+<td data-num="26">26</td>
+<td data-num="21100">21100</td>
+<td data-num="0.001232227488">0.001232227488</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('tea scented candle')">Copy</button>
+<span>tea scented candle</span>
+</td>
+<td data-num="50">50</td>
+<td data-num="40600">40600</td>
+<td data-num="0.001231527094">0.001231527094</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('spa scented candle')">Copy</button>
+<span>spa scented candle</span>
+</td>
+<td data-num="39">39</td>
+<td data-num="32200">32200</td>
+<td data-num="0.001211180124">0.001211180124</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('wedding candle set')">Copy</button>
+<span>wedding candle set</span>
+</td>
+<td data-num="93">93</td>
+<td data-num="76900">76900</td>
+<td data-num="0.001209362809">0.001209362809</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('personalised candle wedding')">Copy</button>
+<span>personalised candle wedding</span>
+</td>
+<td data-num="28">28</td>
+<td data-num="23200">23200</td>
+<td data-num="0.001206896552">0.001206896552</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('wedding guest gift candle')">Copy</button>
+<span>wedding guest gift candle</span>
+</td>
+<td data-num="20">20</td>
+<td data-num="16900">16900</td>
+<td data-num="0.001183431953">0.001183431953</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('custom candle scent')">Copy</button>
+<span>custom candle scent</span>
+</td>
+<td data-num="90">90</td>
+<td data-num="77600">77600</td>
+<td data-num="0.001159793814">0.001159793814</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('personalised scented candle')">Copy</button>
+<span>personalised scented candle</span>
+</td>
+<td data-num="161">161</td>
+<td data-num="140900">140900</td>
+<td data-num="0.001142654365">0.001142654365</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('one birthday candle')">Copy</button>
+<span>one birthday candle</span>
+</td>
+<td data-num="172">172</td>
+<td data-num="152000">152000</td>
+<td data-num="0.001131578947">0.001131578947</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('clear wax candle')">Copy</button>
+<span>clear wax candle</span>
+</td>
+<td data-num="13">13</td>
+<td data-num="11600">11600</td>
+<td data-num="0.001120689655">0.001120689655</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('smells like personalised candle')">Copy</button>
+<span>smells like personalised candle</span>
+</td>
+<td data-num="23">23</td>
+<td data-num="20900">20900</td>
+<td data-num="0.001100478469">0.001100478469</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('natural soy candles')">Copy</button>
+<span>natural soy candles</span>
+</td>
+<td data-num="95">95</td>
+<td data-num="88300">88300</td>
+<td data-num="0.00107587769">0.00107587769</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('scented candle sand')">Copy</button>
+<span>scented candle sand</span>
+</td>
+<td data-num="49">49</td>
+<td data-num="46400">46400</td>
+<td data-num="0.001056034483">0.001056034483</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('coffee scented candles')">Copy</button>
+<span>coffee scented candles</span>
+</td>
+<td data-num="47">47</td>
+<td data-num="44700">44700</td>
+<td data-num="0.001051454139">0.001051454139</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('candle gifts for her')">Copy</button>
+<span>candle gifts for her</span>
+</td>
+<td data-num="117">117</td>
+<td data-num="111600">111600</td>
+<td data-num="0.001048387097">0.001048387097</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('candles 4 oz. soy candle')">Copy</button>
+<span>candles 4 oz. soy candle</span>
+</td>
+<td data-num="31">31</td>
+<td data-num="29800">29800</td>
+<td data-num="0.001040268456">0.001040268456</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('small soy candles')">Copy</button>
+<span>small soy candles</span>
+</td>
+<td data-num="46">46</td>
+<td data-num="44400">44400</td>
+<td data-num="0.001036036036">0.001036036036</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('natural soy candle')">Copy</button>
+<span>natural soy candle</span>
+</td>
+<td data-num="127">127</td>
+<td data-num="122800">122800</td>
+<td data-num="0.001034201954">0.001034201954</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('wax candles')">Copy</button>
+<span>wax candles</span>
+</td>
+<td data-num="263">263</td>
+<td data-num="256200">256200</td>
+<td data-num="0.001026541764">0.001026541764</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('candle gifts')">Copy</button>
+<span>candle gifts</span>
+</td>
+<td data-num="570">570</td>
+<td data-num="557300">557300</td>
+<td data-num="0.001022788444">0.001022788444</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('unscented soy candles')">Copy</button>
+<span>unscented soy candles</span>
+</td>
+<td data-num="67">67</td>
+<td data-num="65600">65600</td>
+<td data-num="0.001021341463">0.001021341463</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('personalized candle wedding favors')">Copy</button>
+<span>personalized candle wedding favors</span>
+</td>
+<td data-num="25">25</td>
+<td data-num="24500">24500</td>
+<td data-num="0.001020408163">0.001020408163</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('relaxation candle gift set')">Copy</button>
+<span>relaxation candle gift set</span>
+</td>
+<td data-num="18">18</td>
+<td data-num="17900">17900</td>
+<td data-num="0.001005586592">0.001005586592</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('soy candle stick')">Copy</button>
+<span>soy candle stick</span>
+</td>
+<td data-num="23">23</td>
+<td data-num="23000">23000</td>
+<td data-num="0.001">0.001</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('soy candle 8 oz')">Copy</button>
+<span>soy candle 8 oz</span>
+</td>
+<td data-num="42">42</td>
+<td data-num="42100">42100</td>
+<td data-num="0.0009976247031">0.0009976247031</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('rustic wedding candles')">Copy</button>
+<span>rustic wedding candles</span>
+</td>
+<td data-num="18">18</td>
+<td data-num="18100">18100</td>
+<td data-num="0.0009944751381">0.0009944751381</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('candle gift sets')">Copy</button>
+<span>candle gift sets</span>
+</td>
+<td data-num="150">150</td>
+<td data-num="151700">151700</td>
+<td data-num="0.0009887936717">0.0009887936717</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('personalised candle favour')">Copy</button>
+<span>personalised candle favour</span>
+</td>
+<td data-num="16">16</td>
+<td data-num="16200">16200</td>
+<td data-num="0.000987654321">0.000987654321</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('march birthday candle')">Copy</button>
+<span>march birthday candle</span>
+</td>
+<td data-num="49">49</td>
+<td data-num="49700">49700</td>
+<td data-num="0.000985915493">0.000985915493</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('flower wax candle')">Copy</button>
+<span>flower wax candle</span>
+</td>
+<td data-num="24">24</td>
+<td data-num="24500">24500</td>
+<td data-num="0.0009795918367">0.0009795918367</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('amber scented candle')">Copy</button>
+<span>amber scented candle</span>
+</td>
+<td data-num="28">28</td>
+<td data-num="29400">29400</td>
+<td data-num="0.0009523809524">0.0009523809524</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('wedding candles favor')">Copy</button>
+<span>wedding candles favor</span>
+</td>
+<td data-num="38">38</td>
+<td data-num="40400">40400</td>
+<td data-num="0.0009405940594">0.0009405940594</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('customized candles')">Copy</button>
+<span>customized candles</span>
+</td>
+<td data-num="239">239</td>
+<td data-num="258500">258500</td>
+<td data-num="0.0009245647969">0.0009245647969</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('custom candles with logo')">Copy</button>
+<span>custom candles with logo</span>
+</td>
+<td data-num="13">13</td>
+<td data-num="14500">14500</td>
+<td data-num="0.0008965517241">0.0008965517241</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('custom candles party favor')">Copy</button>
+<span>custom candles party favor</span>
+</td>
+<td data-num="23">23</td>
+<td data-num="26700">26700</td>
+<td data-num="0.000861423221">0.000861423221</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('candles gift set')">Copy</button>
+<span>candles gift set</span>
+</td>
+<td data-num="83">83</td>
+<td data-num="96600">96600</td>
+<td data-num="0.0008592132505">0.0008592132505</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('natural wax candles')">Copy</button>
+<span>natural wax candles</span>
+</td>
+<td data-num="51">51</td>
+<td data-num="59700">59700</td>
+<td data-num="0.0008542713568">0.0008542713568</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('wedding gifts candle')">Copy</button>
+<span>wedding gifts candle</span>
+</td>
+<td data-num="51">51</td>
+<td data-num="59800">59800</td>
+<td data-num="0.0008528428094">0.0008528428094</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('bridesmaid gifts candle')">Copy</button>
+<span>bridesmaid gifts candle</span>
+</td>
+<td data-num="21">21</td>
+<td data-num="24800">24800</td>
+<td data-num="0.0008467741935">0.0008467741935</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('wedding candle gifts')">Copy</button>
+<span>wedding candle gifts</span>
+</td>
+<td data-num="64">64</td>
+<td data-num="75600">75600</td>
+<td data-num="0.0008465608466">0.0008465608466</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('lavender scented candles')">Copy</button>
+<span>lavender scented candles</span>
+</td>
+<td data-num="33">33</td>
+<td data-num="39000">39000</td>
+<td data-num="0.0008461538462">0.0008461538462</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('funny candles for sister')">Copy</button>
+<span>funny candles for sister</span>
+</td>
+<td data-num="18">18</td>
+<td data-num="21400">21400</td>
+<td data-num="0.0008411214953">0.0008411214953</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('scented candle bulk')">Copy</button>
+<span>scented candle bulk</span>
+</td>
+<td data-num="25">25</td>
+<td data-num="30400">30400</td>
+<td data-num="0.0008223684211">0.0008223684211</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('custom candles bulk')">Copy</button>
+<span>custom candles bulk</span>
+</td>
+<td data-num="118">118</td>
+<td data-num="148400">148400</td>
+<td data-num="0.000795148248">0.000795148248</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('mothers day candle gift')">Copy</button>
+<span>mothers day candle gift</span>
+</td>
+<td data-num="40">40</td>
+<td data-num="50400">50400</td>
+<td data-num="0.0007936507937">0.0007936507937</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('scented candles set')">Copy</button>
+<span>scented candles set</span>
+</td>
+<td data-num="37">37</td>
+<td data-num="46700">46700</td>
+<td data-num="0.0007922912206">0.0007922912206</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('candles gift')">Copy</button>
+<span>candles gift</span>
+</td>
+<td data-num="448">448</td>
+<td data-num="566100">566100</td>
+<td data-num="0.0007913796149">0.0007913796149</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('wax candles rustic')">Copy</button>
+<span>wax candles rustic</span>
+</td>
+<td data-num="11">11</td>
+<td data-num="13900">13900</td>
+<td data-num="0.0007913669065">0.0007913669065</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('scented candles gift set')">Copy</button>
+<span>scented candles gift set</span>
+</td>
+<td data-num="59">59</td>
+<td data-num="74700">74700</td>
+<td data-num="0.0007898259705">0.0007898259705</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('best scented candles')">Copy</button>
+<span>best scented candles</span>
+</td>
+<td data-num="95">95</td>
+<td data-num="120300">120300</td>
+<td data-num="0.0007896924356">0.0007896924356</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('funny candle for him')">Copy</button>
+<span>funny candle for him</span>
+</td>
+<td data-num="41">41</td>
+<td data-num="52600">52600</td>
+<td data-num="0.0007794676806">0.0007794676806</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('8 oz soy candles')">Copy</button>
+<span>8 oz soy candles</span>
+</td>
+<td data-num="27">27</td>
+<td data-num="35200">35200</td>
+<td data-num="0.0007670454545">0.0007670454545</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('soy candle pillar')">Copy</button>
+<span>soy candle pillar</span>
+</td>
+<td data-num="22">22</td>
+<td data-num="28700">28700</td>
+<td data-num="0.0007665505226">0.0007665505226</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('wedding candle ceremony')">Copy</button>
+<span>wedding candle ceremony</span>
+</td>
+<td data-num="73">73</td>
+<td data-num="96100">96100</td>
+<td data-num="0.0007596253902">0.0007596253902</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('custom wedding candle')">Copy</button>
+<span>custom wedding candle</span>
+</td>
+<td data-num="62">62</td>
+<td data-num="82100">82100</td>
+<td data-num="0.0007551766139">0.0007551766139</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('handmade soy candles')">Copy</button>
+<span>handmade soy candles</span>
+</td>
+<td data-num="231">231</td>
+<td data-num="309900">309900</td>
+<td data-num="0.0007454017425">0.0007454017425</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('wedding gifts candles')">Copy</button>
+<span>wedding gifts candles</span>
+</td>
+<td data-num="59">59</td>
+<td data-num="80800">80800</td>
+<td data-num="0.0007301980198">0.0007301980198</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('food scented candles')">Copy</button>
+<span>food scented candles</span>
+</td>
+<td data-num="64">64</td>
+<td data-num="88800">88800</td>
+<td data-num="0.0007207207207">0.0007207207207</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('9 oz soy candle')">Copy</button>
+<span>9 oz soy candle</span>
+</td>
+<td data-num="56">56</td>
+<td data-num="78700">78700</td>
+<td data-num="0.0007115628971">0.0007115628971</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('coconut scented candle')">Copy</button>
+<span>coconut scented candle</span>
+</td>
+<td data-num="29">29</td>
+<td data-num="43600">43600</td>
+<td data-num="0.0006651376147">0.0006651376147</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('personalized candle baptism')">Copy</button>
+<span>personalized candle baptism</span>
+</td>
+<td data-num="25">25</td>
+<td data-num="38300">38300</td>
+<td data-num="0.0006527415144">0.0006527415144</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('personalized candles party favors')">Copy</button>
+<span>personalized candles party favors</span>
+</td>
+<td data-num="20">20</td>
+<td data-num="31100">31100</td>
+<td data-num="0.0006430868167">0.0006430868167</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('2 oz soy candle')">Copy</button>
+<span>2 oz soy candle</span>
+</td>
+<td data-num="28">28</td>
+<td data-num="43900">43900</td>
+<td data-num="0.0006378132118">0.0006378132118</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('personalized scented candle')">Copy</button>
+<span>personalized scented candle</span>
+</td>
+<td data-num="114">114</td>
+<td data-num="178900">178900</td>
+<td data-num="0.0006372275014">0.0006372275014</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('funny candle for mom')">Copy</button>
+<span>funny candle for mom</span>
+</td>
+<td data-num="39">39</td>
+<td data-num="61700">61700</td>
+<td data-num="0.0006320907618">0.0006320907618</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('natural scented candles')">Copy</button>
+<span>natural scented candles</span>
+</td>
+<td data-num="64">64</td>
+<td data-num="102900">102900</td>
+<td data-num="0.0006219630709">0.0006219630709</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('scented candle gift set')">Copy</button>
+<span>scented candle gift set</span>
+</td>
+<td data-num="92">92</td>
+<td data-num="148500">148500</td>
+<td data-num="0.0006195286195">0.0006195286195</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('funny candles for him')">Copy</button>
+<span>funny candles for him</span>
+</td>
+<td data-num="65">65</td>
+<td data-num="106200">106200</td>
+<td data-num="0.0006120527307">0.0006120527307</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('wedding candle party favor')">Copy</button>
+<span>wedding candle party favor</span>
+</td>
+<td data-num="22">22</td>
+<td data-num="36400">36400</td>
+<td data-num="0.0006043956044">0.0006043956044</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('large custom candle')">Copy</button>
+<span>large custom candle</span>
+</td>
+<td data-num="32">32</td>
+<td data-num="53800">53800</td>
+<td data-num="0.000594795539">0.000594795539</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('custom candles wedding favor')">Copy</button>
+<span>custom candles wedding favor</span>
+</td>
+<td data-num="14">14</td>
+<td data-num="24700">24700</td>
+<td data-num="0.0005668016194">0.0005668016194</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('friend gift candle')">Copy</button>
+<span>friend gift candle</span>
+</td>
+<td data-num="21">21</td>
+<td data-num="37300">37300</td>
+<td data-num="0.000563002681">0.000563002681</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('personalized candle wedding')">Copy</button>
+<span>personalized candle wedding</span>
+</td>
+<td data-num="36">36</td>
+<td data-num="65900">65900</td>
+<td data-num="0.0005462822458">0.0005462822458</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('wedding candles gift')">Copy</button>
+<span>wedding candles gift</span>
+</td>
+<td data-num="47">47</td>
+<td data-num="86100">86100</td>
+<td data-num="0.0005458768873">0.0005458768873</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('bulk wedding candles')">Copy</button>
+<span>bulk wedding candles</span>
+</td>
+<td data-num="47">47</td>
+<td data-num="88300">88300</td>
+<td data-num="0.0005322763307">0.0005322763307</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('handmade scented candles')">Copy</button>
+<span>handmade scented candles</span>
+</td>
+<td data-num="44">44</td>
+<td data-num="83200">83200</td>
+<td data-num="0.0005288461538">0.0005288461538</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('candle gift pack')">Copy</button>
+<span>candle gift pack</span>
+</td>
+<td data-num="87">87</td>
+<td data-num="167000">167000</td>
+<td data-num="0.0005209580838">0.0005209580838</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('unique wax candles')">Copy</button>
+<span>unique wax candles</span>
+</td>
+<td data-num="30">30</td>
+<td data-num="57800">57800</td>
+<td data-num="0.0005190311419">0.0005190311419</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('chai soy candle')">Copy</button>
+<span>chai soy candle</span>
+</td>
+<td data-num="20">20</td>
+<td data-num="38700">38700</td>
+<td data-num="0.0005167958656">0.0005167958656</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('soy candles homemade')">Copy</button>
+<span>soy candles homemade</span>
+</td>
+<td data-num="91">91</td>
+<td data-num="176800">176800</td>
+<td data-num="0.0005147058824">0.0005147058824</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('printed candles')">Copy</button>
+<span>printed candles</span>
+</td>
+<td data-num="32">32</td>
+<td data-num="63000">63000</td>
+<td data-num="0.0005079365079">0.0005079365079</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('customize candle')">Copy</button>
+<span>customize candle</span>
+</td>
+<td data-num="104">104</td>
+<td data-num="206500">206500</td>
+<td data-num="0.0005036319613">0.0005036319613</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('3 birthday candle')">Copy</button>
+<span>3 birthday candle</span>
+</td>
+<td data-num="90">90</td>
+<td data-num="180300">180300</td>
+<td data-num="0.0004991680532">0.0004991680532</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('scent candle')">Copy</button>
+<span>scent candle</span>
+</td>
+<td data-num="119">119</td>
+<td data-num="246700">246700</td>
+<td data-num="0.0004823672477">0.0004823672477</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('soy candle set')">Copy</button>
+<span>soy candle set</span>
+</td>
+<td data-num="34">34</td>
+<td data-num="71000">71000</td>
+<td data-num="0.0004788732394">0.0004788732394</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('birthday cake scented candle')">Copy</button>
+<span>birthday cake scented candle</span>
+</td>
+<td data-num="39">39</td>
+<td data-num="82100">82100</td>
+<td data-num="0.0004750304507">0.0004750304507</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('birthday cake scented candles')">Copy</button>
+<span>birthday cake scented candles</span>
+</td>
+<td data-num="30">30</td>
+<td data-num="63700">63700</td>
+<td data-num="0.0004709576138">0.0004709576138</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('unique soy candles')">Copy</button>
+<span>unique soy candles</span>
+</td>
+<td data-num="62">62</td>
+<td data-num="131900">131900</td>
+<td data-num="0.0004700530705">0.0004700530705</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('custom wedding candles')">Copy</button>
+<span>custom wedding candles</span>
+</td>
+<td data-num="27">27</td>
+<td data-num="58200">58200</td>
+<td data-num="0.0004639175258">0.0004639175258</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('wedding candle sticks')">Copy</button>
+<span>wedding candle sticks</span>
+</td>
+<td data-num="25">25</td>
+<td data-num="54500">54500</td>
+<td data-num="0.0004587155963">0.0004587155963</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('funny candle gift')">Copy</button>
+<span>funny candle gift</span>
+</td>
+<td data-num="53">53</td>
+<td data-num="116500">116500</td>
+<td data-num="0.0004549356223">0.0004549356223</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('novelty birthday candles')">Copy</button>
+<span>novelty birthday candles</span>
+</td>
+<td data-num="50">50</td>
+<td data-num="111600">111600</td>
+<td data-num="0.0004480286738">0.0004480286738</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('personalised candle gift')">Copy</button>
+<span>personalised candle gift</span>
+</td>
+<td data-num="30">30</td>
+<td data-num="69200">69200</td>
+<td data-num="0.0004335260116">0.0004335260116</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('scented soy candles')">Copy</button>
+<span>scented soy candles</span>
+</td>
+<td data-num="118">118</td>
+<td data-num="272300">272300</td>
+<td data-num="0.0004333455747">0.0004333455747</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('mini soy candles')">Copy</button>
+<span>mini soy candles</span>
+</td>
+<td data-num="65">65</td>
+<td data-num="155400">155400</td>
+<td data-num="0.0004182754183">0.0004182754183</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('housewarming gift candle')">Copy</button>
+<span>housewarming gift candle</span>
+</td>
+<td data-num="34">34</td>
+<td data-num="82000">82000</td>
+<td data-num="0.0004146341463">0.0004146341463</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('personalized candle for men')">Copy</button>
+<span>personalized candle for men</span>
+</td>
+<td data-num="24">24</td>
+<td data-num="59300">59300</td>
+<td data-num="0.0004047217538">0.0004047217538</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('letter birthday candles')">Copy</button>
+<span>letter birthday candles</span>
+</td>
+<td data-num="67">67</td>
+<td data-num="166100">166100</td>
+<td data-num="0.000403371463">0.000403371463</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('peony candle gift')">Copy</button>
+<span>peony candle gift</span>
+</td>
+<td data-num="27">27</td>
+<td data-num="67300">67300</td>
+<td data-num="0.0004011887073">0.0004011887073</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('birthday candle numbers')">Copy</button>
+<span>birthday candle numbers</span>
+</td>
+<td data-num="74">74</td>
+<td data-num="186500">186500</td>
+<td data-num="0.0003967828418">0.0003967828418</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('container candle')">Copy</button>
+<span>container candle</span>
+</td>
+<td data-num="62">62</td>
+<td data-num="156700">156700</td>
+<td data-num="0.0003956604978">0.0003956604978</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('custom candle with picture')">Copy</button>
+<span>custom candle with picture</span>
+</td>
+<td data-num="54">54</td>
+<td data-num="136700">136700</td>
+<td data-num="0.0003950256035">0.0003950256035</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('personalized candle friend')">Copy</button>
+<span>personalized candle friend</span>
+</td>
+<td data-num="16">16</td>
+<td data-num="40700">40700</td>
+<td data-num="0.0003931203931">0.0003931203931</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('custom soy candle')">Copy</button>
+<span>custom soy candle</span>
+</td>
+<td data-num="38">38</td>
+<td data-num="97900">97900</td>
+<td data-num="0.0003881511747">0.0003881511747</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('soy candle melts')">Copy</button>
+<span>soy candle melts</span>
+</td>
+<td data-num="19">19</td>
+<td data-num="49500">49500</td>
+<td data-num="0.0003838383838">0.0003838383838</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('custom container candles')">Copy</button>
+<span>custom container candles</span>
+</td>
+<td data-num="29">29</td>
+<td data-num="76300">76300</td>
+<td data-num="0.000380078637">0.000380078637</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('carved wedding candle')">Copy</button>
+<span>carved wedding candle</span>
+</td>
+<td data-num="18">18</td>
+<td data-num="47500">47500</td>
+<td data-num="0.0003789473684">0.0003789473684</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('hand poured soy candle')">Copy</button>
+<span>hand poured soy candle</span>
+</td>
+<td data-num="26">26</td>
+<td data-num="69600">69600</td>
+<td data-num="0.0003735632184">0.0003735632184</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('personalised candles wedding')">Copy</button>
+<span>personalised candles wedding</span>
+</td>
+<td data-num="15">15</td>
+<td data-num="40600">40600</td>
+<td data-num="0.0003694581281">0.0003694581281</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('personalized candle party favors')">Copy</button>
+<span>personalized candle party favors</span>
+</td>
+<td data-num="17">17</td>
+<td data-num="46800">46800</td>
+<td data-num="0.0003632478632">0.0003632478632</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('funny candles for friend')">Copy</button>
+<span>funny candles for friend</span>
+</td>
+<td data-num="26">26</td>
+<td data-num="72700">72700</td>
+<td data-num="0.0003576341128">0.0003576341128</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('funny candles gift')">Copy</button>
+<span>funny candles gift</span>
+</td>
+<td data-num="49">49</td>
+<td data-num="138600">138600</td>
+<td data-num="0.0003535353535">0.0003535353535</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('wedding candle decor')">Copy</button>
+<span>wedding candle decor</span>
+</td>
+<td data-num="38">38</td>
+<td data-num="107500">107500</td>
+<td data-num="0.0003534883721">0.0003534883721</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('small custom candles')">Copy</button>
+<span>small custom candles</span>
+</td>
+<td data-num="23">23</td>
+<td data-num="65200">65200</td>
+<td data-num="0.0003527607362">0.0003527607362</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('soy candle wax')">Copy</button>
+<span>soy candle wax</span>
+</td>
+<td data-num="80">80</td>
+<td data-num="226800">226800</td>
+<td data-num="0.0003527336861">0.0003527336861</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('funny candles for mom')">Copy</button>
+<span>funny candles for mom</span>
+</td>
+<td data-num="17">17</td>
+<td data-num="48400">48400</td>
+<td data-num="0.0003512396694">0.0003512396694</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('luxury scented candle')">Copy</button>
+<span>luxury scented candle</span>
+</td>
+<td data-num="29">29</td>
+<td data-num="82900">82900</td>
+<td data-num="0.0003498190591">0.0003498190591</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('funny candle for women')">Copy</button>
+<span>funny candle for women</span>
+</td>
+<td data-num="41">41</td>
+<td data-num="117900">117900</td>
+<td data-num="0.0003477523325">0.0003477523325</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('flower scented candle')">Copy</button>
+<span>flower scented candle</span>
+</td>
+<td data-num="23">23</td>
+<td data-num="67200">67200</td>
+<td data-num="0.0003422619048">0.0003422619048</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('floral scented candles')">Copy</button>
+<span>floral scented candles</span>
+</td>
+<td data-num="21">21</td>
+<td data-num="61800">61800</td>
+<td data-num="0.0003398058252">0.0003398058252</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('strong scented candles')">Copy</button>
+<span>strong scented candles</span>
+</td>
+<td data-num="33">33</td>
+<td data-num="97600">97600</td>
+<td data-num="0.0003381147541">0.0003381147541</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('new home gift candle')">Copy</button>
+<span>new home gift candle</span>
+</td>
+<td data-num="17">17</td>
+<td data-num="51100">51100</td>
+<td data-num="0.0003326810176">0.0003326810176</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('birthday gift candle')">Copy</button>
+<span>birthday gift candle</span>
+</td>
+<td data-num="41">41</td>
+<td data-num="128300">128300</td>
+<td data-num="0.000319563523">0.000319563523</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('housewarming candle gift')">Copy</button>
+<span>housewarming candle gift</span>
+</td>
+<td data-num="24">24</td>
+<td data-num="75300">75300</td>
+<td data-num="0.0003187250996">0.0003187250996</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('handmade scented candle')">Copy</button>
+<span>handmade scented candle</span>
+</td>
+<td data-num="20">20</td>
+<td data-num="62800">62800</td>
+<td data-num="0.0003184713376">0.0003184713376</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('vanilla soy candle')">Copy</button>
+<span>vanilla soy candle</span>
+</td>
+<td data-num="81">81</td>
+<td data-num="257300">257300</td>
+<td data-num="0.0003148076176">0.0003148076176</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('wedding personalized candle')">Copy</button>
+<span>wedding personalized candle</span>
+</td>
+<td data-num="19">19</td>
+<td data-num="60800">60800</td>
+<td data-num="0.0003125">0.0003125</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('birthday candle 1')">Copy</button>
+<span>birthday candle 1</span>
+</td>
+<td data-num="55">55</td>
+<td data-num="179500">179500</td>
+<td data-num="0.0003064066852">0.0003064066852</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('personalized candle favors')">Copy</button>
+<span>personalized candle favors</span>
+</td>
+<td data-num="63">63</td>
+<td data-num="206100">206100</td>
+<td data-num="0.0003056768559">0.0003056768559</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('gift candle')">Copy</button>
+<span>gift candle</span>
+</td>
+<td data-num="168">168</td>
+<td data-num="568800">568800</td>
+<td data-num="0.0002953586498">0.0002953586498</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('personalise candle')">Copy</button>
+<span>personalise candle</span>
+</td>
+<td data-num="22">22</td>
+<td data-num="76800">76800</td>
+<td data-num="0.0002864583333">0.0002864583333</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('soy candles set')">Copy</button>
+<span>soy candles set</span>
+</td>
+<td data-num="21">21</td>
+<td data-num="75500">75500</td>
+<td data-num="0.0002781456954">0.0002781456954</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('personalized soy candle')">Copy</button>
+<span>personalized soy candle</span>
+</td>
+<td data-num="48">48</td>
+<td data-num="174000">174000</td>
+<td data-num="0.000275862069">0.000275862069</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('custom candle scents')">Copy</button>
+<span>custom candle scents</span>
+</td>
+<td data-num="43">43</td>
+<td data-num="158600">158600</td>
+<td data-num="0.0002711223203">0.0002711223203</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('custom candle bulk')">Copy</button>
+<span>custom candle bulk</span>
+</td>
+<td data-num="70">70</td>
+<td data-num="266300">266300</td>
+<td data-num="0.0002628614345">0.0002628614345</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('small scented candles')">Copy</button>
+<span>small scented candles</span>
+</td>
+<td data-num="63">63</td>
+<td data-num="245400">245400</td>
+<td data-num="0.0002567237164">0.0002567237164</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('scented candle favors')">Copy</button>
+<span>scented candle favors</span>
+</td>
+<td data-num="32">32</td>
+<td data-num="125400">125400</td>
+<td data-num="0.0002551834131">0.0002551834131</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('corporate candle gifts')">Copy</button>
+<span>corporate candle gifts</span>
+</td>
+<td data-num="26">26</td>
+<td data-num="102700">102700</td>
+<td data-num="0.000253164557">0.000253164557</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('personalized birthday candles')">Copy</button>
+<span>personalized birthday candles</span>
+</td>
+<td data-num="58">58</td>
+<td data-num="236500">236500</td>
+<td data-num="0.000245243129">0.000245243129</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('gift candles')">Copy</button>
+<span>gift candles</span>
+</td>
+<td data-num="129">129</td>
+<td data-num="532200">532200</td>
+<td data-num="0.0002423900789">0.0002423900789</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('soy candle gifts')">Copy</button>
+<span>soy candle gifts</span>
+</td>
+<td data-num="90">90</td>
+<td data-num="376600">376600</td>
+<td data-num="0.0002389803505">0.0002389803505</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('mimeograph scented candle')">Copy</button>
+<span>mimeograph scented candle</span>
+</td>
+<td data-num="76">76</td>
+<td data-num="320100">320100</td>
+<td data-num="0.0002374258044">0.0002374258044</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('highly scented candles')">Copy</button>
+<span>highly scented candles</span>
+</td>
+<td data-num="38">38</td>
+<td data-num="160700">160700</td>
+<td data-num="0.0002364654636">0.0002364654636</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('mini candles gift')">Copy</button>
+<span>mini candles gift</span>
+</td>
+<td data-num="43">43</td>
+<td data-num="183000">183000</td>
+<td data-num="0.0002349726776">0.0002349726776</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('custom soy candles')">Copy</button>
+<span>custom soy candles</span>
+</td>
+<td data-num="48">48</td>
+<td data-num="206200">206200</td>
+<td data-num="0.0002327837051">0.0002327837051</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('personalised candle gifts')">Copy</button>
+<span>personalised candle gifts</span>
+</td>
+<td data-num="17">17</td>
+<td data-num="73100">73100</td>
+<td data-num="0.0002325581395">0.0002325581395</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('soy candle gift')">Copy</button>
+<span>soy candle gift</span>
+</td>
+<td data-num="58">58</td>
+<td data-num="249900">249900</td>
+<td data-num="0.0002320928371">0.0002320928371</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('soy scented candles')">Copy</button>
+<span>soy scented candles</span>
+</td>
+<td data-num="95">95</td>
+<td data-num="412900">412900</td>
+<td data-num="0.0002300799225">0.0002300799225</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('scented candle gift')">Copy</button>
+<span>scented candle gift</span>
+</td>
+<td data-num="62">62</td>
+<td data-num="271700">271700</td>
+<td data-num="0.0002281928598">0.0002281928598</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('luxury soy candle')">Copy</button>
+<span>luxury soy candle</span>
+</td>
+<td data-num="20">20</td>
+<td data-num="87800">87800</td>
+<td data-num="0.0002277904328">0.0002277904328</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('house warming gift candle')">Copy</button>
+<span>house warming gift candle</span>
+</td>
+<td data-num="22">22</td>
+<td data-num="99400">99400</td>
+<td data-num="0.0002213279678">0.0002213279678</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('soy candle vanilla')">Copy</button>
+<span>soy candle vanilla</span>
+</td>
+<td data-num="22">22</td>
+<td data-num="99800">99800</td>
+<td data-num="0.0002204408818">0.0002204408818</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('10 birthday candle')">Copy</button>
+<span>10 birthday candle</span>
+</td>
+<td data-num="46">46</td>
+<td data-num="211200">211200</td>
+<td data-num="0.0002178030303">0.0002178030303</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('soy candles and home fragrance')">Copy</button>
+<span>soy candles and home fragrance</span>
+</td>
+<td data-num="60">60</td>
+<td data-num="284100">284100</td>
+<td data-num="0.0002111932418">0.0002111932418</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('custom candle with logo')">Copy</button>
+<span>custom candle with logo</span>
+</td>
+<td data-num="28">28</td>
+<td data-num="132800">132800</td>
+<td data-num="0.0002108433735">0.0002108433735</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('personalized candle for wedding')">Copy</button>
+<span>personalized candle for wedding</span>
+</td>
+<td data-num="19">19</td>
+<td data-num="91300">91300</td>
+<td data-num="0.0002081051479">0.0002081051479</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('homemade soy candles')">Copy</button>
+<span>homemade soy candles</span>
+</td>
+<td data-num="29">29</td>
+<td data-num="139600">139600</td>
+<td data-num="0.0002077363897">0.0002077363897</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('funny candles for moms')">Copy</button>
+<span>funny candles for moms</span>
+</td>
+<td data-num="16">16</td>
+<td data-num="79300">79300</td>
+<td data-num="0.0002017654477">0.0002017654477</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('wedding custom candle')">Copy</button>
+<span>wedding custom candle</span>
+</td>
+<td data-num="19">19</td>
+<td data-num="96500">96500</td>
+<td data-num="0.0001968911917">0.0001968911917</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('small candle gift')">Copy</button>
+<span>small candle gift</span>
+</td>
+<td data-num="39">39</td>
+<td data-num="201700">201700</td>
+<td data-num="0.00019335647">0.00019335647</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('candle gift set thank you')">Copy</button>
+<span>candle gift set thank you</span>
+</td>
+<td data-num="18">18</td>
+<td data-num="96100">96100</td>
+<td data-num="0.0001873048907">0.0001873048907</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('bleach scented candle')">Copy</button>
+<span>bleach scented candle</span>
+</td>
+<td data-num="56">56</td>
+<td data-num="315400">315400</td>
+<td data-num="0.0001775523145">0.0001775523145</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('custom candles in bulk')">Copy</button>
+<span>custom candles in bulk</span>
+</td>
+<td data-num="23">23</td>
+<td data-num="131300">131300</td>
+<td data-num="0.0001751713633">0.0001751713633</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('customize candles')">Copy</button>
+<span>customize candles</span>
+</td>
+<td data-num="43">43</td>
+<td data-num="249100">249100</td>
+<td data-num="0.0001726214372">0.0001726214372</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('small personalized candles')">Copy</button>
+<span>small personalized candles</span>
+</td>
+<td data-num="23">23</td>
+<td data-num="137400">137400</td>
+<td data-num="0.0001673944687">0.0001673944687</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('custom scent candle')">Copy</button>
+<span>custom scent candle</span>
+</td>
+<td data-num="38">38</td>
+<td data-num="230200">230200</td>
+<td data-num="0.0001650738488">0.0001650738488</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('funny candle for friend')">Copy</button>
+<span>funny candle for friend</span>
+</td>
+<td data-num="21">21</td>
+<td data-num="134400">134400</td>
+<td data-num="0.00015625">0.00015625</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('gift for wedding candle')">Copy</button>
+<span>gift for wedding candle</span>
+</td>
+<td data-num="19">19</td>
+<td data-num="125800">125800</td>
+<td data-num="0.0001510333863">0.0001510333863</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('natural scented candle')">Copy</button>
+<span>natural scented candle</span>
+</td>
+<td data-num="24">24</td>
+<td data-num="175200">175200</td>
+<td data-num="0.0001369863014">0.0001369863014</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('custom candle gift')">Copy</button>
+<span>custom candle gift</span>
+</td>
+<td data-num="20">20</td>
+<td data-num="154500">154500</td>
+<td data-num="0.0001294498382">0.0001294498382</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('custom candle wedding')">Copy</button>
+<span>custom candle wedding</span>
+</td>
+<td data-num="12">12</td>
+<td data-num="94000">94000</td>
+<td data-num="0.0001276595745">0.0001276595745</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('candle gift for mom')">Copy</button>
+<span>candle gift for mom</span>
+</td>
+<td data-num="20">20</td>
+<td data-num="157800">157800</td>
+<td data-num="0.0001267427123">0.0001267427123</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('birthday candle gifts')">Copy</button>
+<span>birthday candle gifts</span>
+</td>
+<td data-num="24">24</td>
+<td data-num="191700">191700</td>
+<td data-num="0.0001251956182">0.0001251956182</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('custom scented candles')">Copy</button>
+<span>custom scented candles</span>
+</td>
+<td data-num="24">24</td>
+<td data-num="195100">195100</td>
+<td data-num="0.0001230138391">0.0001230138391</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('scented soy candle 8oz')">Copy</button>
+<span>scented soy candle 8oz</span>
+</td>
+<td data-num="30">30</td>
+<td data-num="252700">252700</td>
+<td data-num="0.0001187178472">0.0001187178472</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('custom personalized candle')">Copy</button>
+<span>custom personalized candle</span>
+</td>
+<td data-num="21">21</td>
+<td data-num="177500">177500</td>
+<td data-num="0.0001183098592">0.0001183098592</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('custom wax candle')">Copy</button>
+<span>custom wax candle</span>
+</td>
+<td data-num="13">13</td>
+<td data-num="111000">111000</td>
+<td data-num="0.0001171171171">0.0001171171171</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('candles gifts')">Copy</button>
+<span>candles gifts</span>
+</td>
+<td data-num="73">73</td>
+<td data-num="666700">666700</td>
+<td data-num="0.0001094945253">0.0001094945253</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('small gift candles')">Copy</button>
+<span>small gift candles</span>
+</td>
+<td data-num="26">26</td>
+<td data-num="237700">237700</td>
+<td data-num="0.0001093815734">0.0001093815734</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('custom candle for mom')">Copy</button>
+<span>custom candle for mom</span>
+</td>
+<td data-num="12">12</td>
+<td data-num="112800">112800</td>
+<td data-num="0.0001063829787">0.0001063829787</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('decorative soy candles')">Copy</button>
+<span>decorative soy candles</span>
+</td>
+<td data-num="28">28</td>
+<td data-num="266700">266700</td>
+<td data-num="0.0001049868766">0.0001049868766</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('decorative scented candle')">Copy</button>
+<span>decorative scented candle</span>
+</td>
+<td data-num="31">31</td>
+<td data-num="297400">297400</td>
+<td data-num="0.0001042367182">0.0001042367182</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('personal candle')">Copy</button>
+<span>personal candle</span>
+</td>
+<td data-num="31">31</td>
+<td data-num="297600">297600</td>
+<td data-num="0.0001041666667">0.0001041666667</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('soy candles gift')">Copy</button>
+<span>soy candles gift</span>
+</td>
+<td data-num="40">40</td>
+<td data-num="389400">389400</td>
+<td data-num="0.0001027221366">0.0001027221366</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('personalize candles')">Copy</button>
+<span>personalize candles</span>
+</td>
+<td data-num="21">21</td>
+<td data-num="208900">208900</td>
+<td data-num="0.0001005265677">0.0001005265677</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('scent candles')">Copy</button>
+<span>scent candles</span>
+</td>
+<td data-num="35">35</td>
+<td data-num="365000">365000</td>
+<td data-num="9.589041096e-05">9.589041096e-05</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('scented candle gifts')">Copy</button>
+<span>scented candle gifts</span>
+</td>
+<td data-num="19">19</td>
+<td data-num="202900">202900</td>
+<td data-num="9.364218827e-05">9.364218827e-05</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('personalized candle with photo')">Copy</button>
+<span>personalized candle with photo</span>
+</td>
+<td data-num="17">17</td>
+<td data-num="184200">184200</td>
+<td data-num="9.229098806e-05">9.229098806e-05</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('custom candle birthday')">Copy</button>
+<span>custom candle birthday</span>
+</td>
+<td data-num="28">28</td>
+<td data-num="304200">304200</td>
+<td data-num="9.204470743e-05">9.204470743e-05</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('bulk custom candles')">Copy</button>
+<span>bulk custom candles</span>
+</td>
+<td data-num="16">16</td>
+<td data-num="177900">177900</td>
+<td data-num="8.993816751e-05">8.993816751e-05</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('personalized candles favors')">Copy</button>
+<span>personalized candles favors</span>
+</td>
+<td data-num="16">16</td>
+<td data-num="178000">178000</td>
+<td data-num="8.988764045e-05">8.988764045e-05</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('unique scented candles')">Copy</button>
+<span>unique scented candles</span>
+</td>
+<td data-num="37">37</td>
+<td data-num="442300">442300</td>
+<td data-num="8.365362876e-05">8.365362876e-05</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('natural wax candle')">Copy</button>
+<span>natural wax candle</span>
+</td>
+<td data-num="11">11</td>
+<td data-num="134100">134100</td>
+<td data-num="8.202833706e-05">8.202833706e-05</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('personal candles')">Copy</button>
+<span>personal candles</span>
+</td>
+<td data-num="20">20</td>
+<td data-num="247600">247600</td>
+<td data-num="8.077544426e-05">8.077544426e-05</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('organic soy candle')">Copy</button>
+<span>organic soy candle</span>
+</td>
+<td data-num="32">32</td>
+<td data-num="437100">437100</td>
+<td data-num="7.320979181e-05">7.320979181e-05</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('personalize candle')">Copy</button>
+<span>personalize candle</span>
+</td>
+<td data-num="27">27</td>
+<td data-num="399100">399100</td>
+<td data-num="6.765221749e-05">6.765221749e-05</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('home gifts candles')">Copy</button>
+<span>home gifts candles</span>
+</td>
+<td data-num="28">28</td>
+<td data-num="464200">464200</td>
+<td data-num="6.031882809e-05">6.031882809e-05</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('small custom candle')">Copy</button>
+<span>small custom candle</span>
+</td>
+<td data-num="19">19</td>
+<td data-num="318700">318700</td>
+<td data-num="5.961719485e-05">5.961719485e-05</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('funny candle gifts')">Copy</button>
+<span>funny candle gifts</span>
+</td>
+<td data-num="21">21</td>
+<td data-num="352900">352900</td>
+<td data-num="5.950694248e-05">5.950694248e-05</td>
+</tr>
+
+
+<tr>
+<td class="keyword">
+<button class="copyBtn" onclick="copyKeyword('small candle gifts')">Copy</button>
+<span>small candle gifts</span>
+</td>
+<td data-num="31">31</td>
+<td data-num="646100">646100</td>
+<td data-num="4.798018883e-05">4.798018883e-05</td>
+</tr>
+
+</tbody>
+
+</table>
+
+<div class="pagination" id="pagination"></div>
+
+<script>
+
+let rowsPerPage = 50;
+let currentPage = 1;
+
+let sortDir={};
+
+function sortTable(col,type){
+const table=document.getElementById("keywordTable");
+const tbody=table.tBodies[0];
+const rows=Array.from(tbody.rows);
+
+sortDir[col]=!sortDir[col];
+
+rows.sort((a,b)=>{
+let A=a.cells[col].dataset.num || a.cells[col].innerText.toLowerCase();
+let B=b.cells[col].dataset.num || b.cells[col].innerText.toLowerCase();
+
+if(type==="num"){
+A=parseFloat(A);
+B=parseFloat(B);
+return sortDir[col]?A-B:B-A;
+} else {
+return sortDir[col]?A.localeCompare(B):B.localeCompare(A);
+}
+});
+
+rows.forEach(r=>tbody.appendChild(r));
+paginate();
+}
+
+function copyKeyword(text){
+navigator.clipboard.writeText(text);
+}
+
+document.getElementById("searchBox").addEventListener("keyup",function(){
+const filter=this.value.toLowerCase();
+const rows=document.querySelectorAll("#tableBody tr");
+
+rows.forEach(row=>{
+const text=row.innerText.toLowerCase();
+row.style.display=text.includes(filter)?"":"none";
+});
+
+paginate();
+});
+
+function paginate(){
+const rows = Array.from(document.querySelectorAll("#tableBody tr")).filter(r=>r.style.display!=="none");
+const pageCount = Math.ceil(rows.length/rowsPerPage);
+
+rows.forEach((row,i)=>{
+row.style.display = (Math.floor(i/rowsPerPage)+1===currentPage) ? "" : "none";
+});
+
+const pagination=document.getElementById("pagination");
+pagination.innerHTML="";
+
+for(let i=1;i<=pageCount;i++){
+
+const btn=document.createElement("button");
+btn.innerText=i;
+
+btn.onclick=function(){
+currentPage=i;
+paginate();
+};
+
+pagination.appendChild(btn);
+
+}
+}
+
+paginate();
+
+</script>
+
+</body>
+</html>
