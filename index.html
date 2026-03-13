@@ -10,7 +10,6 @@ font-family: Arial, sans-serif;
 background:#fafafa;
 margin:20px;
 width:100%;
-min-height:4500px;
 }
 
 h1{
@@ -144,7 +143,6 @@ body.appendChild(tr);
 
 });
 
-sendHeight();
 }
 
 function copyKeyword(text){
@@ -190,14 +188,12 @@ renderTable(tableData);
 
 }
 
-function sendHeight(){
-const height=document.body.scrollHeight;
-window.parent.postMessage({iframeHeight:height},"*");
-}
-
 loadCSV("Top-etsy-search-terms-q4-2025.csv");
 
 </script>
+
+<!-- Spacer to force taller iframe in Fourthwall -->
+<div style="height:5000px;"></div>
 
 </body>
 </html>
