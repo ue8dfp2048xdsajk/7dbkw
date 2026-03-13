@@ -62,6 +62,31 @@ padding:5px 10px;
 margin-right:10px;
 cursor:pointer;
 }
+
+.table-hint{
+font-size:12px;
+color:#777;
+margin-bottom:8px;
+}
+
+th{
+background:#f4f4f4;
+cursor:pointer;
+position:sticky;
+top:0;
+z-index:2;
+}
+
+th.sorted{
+background:#e9f2ff;
+}
+
+th .sort-icon{
+font-size:11px;
+margin-left:6px;
+color:#999;
+}
+
 </style>
 
 </head>
@@ -104,14 +129,15 @@ Search Keywords
 
 </div>
 
+<div class="table-hint">Click any column heading to sort ⇅</div>
 <table id="keywordTable">
 
 <thead>
 <tr>
-<th onclick="sortTable(0,'text')">Keyword</th>
-<th onclick="sortTable(1,'num')">Searches</th>
-<th onclick="sortTable(2,'num')">Results</th>
-<th onclick="sortTable(3,'num')">Search:Result</th>
+<th onclick="sortTable(0,'text')">Keyword <span class="sort-icon">⇅</span></th>
+<th onclick="sortTable(1,'num')">Searches <span class="sort-icon">⇅</span></th>
+<th onclick="sortTable(2,'num')">Results <span class="sort-icon">⇅</span></th>
+<th onclick="sortTable(3,'num')">Search:Result <span class="sort-icon">⇅</span></th>
 </tr>
 </thead>
 
@@ -143,7 +169,26 @@ let tableData=[]
 let currentData=[]
 let sortDir={}
 
-function init(){
+function 
+function highlightSortedColumn(col){
+
+document.querySelectorAll("#keywordTable th").forEach(th=>th.classList.remove("sorted"))
+document.querySelectorAll("#keywordTable th")[col].classList.add("sorted")
+
+}
+
+function updateSortIcons(col){
+
+document.querySelectorAll("#keywordTable th .sort-icon").forEach(icon=>{
+icon.textContent="⇅"
+})
+
+const icon=document.querySelectorAll("#keywordTable th .sort-icon")[col]
+icon.textContent=sortDir[col]?"↑":"↓"
+
+}
+
+init(){
 
 const dbSelect=document.getElementById("databaseSelect")
 
@@ -271,6 +316,10 @@ return sortDir[col]?A.localeCompare(B):B.localeCompare(A)
 
 })
 
+highlightSortedColumn(col)
+
+updateSortIcons(col)
+
 renderTable(currentData)
 
 }
@@ -282,6 +331,25 @@ loadCSV(this.value)
 
 document.querySelectorAll("#minSearch,#maxResults,#minRatio,#keywordFilter")
 .forEach(el=>el.addEventListener("input",applyFilters))
+
+
+function highlightSortedColumn(col){
+
+document.querySelectorAll("#keywordTable th").forEach(th=>th.classList.remove("sorted"))
+document.querySelectorAll("#keywordTable th")[col].classList.add("sorted")
+
+}
+
+function updateSortIcons(col){
+
+document.querySelectorAll("#keywordTable th .sort-icon").forEach(icon=>{
+icon.textContent="⇅"
+})
+
+const icon=document.querySelectorAll("#keywordTable th .sort-icon")[col]
+icon.textContent=sortDir[col]?"↑":"↓"
+
+}
 
 init()
 
