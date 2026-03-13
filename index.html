@@ -108,8 +108,13 @@ border:1px solid #ccc;
 background:white;
 border-radius:4px;
 }
-</style>
 
+#resultCount{
+font-size:13px;
+color:#666;
+margin-bottom:10px;
+}
+</style>
 </head>
 
 <body>
@@ -156,9 +161,9 @@ Search Keywords
 </div>
 
 <div class="table-hint">Click any column heading to sort ⇅</div>
+<div id="resultCount"></div>
 
 <table id="keywordTable">
-
 <thead>
 <tr>
 <th onclick="sortTable(0,'text')">Keyword <span class="sort-icon">⇅</span></th>
@@ -169,7 +174,6 @@ Search Keywords
 </thead>
 
 <tbody id="tableBody"></tbody>
-
 </table>
 
 <div class="pagination">
@@ -180,7 +184,31 @@ Search Keywords
 
 <script>
 
-const DATABASES = [
+/* TOKEN PROTECTION */
+const token = new URLSearchParams(window.location.search).get("t");
+if(token !== "members-7k39f4x2"){
+document.body.innerHTML="Access restricted";
+throw new Error("Unauthorized");
+}
+
+/* DISABLE RIGHT CLICK */
+document.addEventListener("contextmenu", e => e.preventDefault());
+
+/* DISABLE DEVTOOLS SHORTCUTS */
+document.onkeydown=function(e){
+if(
+e.keyCode===123 || 
+(e.ctrlKey && e.shiftKey && e.keyCode===73) ||
+(e.ctrlKey && e.shiftKey && e.keyCode===74) ||
+(e.ctrlKey && e.shiftKey && e.keyCode===67) ||
+(e.ctrlKey && e.keyCode===85) ||
+(e.ctrlKey && e.keyCode===83)
+){
+return false;
+}
+};
+
+const DATABASES=[
 {
 name:"Top Etsy Search Terms",
 dates:{
@@ -200,8 +228,8 @@ let currentData=[]
 let sortDir={}
 let currentSortCol=null
 
-let pageSize = 2000
-let currentPage = 1
+let pageSize=2000
+let currentPage=1
 
 function init(){
 
@@ -215,7 +243,6 @@ dbSelect.appendChild(opt)
 })
 
 updateDates()
-
 }
 
 function updateDates(){
@@ -237,7 +264,6 @@ dateSelect.appendChild(opt)
 })
 
 loadCSV(dateSelect.value)
-
 }
 
 async function loadCSV(file){
@@ -246,7 +272,6 @@ const response=await fetch(file)
 const text=await response.text()
 
 const rows=text.trim().split("\n").map(r=>r.split(","))
-
 rows.shift()
 
 tableData=rows.map(r=>({
@@ -260,7 +285,6 @@ currentData=[...tableData]
 currentPage=1
 
 renderTable()
-
 }
 
 function renderTable(){
@@ -268,9 +292,10 @@ function renderTable(){
 const body=document.getElementById("tableBody")
 body.innerHTML=""
 
+const fragment=document.createDocumentFragment()
+
 const start=(currentPage-1)*pageSize
-const end=start+pageSize
-const pageData=currentData.slice(start,end)
+const pageData=currentData.slice(start,start+pageSize)
 
 pageData.forEach(row=>{
 
@@ -286,30 +311,40 @@ ${row.keyword}
 <td>${row.ratio}</td>
 `
 
-body.appendChild(tr)
+fragment.appendChild(tr)
 
 })
 
-updatePageInfo()
+body.appendChild(fragment)
 
+updatePageInfo()
+updateResultCount(pageData.length)
 }
 
 function updatePageInfo(){
 
 const totalPages=Math.ceil(currentData.length/pageSize)
+
 document.getElementById("pageInfo").textContent=
 "Page "+currentPage+" of "+(totalPages||1)
+}
 
+function updateResultCount(visible){
+
+const total=currentData.length
+
+document.getElementById("resultCount").textContent=
+"Showing "+visible+" of "+total.toLocaleString()+" keywords"
 }
 
 function nextPage(){
 
 const totalPages=Math.ceil(currentData.length/pageSize)
+
 if(currentPage<totalPages){
 currentPage++
 renderTable()
 }
-
 }
 
 function prevPage(){
@@ -318,7 +353,6 @@ if(currentPage>1){
 currentPage--
 renderTable()
 }
-
 }
 
 function copyKeyword(text){
@@ -344,8 +378,17 @@ row.keyword.toLowerCase().includes(keyword)
 currentData=filtered
 currentPage=1
 renderTable()
-
 }
+
+function debounce(func,delay){
+let timeout;
+return function(){
+clearTimeout(timeout)
+timeout=setTimeout(func,delay)
+}
+}
+
+const debouncedFilter=debounce(applyFilters,300)
 
 function sortTable(col,type){
 
@@ -362,12 +405,10 @@ return sortDir[col]?A-B:B-A
 }
 
 return sortDir[col]?A.localeCompare(B):B.localeCompare(A)
-
 })
 
 updateSortUI()
 renderTable()
-
 }
 
 function updateSortUI(){
@@ -385,9 +426,7 @@ th.classList.add("sorted")
 
 const icon=th.querySelector(".sort-icon")
 icon.textContent=sortDir[currentSortCol]?"↑":"↓"
-
 }
-
 }
 
 document.getElementById("databaseSelect").addEventListener("change",updateDates)
@@ -397,11 +436,10 @@ loadCSV(this.value)
 })
 
 document.querySelectorAll("#minSearch,#maxResults,#minRatio,#keywordFilter")
-.forEach(el=>el.addEventListener("input",applyFilters))
+.forEach(el=>el.addEventListener("input",debouncedFilter))
 
 init()
 
 </script>
-
 </body>
 </html>
