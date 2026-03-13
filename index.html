@@ -621,9 +621,24 @@ e.preventDefault();
 
 const DATABASES=[
 {
-name:"General Etsy Search Terms",
+name:"[NEW!] All Search Terms",
 dates:{
-"2025 Q4":"Top-etsy-search-terms-2025-Q4.csv"
+"2026 Q1":[
+"POD-jewelry-search-terms-2026-Q1.csv",
+"tumbler-search-terms-2026-Q1.csv",
+"candle-search-terms-2026-Q1.csv",
+"POD-product-type-search-terms-2026-Q1.csv",
+"Mug-search-terms-2026-Q1.csv",
+"Wall-art-search-terms-2026-Q1.csv",
+"Sticker-Search-Terms-2026-Q1.csv",
+"Sweatshirts-Hoodies-search-terms-2026-Q1.csv",
+"Hat-search-terms-2026-Q1.csv"
+],
+"2025 Q4":[
+"Top-etsy-search-terms-2025-Q4.csv",
+"Digital-products-search-terms-2025-Q4.csv",
+"T-shirt-search-terms-2025-Q4.csv"
+]
 }
 },
 {
@@ -642,6 +657,12 @@ dates:{
 name:"[NEW!] Candle Search Terms",
 dates:{
 "2026 Q1":"candle-search-terms-2026-Q1.csv"
+}
+},
+{
+name:"General Etsy Search Terms",
+dates:{
+"2025 Q4":"Top-etsy-search-terms-2025-Q4.csv"
 }
 },
 {
@@ -733,31 +754,63 @@ dateSelect.innerHTML=""
 Object.keys(db.dates).forEach(date=>{
 
 const opt=document.createElement("option")
-opt.value=db.dates[date]
+const fileValue=db.dates[date]
+opt.value=Array.isArray(fileValue)?JSON.stringify(fileValue):fileValue
 opt.textContent=date
 
 dateSelect.appendChild(opt)
 
 })
 
-loadCSV(dateSelect.value)
+loadData(dateSelect.value)
 }
 
-async function loadCSV(file){
+async function loadData(fileValue){
 
+let files=[]
+try{
+const parsed=JSON.parse(fileValue)
+if(Array.isArray(parsed)){
+files=parsed
+}else{
+files=[fileValue]
+}
+}catch(e){
+files=[fileValue]
+}
+
+let allData=[]
+
+for(const file of files){
 const response=await fetch(file)
 const text=await response.text()
 
 const rows=text.trim().split("\n").map(r=>r.split(","))
 rows.shift()
 
-tableData=rows.map(r=>({
+const fileData=rows.map(r=>({
 keyword:r[0],
 searches:parseFloat(r[1]),
 results:parseFloat(r[2]),
 ratio:parseFloat(r[3])
 }))
 .filter(r=>!isNaN(r.searches) && !isNaN(r.results) && !isNaN(r.ratio))
+
+allData=allData.concat(fileData)
+}
+
+if(files.length>1){
+const keywordMap=new Map()
+allData.forEach(row=>{
+const key=row.keyword.toLowerCase()
+if(!keywordMap.has(key)){
+keywordMap.set(key,row)
+}
+})
+tableData=Array.from(keywordMap.values())
+}else{
+tableData=allData
+}
 
 currentData=[...tableData]
 currentPage=1
@@ -923,7 +976,7 @@ icon.textContent=sortDir[currentSortCol]?"↑":"↓"
 document.getElementById("databaseSelect").addEventListener("change",updateDates)
 
 document.getElementById("dateSelect").addEventListener("change",function(){
-loadCSV(this.value)
+loadData(this.value)
 })
 
 document.querySelectorAll("#minSearch,#maxResults,#minRatio,#keywordFilter")
