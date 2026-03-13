@@ -35,6 +35,12 @@ border-radius:6px;
 font-size:14px;
 }
 
+.table-hint{
+font-size:12px;
+color:#777;
+margin-bottom:8px;
+}
+
 table{
 border-collapse:collapse;
 width:100%;
@@ -51,6 +57,19 @@ text-align:left;
 th{
 background:#f4f4f4;
 cursor:pointer;
+position:sticky;
+top:0;
+z-index:2;
+}
+
+th.sorted{
+background:#e9f2ff;
+}
+
+.sort-icon{
+font-size:11px;
+margin-left:6px;
+color:#999;
 }
 
 tr:hover{
@@ -62,31 +81,6 @@ padding:5px 10px;
 margin-right:10px;
 cursor:pointer;
 }
-
-.table-hint{
-font-size:12px;
-color:#777;
-margin-bottom:8px;
-}
-
-th{
-background:#f4f4f4;
-cursor:pointer;
-position:sticky;
-top:0;
-z-index:2;
-}
-
-th.sorted{
-background:#e9f2ff;
-}
-
-th .sort-icon{
-font-size:11px;
-margin-left:6px;
-color:#999;
-}
-
 </style>
 
 </head>
@@ -130,6 +124,7 @@ Search Keywords
 </div>
 
 <div class="table-hint">Click any column heading to sort ⇅</div>
+
 <table id="keywordTable">
 
 <thead>
@@ -168,27 +163,9 @@ dates:{
 let tableData=[]
 let currentData=[]
 let sortDir={}
+let currentSortCol=null
 
-function 
-function highlightSortedColumn(col){
-
-document.querySelectorAll("#keywordTable th").forEach(th=>th.classList.remove("sorted"))
-document.querySelectorAll("#keywordTable th")[col].classList.add("sorted")
-
-}
-
-function updateSortIcons(col){
-
-document.querySelectorAll("#keywordTable th .sort-icon").forEach(icon=>{
-icon.textContent="⇅"
-})
-
-const icon=document.querySelectorAll("#keywordTable th .sort-icon")[col]
-icon.textContent=sortDir[col]?"↑":"↓"
-
-}
-
-init(){
+function init(){
 
 const dbSelect=document.getElementById("databaseSelect")
 
@@ -302,6 +279,7 @@ renderTable(filtered)
 function sortTable(col,type){
 
 sortDir[col]=!sortDir[col]
+currentSortCol=col
 
 currentData.sort((a,b)=>{
 
@@ -316,11 +294,29 @@ return sortDir[col]?A.localeCompare(B):B.localeCompare(A)
 
 })
 
-highlightSortedColumn(col)
-
-updateSortIcons(col)
+updateSortUI()
 
 renderTable(currentData)
+
+}
+
+function updateSortUI(){
+
+document.querySelectorAll("#keywordTable th").forEach((th,i)=>{
+th.classList.remove("sorted")
+const icon=th.querySelector(".sort-icon")
+icon.textContent="⇅"
+})
+
+if(currentSortCol!==null){
+
+const th=document.querySelectorAll("#keywordTable th")[currentSortCol]
+th.classList.add("sorted")
+
+const icon=th.querySelector(".sort-icon")
+icon.textContent=sortDir[currentSortCol]?"↑":"↓"
+
+}
 
 }
 
@@ -331,25 +327,6 @@ loadCSV(this.value)
 
 document.querySelectorAll("#minSearch,#maxResults,#minRatio,#keywordFilter")
 .forEach(el=>el.addEventListener("input",applyFilters))
-
-
-function highlightSortedColumn(col){
-
-document.querySelectorAll("#keywordTable th").forEach(th=>th.classList.remove("sorted"))
-document.querySelectorAll("#keywordTable th")[col].classList.add("sorted")
-
-}
-
-function updateSortIcons(col){
-
-document.querySelectorAll("#keywordTable th .sort-icon").forEach(icon=>{
-icon.textContent="⇅"
-})
-
-const icon=document.querySelectorAll("#keywordTable th .sort-icon")[col]
-icon.textContent=sortDir[col]?"↑":"↓"
-
-}
 
 init()
 
