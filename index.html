@@ -1,1142 +1,1020 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Most Accurate POD Profit Calculator by Tia TX ©</title>
+<title>Etsy Keyword Database by Tia TX ©</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 
 <style>
-* {
-  box-sizing: border-box;
+*{
+box-sizing: border-box;
+}
+
+body{
+font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+background: #1a1a1a;
+margin: 0;
+padding: 40px 20px 0 20px;
+min-height: 100vh;
+
+/* Disable text selection */
+user-select: none;
+-webkit-user-select: none;
+-moz-user-select: none;
+-ms-user-select: none;
+}
+
+.container{
+max-width: 1300px;
+margin: 0 auto;
+background: white;
+border-radius: 16px;
+box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+overflow: hidden;
+}
+
+.header{
+background: linear-gradient(135deg, #00bfa5 0%, #00897b 100%);
+color: white;
+padding: 40px 40px 30px;
+position: relative;
+overflow: hidden;
+}
+
+.header::before{
+content: '';
+position: absolute;
+top: -50%;
+right: -10%;
+width: 400px;
+height: 400px;
+background: radial-gradient(circle, rgba(255,255,255,0.15) 0%, transparent 70%);
+border-radius: 50%;
+}
+
+.header h1{
+margin: 0 0 10px 0;
+font-size: 32px;
+font-weight: 700;
+letter-spacing: -0.5px;
+position: relative;
+z-index: 1;
+}
+
+.header .subtitle{
+font-size: 18px;
+opacity: 0.95;
+font-weight: 500;
+position: relative;
+z-index: 1;
+}
+
+.content{
+padding: 40px;
+}
+
+.info-box{
+background: linear-gradient(135deg, #e0f2f1 0%, #f1f8f7 100%);
+border-left: 4px solid #00bfa5;
+padding: 20px 24px;
+margin-bottom: 24px;
+font-size: 14px;
+color: #1a1a1a;
+border-radius: 8px;
+line-height: 1.6;
+box-shadow: 0 2px 8px rgba(0,191,165,0.1);
+}
+
+.info-box a{
+color: #00897b;
+font-weight: 600;
+text-decoration: none;
+transition: color 0.2s;
+}
+
+.info-box a:hover{
+color: #00695c;
+text-decoration: underline;
+}
+
+.copyright-box{
+background: linear-gradient(135deg, #f5f5f5 0%, #fafafa 100%);
+border-left: 4px solid #757575;
+padding: 16px 24px;
+margin-bottom: 32px;
+font-size: 13px;
+color: #424242;
+border-radius: 8px;
+font-weight: 500;
+}
+
+.controls{
+display: grid;
+grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+gap: 20px;
+margin-bottom: 32px;
+}
+
+.controls label{
+font-size: 13px;
+font-weight: 600;
+display: flex;
+flex-direction: column;
+color: #424242;
+text-transform: uppercase;
+letter-spacing: 0.5px;
+}
+
+.controls label span{
+margin-bottom: 8px;
+}
+
+input, select{
+padding: 12px 16px;
+border: 2px solid #e0e0e0;
+border-radius: 8px;
+font-size: 14px;
+font-family: inherit;
+transition: all 0.2s;
+background: white;
+margin-top: 8px;
+
+/* Allow selection inside inputs */
+user-select: auto;
+-webkit-user-select: auto;
+-moz-user-select: auto;
+-ms-user-select: auto;
+}
+
+input:focus, select:focus{
+outline: none;
+border-color: #00bfa5;
+box-shadow: 0 0 0 3px rgba(0,191,165,0.1);
+}
+
+input::placeholder{
+color: #9e9e9e;
+}
+
+.table-section{
+background: #fafafa;
+padding: 24px;
+border-radius: 12px;
+margin-bottom: 24px;
+}
+
+.table-header{
+display: flex;
+justify-content: space-between;
+align-items: center;
+margin-bottom: 16px;
+flex-wrap: wrap;
+gap: 12px;
+}
+
+.table-hint{
+font-size: 13px;
+color: #616161;
+font-weight: 500;
+display: flex;
+align-items: center;
+gap: 6px;
+}
+
+.table-hint::before{
+content: 'ℹ';
+background: #00bfa5;
+color: white;
+width: 20px;
+height: 20px;
+border-radius: 50%;
+display: inline-flex;
+align-items: center;
+justify-content: center;
+font-size: 12px;
+font-weight: bold;
+}
+
+#resultCount{
+font-size: 14px;
+color: #424242;
+font-weight: 600;
+background: white;
+padding: 8px 16px;
+border-radius: 6px;
+border: 2px solid #e0e0e0;
+}
+
+.table-wrapper{
+background: white;
+border-radius: 12px;
+overflow: auto;
+max-height: 700px;
+box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+border: 1px solid #e0e0e0;
+position: relative;
+}
+
+table{
+border-collapse: collapse;
+width: 100%;
+background: white;
 }
 
-body {
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-  background: #1a1a1a;
-  margin: 0;
-  padding: 40px 20px;
-  min-height: 100vh;
-}
-
-.container {
-  max-width: 1600px;
-  margin: 0 auto;
-  background: white;
-  border-radius: 16px;
-  box-shadow: 0 20px 60px rgba(0,0,0,0.3);
-  overflow: hidden;
+th, td{
+padding: 16px 20px;
+text-align: left;
+border-bottom: 1px solid #f0f0f0;
 }
 
-.header {
-  background: linear-gradient(135deg, #00bfa5 0%, #00897b 100%);
-  color: white;
-  padding: 40px 40px 30px;
-  position: relative;
-  overflow: hidden;
+th{
+background: linear-gradient(180deg, #fafafa 0%, #f5f5f5 100%);
+cursor: pointer;
+position: sticky;
+top: 0;
+z-index: 2;
+font-weight: 700;
+font-size: 13px;
+text-transform: uppercase;
+letter-spacing: 0.5px;
+color: #424242;
+transition: background 0.2s;
+border-bottom: 2px solid #e0e0e0;
 }
 
-.header::before {
-  content: '';
-  position: absolute;
-  top: -50%;
-  right: -10%;
-  width: 400px;
-  height: 400px;
-  background: radial-gradient(circle, rgba(255,255,255,0.15) 0%, transparent 70%);
-  border-radius: 50%;
-}
-
-.header h1 {
-  margin: 0 0 8px 0;
-  font-size: 32px;
-  font-weight: 700;
-  letter-spacing: -0.5px;
-  position: relative;
-  z-index: 1;
-}
-
-.header .subtitle {
-  font-size: 16px;
-  opacity: 0.9;
-  font-weight: 500;
-  position: relative;
-  z-index: 1;
+th:hover{
+background: linear-gradient(180deg, #f5f5f5 0%, #eeeeee 100%);
 }
 
-.layout {
-  display: flex;
-  height: calc(100vh - 120px);
-  min-height: 600px;
+th.sorted{
+background: linear-gradient(180deg, #e0f2f1 0%, #b2dfdb 100%);
+color: #00897b;
 }
 
-.left {
-  width: 320px;
-  min-width: 280px;
-  padding: 28px 24px;
-  overflow-y: auto;
-  background: #fafafa;
-  border-right: 1px solid #e8e8e8;
-  flex-shrink: 0;
-}
-
-.right {
-  flex: 1;
-  padding: 28px 32px;
-  overflow-x: auto;
-  overflow-y: auto;
-}
-
-.left h2, .right h2 {
-  margin: 0 0 20px 0;
-  font-size: 18px;
-  font-weight: 700;
-  color: #1a1a1a;
-}
-
-.left h3 {
-  font-size: 12px;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.8px;
-  color: #757575;
-  margin: 20px 0 10px 0;
-  padding-bottom: 6px;
-  border-bottom: 2px solid #e0e0e0;
-}
-
-.left h3:first-of-type {
-  margin-top: 0;
-}
+.sort-icon{
+font-size: 12px;
+margin-left: 6px;
+opacity: 0.6;
+}
 
-label {
-  display: block;
-  font-size: 12px;
-  font-weight: 600;
-  color: #424242;
-  margin-top: 10px;
-  margin-bottom: 4px;
-  text-transform: uppercase;
-  letter-spacing: 0.4px;
-}
-
-label[style*="color:green"], label[style*="color: green"] {
-  color: #00897b !important;
-}
-
-label[style*="color:red"], label[style*="color: red"] {
-  color: #e53935 !important;
-}
-
-input[type="text"],
-input[type="number"],
-input:not([type="checkbox"]):not([type="radio"]) {
-  width: 100%;
-  padding: 9px 12px;
-  margin-bottom: 4px;
-  border: 2px solid #e0e0e0;
-  border-radius: 8px;
-  font-size: 13px;
-  font-family: inherit;
-  background: #f5f5f5;
-  color: #212121;
-  transition: all 0.2s;
-  appearance: none;
-  -webkit-appearance: none;
-}
-
-input:not([type="checkbox"]):not([type="radio"]):not(:placeholder-shown) {
-  background: white;
-  border-color: #b2dfdb;
-}
-
-input:not([type="checkbox"]):not([type="radio"]):focus {
-  outline: none;
-  border-color: #00bfa5;
-  background: white;
-  box-shadow: 0 0 0 3px rgba(0,191,165,0.1);
-}
-
-input::placeholder {
-  color: #bdbdbd;
-}
-
-input[type="checkbox"],
-input[type="radio"] {
-  width: auto;
-  margin-right: 6px;
-  accent-color: #00bfa5;
-}
-
-label:has(input[type="checkbox"]),
-label:has(input[type="radio"]) {
-  display: flex;
-  align-items: center;
-  font-size: 13px;
-  font-weight: 500;
-  text-transform: none;
-  letter-spacing: 0;
-  color: #424242;
-  cursor: pointer;
-  margin-top: 8px;
-}
-
-select {
-  width: 100%;
-  padding: 9px 12px;
-  margin-bottom: 8px;
-  border: 2px solid #e0e0e0;
-  border-radius: 8px;
-  font-size: 13px;
-  font-family: inherit;
-  background: white;
-  color: #212121;
-  display: block;
-  cursor: pointer;
-  transition: all 0.2s;
-  appearance: none;
-  -webkit-appearance: none;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23757575' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
-  background-repeat: no-repeat;
-  background-position: right 12px center;
-  padding-right: 32px;
-}
-
-select:focus {
-  outline: none;
-  border-color: #00bfa5;
-  box-shadow: 0 0 0 3px rgba(0,191,165,0.1);
-}
-
-button:not(.tooltip-btn) {
-  padding: 9px 16px;
-  cursor: pointer;
-  background: linear-gradient(135deg, #00bfa5 0%, #00897b 100%);
-  color: white;
-  border: none;
-  border-radius: 8px;
-  font-size: 12px;
-  font-weight: 600;
-  font-family: inherit;
-  transition: all 0.2s;
-  box-shadow: 0 2px 6px rgba(0,191,165,0.25);
-  text-transform: uppercase;
-  letter-spacing: 0.4px;
-  margin-top: 8px;
-  margin-bottom: 4px;
-}
-
-button:not(.tooltip-btn):hover {
-  background: linear-gradient(135deg, #00897b 0%, #00695c 100%);
-  box-shadow: 0 4px 10px rgba(0,191,165,0.35);
-  transform: translateY(-1px);
-}
-
-button:not(.tooltip-btn):active {
-  transform: translateY(0);
-}
-
-.customer-discount button,
-.supplier-discount button {
-  padding: 6px 10px;
-  font-size: 11px;
-  margin-top: 0;
-}
-
-.customer-discount button[style*="color:red"],
-.supplier-discount button[style*="color:red"],
-.customer-discount button[style*="color: red"],
-.supplier-discount button[style*="color: red"] {
-  background: linear-gradient(135deg, #f44336 0%, #d32f2f 100%);
-  box-shadow: 0 2px 6px rgba(244,67,54,0.25);
-}
-
-.customer-discount,
-.supplier-discount {
-  background: white;
-  border: 1px solid #e0e0e0;
-  border-radius: 10px;
-  padding: 14px;
-  margin-bottom: 10px;
-}
-
-.customer-discount hr,
-.supplier-discount hr {
-  display: none;
-}
-
-.discount-type-label {
-  color: #424242 !important;
-  font-size: 12px;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.4px;
-  margin-top: 0;
-}
-
-.customer-discount .discount-type-label { color: #e53935 !important; }
-.supplier-discount .discount-type-label { color: #00897b !important; }
-
-.customer-discount input,
-.supplier-discount input {
-  margin-bottom: 6px;
-}
-
-#freeShipContainer {
-  background: #f0faf9;
-  border-left: 3px solid #00bfa5;
-  border-radius: 0 8px 8px 0;
-  padding: 12px;
-  margin-bottom: 8px;
+th.sorted .sort-icon{
+opacity: 1;
 }
 
-#batchContainer {
-  background: #f0faf9;
-  border-left: 3px solid #00bfa5;
-  border-radius: 0 8px 8px 0;
-  padding: 12px;
-  margin-bottom: 8px;
+tbody tr{
+transition: background 0.15s;
 }
 
-.metrics {
-  display: flex;
-  gap: 16px;
-  margin-bottom: 24px;
+tbody tr:hover{
+background: #f8f9fa;
 }
 
-.card {
-  background: linear-gradient(135deg, #e0f2f1 0%, #f1f8f7 100%);
-  border: 1px solid #b2dfdb;
-  padding: 18px 20px;
-  border-radius: 12px;
-  flex: 1;
-  text-align: center;
-  box-shadow: 0 2px 8px rgba(0,191,165,0.08);
+tbody tr:last-child td{
+border-bottom: none;
 }
 
-.card > div:first-child {
-  font-size: 12px;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-  color: #546e7a;
-  margin-bottom: 8px;
+td{
+font-size: 14px;
+color: #212121;
 }
 
-.card > div:last-child {
-  font-size: 26px;
-  font-weight: 700;
-  color: #00695c;
+td:first-child{
+font-weight: 500;
 }
 
-/* Table — no background overrides on td so JS inline styles work unchanged */
-table {
-  width: 100%;
-  border-collapse: collapse;
-  margin-top: 0;
-  font-size: 13px;
-  border-radius: 12px;
-  overflow: hidden;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.06);
-  border: 1px solid #e0e0e0;
+td:nth-child(2), td:nth-child(3), td:nth-child(4){
+font-variant-numeric: tabular-nums;
+color: #616161;
 }
+
+.copyBtn{
+padding: 6px 14px;
+margin-right: 12px;
+cursor: pointer;
+background: linear-gradient(135deg, #00bfa5 0%, #00897b 100%);
+color: white;
+border: none;
+border-radius: 6px;
+font-size: 12px;
+font-weight: 600;
+transition: all 0.2s;
+box-shadow: 0 2px 4px rgba(0,191,165,0.2);
+text-transform: uppercase;
+letter-spacing: 0.3px;
 
-th, td {
-  border: 1px solid #ddd;
-  padding: 10px 12px;
-  text-align: center;
+/* Allow interaction */
+user-select: auto;
+-webkit-user-select: auto;
+-moz-user-select: auto;
+-ms-user-select: auto;
 }
 
-th {
-  background: linear-gradient(180deg, #fafafa 0%, #f5f5f5 100%);
-  font-weight: 700;
-  font-size: 11px;
-  text-transform: uppercase;
-  letter-spacing: 0.4px;
-  color: #424242;
-  border-bottom: 2px solid #e0e0e0;
-  position: sticky;
-  top: 0;
-  z-index: 2;
-  overflow: visible;
+.copyBtn:hover{
+background: linear-gradient(135deg, #00897b 0%, #00695c 100%);
+box-shadow: 0 4px 8px rgba(0,191,165,0.3);
+transform: translateY(-1px);
 }
 
-th:has(.tooltip:hover) {
-  z-index: 10000;
+.copyBtn:active{
+transform: translateY(0);
+box-shadow: 0 2px 4px rgba(0,191,165,0.2);
 }
 
-thead tr:first-child th {
-  font-size: 12px;
-  font-weight: 700;
-  letter-spacing: 0.3px;
-  text-transform: uppercase;
-  border-bottom: 1px solid #e0e0e0;
-  padding: 12px 12px 10px;
+.pagination{
+display: flex;
+gap: 16px;
+align-items: center;
+justify-content: center;
+font-size: 14px;
+padding: 20px;
 }
 
-tbody tr {
-  transition: background 0.15s;
+.pagination button{
+padding: 10px 24px;
+cursor: pointer;
+border: 2px solid #e0e0e0;
+background: white;
+border-radius: 8px;
+font-weight: 600;
+transition: all 0.2s;
+font-size: 14px;
+color: #424242;
+
+/* Allow interaction */
+user-select: auto;
+-webkit-user-select: auto;
+-moz-user-select: auto;
+-ms-user-select: auto;
 }
 
-/* Match original: empty cells grey, non-empty white */
-td {
-  background: #f7f7f7;
+.pagination button:hover:not(:disabled){
+background: linear-gradient(135deg, #00bfa5 0%, #00897b 100%);
+color: white;
+border-color: #00bfa5;
+box-shadow: 0 4px 8px rgba(0,191,165,0.2);
+transform: translateY(-2px);
 }
 
-td:not(:empty) {
-  background: white;
+.pagination button:disabled{
+opacity: 0.4;
+cursor: not-allowed;
 }
 
-/* Quantity column always grey */
-tbody td:first-child {
-  background: #f7f7f7 !important;
+.pagination button:active:not(:disabled){
+transform: translateY(0);
 }
 
-.highlight {
-  background: #e6ffe6;
+#pageInfo{
+font-weight: 600;
+color: #424242;
+min-width: 120px;
+text-align: center;
+background: white;
+padding: 10px 20px;
+border-radius: 8px;
+border: 2px solid #e0e0e0;
 }
+
+.clear-filters-btn{
+width: 100%;
+padding: 14px 24px;
+margin-bottom: 32px;
+cursor: pointer;
+background: linear-gradient(135deg, #f44336 0%, #d32f2f 100%);
+color: white;
+border: none;
+border-radius: 8px;
+font-size: 14px;
+font-weight: 600;
+transition: all 0.2s;
+box-shadow: 0 2px 8px rgba(244,67,54,0.3);
+text-transform: uppercase;
+letter-spacing: 0.5px;
 
-.highlight td:not(:empty) {
-  background: #e6ffe6;
+user-select: auto;
+-webkit-user-select: auto;
+-moz-user-select: auto;
+-ms-user-select: auto;
 }
 
-.highlight td:first-child {
-  background: #f7f7f7 !important;
+.clear-filters-btn:hover{
+background: linear-gradient(135deg, #d32f2f 0%, #c62828 100%);
+box-shadow: 0 4px 12px rgba(244,67,54,0.4);
+transform: translateY(-2px);
 }
 
-.selectedRow td {
-  box-shadow: inset 0 2px 0 #666, inset 0 -2px 0 #666;
+.clear-filters-btn:active{
+transform: translateY(0);
+box-shadow: 0 2px 8px rgba(244,67,54,0.3);
 }
 
-.selectedRow td:first-child {
-  box-shadow: inset 0 2px 0 #666, inset 0 -2px 0 #666, inset 2px 0 0 #666;
+@media (max-width: 768px){
+body{
+padding: 20px 10px 0 10px;
 }
 
-.selectedRow td:last-child {
-  box-shadow: inset 0 2px 0 #666, inset 0 -2px 0 #666, inset -2px 0 0 #666;
+.container{
+border-radius: 12px;
 }
 
-.tooltip {
-  position: relative;
-  display: inline-block;
-  cursor: help;
+.header{
+padding: 24px 20px 20px;
 }
 
-.tooltip .tooltiptext {
-  visibility: hidden;
-  width: 260px;
-  background-color: #212121;
-  color: #fff;
-  text-align: left;
-  padding: 10px 12px;
-  border-radius: 8px;
-  position: absolute;
-  z-index: 9999;
-  bottom: 125%;
-  left: 50%;
-  transform: translateX(-50%);
-  opacity: 0;
-  transition: opacity 0.2s;
-  font-size: 12px;
-  font-weight: 400;
-  text-transform: none;
-  letter-spacing: 0;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+.header h1{
+font-size: 24px;
 }
 
-.tooltip:hover .tooltiptext {
-  visibility: visible;
-  opacity: 1;
+.header .subtitle{
+font-size: 15px;
 }
 
-/* Instructions panel */
-#instructionsPanel {
-  margin-top: 20px;
-  background: #f8fffe;
-  border: 1px solid #b2dfdb;
-  border-radius: 12px;
-  padding: 22px 24px;
-  font-size: 13px;
-  color: #263238;
-  line-height: 1.65;
+.content{
+padding: 20px;
 }
 
-#instructionsPanel h3 {
-  margin: 0 0 14px 0;
-  font-size: 13px;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.7px;
-  color: #00695c;
-  border-bottom: 1px solid #b2dfdb;
-  padding-bottom: 8px;
+.controls{
+grid-template-columns: 1fr;
+gap: 16px;
 }
 
-#instructionsPanel ol {
-  margin: 0;
-  padding-left: 20px;
+.table-section{
+padding: 16px;
 }
 
-#instructionsPanel li {
-  margin-bottom: 10px;
+.table-wrapper{
+max-height: 500px;
 }
 
-#instructionsPanel li:last-child {
-  margin-bottom: 0;
+th, td{
+padding: 12px 10px;
+font-size: 12px;
 }
 
-#instructionsPanel strong {
-  color: #00695c;
-  font-weight: 600;
+td:first-child{
+max-width: 200px;
+overflow: hidden;
+text-overflow: ellipsis;
+white-space: nowrap;
 }
 
-#instructionsPanel .optional-label {
-  display: inline-block;
-  font-size: 11px;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-  color: #546e7a;
-  background: #e0f2f1;
-  border-radius: 4px;
-  padding: 1px 7px;
-  margin-bottom: 8px;
-  margin-top: 4px;
+.copyBtn{
+padding: 4px 8px;
+font-size: 10px;
+margin-right: 8px;
 }
 
-#instructionsPanel .quick-links {
-  margin-top: 4px;
-  font-size: 12px;
-  color: #546e7a;
+.pagination{
+flex-wrap: wrap;
+gap: 12px;
+padding: 16px 10px;
 }
 
-#instructionsPanel .quick-links a {
-  color: #00897b;
-  text-decoration: none;
-  font-weight: 600;
+.pagination button{
+padding: 8px 16px;
+font-size: 13px;
 }
 
-#instructionsPanel .quick-links a:hover {
-  text-decoration: underline;
+#pageInfo{
+font-size: 13px;
+padding: 8px 16px;
 }
 
-::-webkit-scrollbar { width: 6px; height: 6px; }
-::-webkit-scrollbar-track { background: #f5f5f5; }
-::-webkit-scrollbar-thumb { background: #b2dfdb; border-radius: 3px; }
-::-webkit-scrollbar-thumb:hover { background: #00bfa5; }
+#resultCount{
+font-size: 12px;
+padding: 6px 12px;
+}
 
-@media (max-width: 960px) {
-  .layout { flex-direction: column; height: auto; }
-  .left { width: 100%; min-width: unset; border-right: none; border-bottom: 1px solid #e8e8e8; }
-  .right { padding: 20px 16px; }
-  .metrics { flex-direction: column; }
-  .header { padding: 24px 20px 20px; }
-  .header h1 { font-size: 24px; }
+.table-hint{
+font-size: 12px;
+}
 }
 </style>
 </head>
+
 <body>
 
 <div class="container">
-  <div class="header">
-    <h1>Most Accurate POD Profit Calculator by Tia TX ©</h1>
-    <div class="subtitle">Analyze margins and costs across order quantities to check profit before selling a product.</div>
-  </div>
 
-  <div class="layout">
-    <div class="left">
-      <h2>Inputs</h2>
+<div class="header">
+<h1>Find high demand & unsaturated Etsy keywords in seconds</h1>
+<div class="subtitle">Etsy Keyword Database By Tia TX ©</div>
+</div>
 
-      <h3>Product</h3>
-      <label style="color:green;">Price per unit</label>
-      <input id="price" value="" placeholder="e.g. 25.99">
-      <label style="color:red;">Single unit cost</label>
-      <input id="costSingle" value="" placeholder="e.g. 7.99">
+<div class="content">
 
-      <h3>Shipping</h3>
-      <label style="color:green;">Customer shipping price (first item)</label>
-      <input id="shipCustomerFirst" value="" placeholder="e.g. 4.99">
-      <label style="color:green;">Customer shipping price (additional items)</label>
-      <input id="shipCustomerExtra" value="" placeholder="e.g. 1.99">
-      <label><input type="checkbox" id="freeShipToggle"> Enable Free Shipping</label>
-      <div id="freeShipContainer" style="display:none;">
-        <label>Free Shipping Threshold Amount</label>
-        <input id="freeShip" value="" placeholder="e.g. 35">
-        <label>
-          <input type="radio" name="freeShipMode" id="freeShipAfterDiscounts" checked>
-          Apply after item discounts (Shopify default)
-        </label>
-        <label>
-          <input type="radio" name="freeShipMode" id="freeShipBeforeDiscounts">
-          Apply before discounts (original cart value)
-        </label>
-      </div>
-      <label style="color:red;">Your shipping (first item)</label>
-      <input id="shipFirst" value="" placeholder="e.g. 4.99">
-      <label style="color:red;">Your shipping (additional)</label>
-      <input id="shipExtra" value="" placeholder="e.g. 1.99">
-      <label>Items per parcel</label>
-      <input id="itemsPerParcel" placeholder="e.g. 4">
+<div class="info-box">
+All keywords in this database come from real customer searches collected using Etsy's official Marketplace Insights tool, not external keyword tools.<br><br>
+Root keywords vary per data set and date, check the corresponding <a href="https://www.youtube.com/playlist?list=PLMIY34_ZL4k09zC0mymOhOoZZniCHcSMy" target="_blank">YouTube playlist</a> for a full list and step-by-step of how each data set is created. <a href=https://forms.gle/YReCquFeDWuGhxTX8>Click here</a> to submit requests for new data sets or updates, or feedback about the tool. Your suggestions are always welcome.<br><br>
+Some terms have been reviewed for intellectual property and relevance, but not all results are guaranteed to be safe for use. Always conduct your own research before listing products on Etsy.
+</div>
 
-      <h3>Fees</h3>
-      <label style="color:red;">Platform fee (%)</label>
-      <input id="platformFeePercent" placeholder="e.g. 6.5">
-      <label style="color:red;">Fixed fee per order</label>
-      <input id="fixedFee" placeholder="e.g. 0.20">
-      <label style="color:red;">Payment processor fee (%)</label>
-      <input id="processorFeePercent" placeholder="e.g. 2.9">
-      <label style="color:red;">Fulfilment &amp; storage cost per unit</label>
-      <input id="fulfilmentPerUnit" placeholder="e.g. 5.20">
+<div class="copyright-box">
+© Tia TX 2026 - All Rights Reserved
+</div>
 
-      <h3>Tax</h3>
-      <label>Tax rate (%)</label>
-      <input id="taxRate" value="" placeholder="e.g. 20">
-      <label style="color:red;"><input type="checkbox" id="taxIncluded"> Tax already included in price</label>
-      <label><input type="checkbox" id="includeShippingInTax" checked> Include shipping in tax</label>
+<div class="controls">
 
-      <h3>Ads</h3>
-      <label>Estimated CPA</label>
-      <input id="cpa" value="" placeholder="e.g. 20">
-      <label>Estimated Quantity Bought</label>
-      <input id="selectedQty" type="number" min="1" max="24" value="" placeholder="e.g. 6">
-      <label><input type="checkbox" id="marginWithAdsToggle"> Show Profit Margin With Ads</label>
+<label>
+<span id="databaseLabel">Choose Data Set</span>
+<select id="databaseSelect"></select>
+</label>
 
-      <h3>Customer Discounts</h3>
-      <div id="customerDiscountsContainer"></div>
-      <button onclick="addCustomerDiscount()">+ Add Customer Discount</button>
+<label>
+<span>Date</span>
+<select id="dateSelect"></select>
+</label>
 
-      <h3>Supplier Discounts</h3>
-      <div id="supplierDiscountsContainer"></div>
+<label>
+<span>Min Monthly Searches</span>
+<input type="number" id="minSearch" placeholder="e.g. 100">
+</label>
 
-      <label><input type="checkbox" id="enableBatch"> Enable Batch Pricing</label>
-      <div id="batchContainer" style="display:none;">
-        <div style="display:flex; gap:10px;">
-          <div style="flex:1;">
-            <label>Batch cost</label>
-            <input id="costBatch" value="" placeholder="e.g. 4.32">
-          </div>
-          <div style="flex:1;">
-            <label>Batch size</label>
-            <input id="batchSize" value="" placeholder="e.g. 4">
-          </div>
-        </div>
-        <label>Pricing Model</label>
-        <select id="pricingModel">
-          <option value="unit">Per Unit Pricing</option>
-          <option value="batch">Batch Production</option>
-        </select>
-      </div>
+<label>
+<span>Max Results</span>
+<input type="number" id="maxResults" placeholder="e.g. 10000">
+</label>
 
-      <button onclick="addSupplierDiscount()">+ Add Supplier Discount</button>
-    </div>
+<label>
+<span>Min Search:Result Ratio</span>
+<input type="number" step="0.0001" id="minRatio" placeholder="e.g. 0.001">
+</label>
 
-    <div class="right">
-      <h2>Results</h2>
+<label>
+<span>Search Keywords</span>
+<input type="text" id="keywordFilter" placeholder="Filter keywords...">
+</label>
 
-      <div class="metrics">
-        <div class="card">
-          <div>Max CPA (Break-even) At Selected Quantity</div>
-          <div id="breakEven">-</div>
-        </div>
-        <div class="card">
-          <div>
-            ROAS Required to Break Even At Selected Quantity
-            <span class="tooltip">ⓘ
-              <span class="tooltiptext">
-                Breakeven ROAS = 1 / (profit margin before ads)
-              </span>
-            </span>
-          </div>
-          <div id="breakEvenROAS">-</div>
-        </div>
-      </div>
+</div>
 
-      <table id="table">
-        <thead>
-          <tr>
-            <th style="background:transparent;border:none;"></th>
-            <th id="revGroup" colspan="5" style="background:#e6ffe6; color:green;">Revenue</th>
-            <th id="costGroup" colspan="5" style="background:#ffe6e6; color:red;">Costs</th>
-            <th id="profitGroup" colspan="3" style="background:#fff3cd; color:#b8860b;">Profit / Loss</th>
-          </tr>
-          <tr>
-            <th style="color:black;">Quantity</th>
-            <th style="color:green; font-weight:normal;">Item Revenue</th>
-            <th style="color:green; font-weight:normal;">Shipping Revenue</th>
-            <th style="color:green; font-weight:normal;">
-              <span style="color:gray;">Total Revenue Before Discounts</span>
-              <span class="tooltip" style="color:gray;">ⓘ
-                <span class="tooltiptext">
-                  This shows revenue before any item or shipping discounts are applied.
-                </span>
-              </span>
-            </th>
-            <th style="color:green;">Total Revenue</th>
-            <th id="taxHeader" style="color:purple; font-weight:normal;">Revenue with Tax</th>
-            <th style="color:red; font-weight:normal;">Item Cost</th>
-            <th style="color:red; font-weight:normal;">Shipping Cost</th>
-            <th style="color:red; font-weight:normal;">Fulfilment &amp; Storage Fees</th>
-            <th style="color:red;">Total Cost (COGS)</th>
-            <th style="color:red; font-weight:normal;">Platform Fees</th>
-            <th style="color:black;">Profit</th>
-            <th style="color:black;">Profit After Ads At CPA</th>
-            <th id="profitMarginHeader" style="color:black;">Profit Margin Before Ads</th>
-          </tr>
-        </thead>
-        <tbody></tbody>
-      </table>
+<button id="clearFiltersBtn" class="clear-filters-btn">Clear All Filters</button>
 
-      <div id="instructionsPanel">
-        <h3>How to use</h3>
-        <ol>
-          <li><strong>Enter your base costs</strong><br>Add your unit cost (from your supplier) and your shipping costs (first + additional items). You can get both directly from your supplier.</li>
-          <li><strong>Set your pricing</strong><br>Enter how much you'll charge per unit and for customer shipping. This is where you control your margins.<br><span style="color:#00695c; font-weight:700; background:#d4f5ee; border-radius:4px; padding:1px 7px; font-size:13.5px;">You'll instantly see your profit!</span></li>
-        </ol>
-        <div class="optional-label">Optional</div>
-        <ol start="3">
-          <li><strong>Add fees</strong><br>Include platform fees, fulfilment, inventory costs, and tax if needed.<br>
-            <span class="quick-links">Quick links: <a href="https://www.etsy.com/sell" target="_blank" rel="noopener">Etsy</a>, <a href="https://sellercentral.amazon.com" target="_blank" rel="noopener">Amazon (FBM/FBA)</a>, <a href="https://www.ebay.com/sell" target="_blank" rel="noopener">eBay</a>, <a href="https://www.shopify.com/pricing" target="_blank" rel="noopener">Shopify</a></span>
-          </li>
-          <li><strong>Add discounts</strong><br>Test customer offers or enter supplier discounts (including batch) to see how they impact margins at different quantities.</li>
-          <li><strong>Add ads info</strong><br>Enter your target CPA and select an expected order quantity (at target AOV) to see your max CPA and break-even ROAS.</li>
-        </ol>
-      </div>
-    </div>
-  </div>
+<div class="table-section">
+
+<div class="table-header">
+<div class="table-hint">Click any column heading to sort</div>
+<div id="resultCount"></div>
+</div>
+
+<div class="table-wrapper">
+<table id="keywordTable">
+<thead>
+<tr>
+<th onclick="sortTable(0,'text')">Keyword <span class="sort-icon">⇅</span></th>
+<th onclick="sortTable(1,'num')">Searches <span class="sort-icon">⇅</span></th>
+<th onclick="sortTable(2,'num')">Results <span class="sort-icon">⇅</span></th>
+<th onclick="sortTable(3,'num')">Search:Result <span class="sort-icon">⇅</span></th>
+</tr>
+</thead>
+
+<tbody id="tableBody"></tbody>
+</table>
+</div>
+
+<div class="pagination">
+<button onclick="prevPage()" id="prevBtn">Previous</button>
+<span id="pageInfo"></span>
+<button onclick="nextPage()" id="nextBtn">Next</button>
+</div>
+
+</div>
+
+</div>
+
 </div>
 
 <script>
+
+/* TOKEN PROTECTION */
+const token = new URLSearchParams(window.location.search).get("t");
+if(token !== "members-7k39f4x2"){
+document.body.innerHTML="<div style='display:flex;align-items:center;justify-content:center;height:100vh;font-family:Inter,sans-serif;font-size:18px;color:white;'>Access Restricted</div>";
+throw new Error("Unauthorized");
+}
+
 /* DISABLE RIGHT CLICK */
 document.addEventListener("contextmenu", e => e.preventDefault());
 
 /* DISABLE DEVTOOLS SHORTCUTS */
-document.onkeydown = function(e) {
-  if (
-    e.keyCode === 123 ||
-    (e.ctrlKey && e.shiftKey && e.keyCode === 73) ||
-    (e.ctrlKey && e.shiftKey && e.keyCode === 74) ||
-    (e.ctrlKey && e.shiftKey && e.keyCode === 67) ||
-    (e.ctrlKey && e.keyCode === 85) ||
-    (e.ctrlKey && e.keyCode === 83)
-  ) {
-    return false;
-  }
+document.onkeydown=function(e){
+if(
+e.keyCode===123 ||
+(e.ctrlKey && e.shiftKey && e.keyCode===73) ||
+(e.ctrlKey && e.shiftKey && e.keyCode===74) ||
+(e.ctrlKey && e.shiftKey && e.keyCode===67) ||
+(e.ctrlKey && e.keyCode===85) ||
+(e.ctrlKey && e.keyCode===83)
+){
+return false;
+}
 };
 
-function calcBatchCost(n, costSingle, costBatch, batchSize) {
-  let batchEnabled = document.getElementById("enableBatch")?.checked;
-  if (!batchEnabled) { return n * costSingle; }
-  let model = document.getElementById("pricingModel").value;
-  if (model === "unit") {
-    if (n < batchSize) return n * costSingle;
-    let batches = Math.floor(n / batchSize);
-    let remainder = n % batchSize;
-    return batches * costBatch + remainder * costSingle;
-  }
-  let batches = Math.floor(n / batchSize);
-  let remainder = n % batchSize;
-  let cost = batches * costBatch;
-  if (remainder === 1) cost += costSingle;
-  else if (remainder > 1) cost += costBatch;
-  return cost;
+/* BLOCK BULK COPYING */
+document.addEventListener("copy", function(e){
+if(!window.allowCopy){
+e.preventDefault();
 }
-
-function handleVisibility() {
-  let toggle = document.getElementById("freeShipToggle");
-  let container = document.getElementById("freeShipContainer");
-  if (!toggle || !container) return;
-  container.style.display = toggle.checked ? "block" : "none";
-  let radios = document.querySelectorAll('input[name="freeShipMode"]');
-  radios.forEach(r => r.closest("label").style.display = toggle.checked ? "block" : "none");
-  let batchToggle = document.getElementById("enableBatch");
-  let batchContainer = document.getElementById("batchContainer");
-  if (batchToggle && batchContainer) {
-    batchContainer.style.display = batchToggle.checked ? "block" : "none";
-  }
-}
-
-function updateGroupHeaders() {
-  let rev = document.getElementById("revGroup");
-  let cost = document.getElementById("costGroup");
-  let profit = document.getElementById("profitGroup");
-  let taxIncluded = document.getElementById("taxIncluded")?.checked;
-  if (rev && cost && profit) {
-    if (taxIncluded) { rev.colSpan = 4; cost.colSpan = 6; }
-    else { rev.colSpan = 5; cost.colSpan = 5; }
-    profit.colSpan = 3;
-  }
-}
-
-let tableExpanded = false;
-
-function updateInstructionsVisibility() {
-  let panel = document.getElementById('instructionsPanel');
-  if (panel) {
-    panel.style.display = tableExpanded ? 'none' : 'block';
-  }
-}
-
-function toggleExtraRows() {
-  tableExpanded = !tableExpanded;
-  document.querySelectorAll('.extra-qty-row').forEach(r => {
-    r.style.display = tableExpanded ? '' : 'none';
-  });
-  let btn = document.getElementById('expandBtn');
-  if (btn) btn.textContent = tableExpanded ? '▲ Hide quantities 2–24' : '▼ Show quantities 2–24';
-  updateInstructionsVisibility();
-}
-
-function update() {
-  let marginToggle = document.getElementById("marginWithAdsToggle");
-  let header = document.getElementById("profitMarginHeader");
-  if (header && marginToggle) {
-    header.innerText = marginToggle.checked ? "Profit Margin After Ads" : "Profit Margin Before Ads";
-  }
-
-  let price = parseFloat(document.getElementById("price").value) || 0;
-  let costSingle = parseFloat(document.getElementById("costSingle").value) || 0;
-  let costBatch = parseFloat(document.getElementById("costBatch").value) || 0;
-  let batchSize = Math.max(1, parseInt(document.getElementById("batchSize").value) || 1);
-  let shipCustomerFirst = parseFloat(document.getElementById("shipCustomerFirst").value) || 0;
-  let shipCustomerExtra = parseFloat(document.getElementById("shipCustomerExtra").value) || 0;
-  let freeShipInput = document.getElementById("freeShip").value;
-  let freeShip = freeShipInput === "" ? Infinity : parseFloat(freeShipInput);
-  let shipFirst = parseFloat(document.getElementById("shipFirst").value) || 0;
-  let shipExtra = parseFloat(document.getElementById("shipExtra").value) || 0;
-  let cpa = parseFloat(document.getElementById("cpa").value) || 0;
-
-  let tbody = document.querySelector("#table tbody");
-  tbody.innerHTML = "";
-  let taxIncluded = document.getElementById("taxIncluded").checked;
-  document.getElementById("taxHeader").innerText = taxIncluded ? "Tax Payable" : "Revenue with Tax";
-  document.getElementById("taxHeader").style.color = taxIncluded ? "red" : "gray";
-
-  function display(val, condition) { return condition ? val.toFixed(2) : ""; }
-
-  let hasPrice = document.getElementById("price").value !== "";
-  let hasCost = document.getElementById("costSingle").value !== "" || document.getElementById("costBatch").value !== "";
-  let hasCustShip = document.getElementById("shipCustomerFirst").value !== "" || document.getElementById("shipCustomerExtra").value !== "";
-  let hasYourShip = document.getElementById("shipFirst").value !== "" || document.getElementById("shipExtra").value !== "";
-  let hasFulfilment = document.getElementById("fulfilmentPerUnit").value !== "";
-  let hasFees = document.getElementById("platformFeePercent").value !== "" || document.getElementById("processorFeePercent").value !== "" || document.getElementById("fixedFee").value !== "";
-  let hasAnyRevenue = hasPrice || hasCustShip;
-  let hasAnyCost = hasCost || hasYourShip || hasFulfilment;
-
-  let selectedQtyVal = document.getElementById("selectedQty").value.trim();
-  let selectedQty = selectedQtyVal !== "" ? parseInt(selectedQtyVal) : null;
-  let breakEvenCPA = 0;
-  let breakEvenROAS = null;
-
-  // First pass: compute all row data and find best profit
-  let rows = [];
-  let bestProfit = -Infinity;
-
-  for (let n = 1; n <= 24; n++) {
-    let productCost = calcBatchCost(n, costSingle, costBatch, batchSize);
-
-    let supplierDiscounts = [];
-    document.querySelectorAll("#supplierDiscountsContainer .supplier-discount").forEach(el => {
-      supplierDiscounts.push({
-        type: el.querySelector(".type").value,
-        bx: parseFloat(el.querySelector(".bx").value) || 0,
-        by: parseFloat(el.querySelector(".by").value) || 0,
-        discountType: el.querySelector(".bxyType").value,
-        value: parseFloat(el.querySelector(".value").value) || 0,
-        minType: "none", minValue: 0, stackable: true
-      });
-    });
-
-    for (let d of supplierDiscounts) {
-      let meetsMinSupp = true;
-      if (d.minType === "quantity") meetsMinSupp = n >= d.minValue;
-      if (d.minType === "amount") meetsMinSupp = productCost >= d.minValue;
-      if (!meetsMinSupp) continue;
-      if (d.type === "bxy" && d.bx > 0 && d.by > 0) {
-        let groupSize = d.bx + d.by;
-        let groups = Math.floor(n / groupSize);
-        let remainder = n % groupSize;
-        let payableUnits = (groups * d.bx) + Math.min(remainder, d.bx);
-        productCost = calcBatchCost(payableUnits, costSingle, costBatch, batchSize);
-      }
-      if (d.type === "percent") { productCost *= (1 - d.value / 100); }
-      else if (d.type === "fixed") { productCost = Math.max(0, productCost - d.value); }
-      if (!d.stackable) break;
-    }
-
-    let itemsPerParcel = parseInt(document.getElementById("itemsPerParcel")?.value) || 1;
-    let parcels = Math.ceil(n / itemsPerParcel);
-    let shippingCost = shipFirst + (parcels - 1) * shipExtra;
-
-    let goodsRevenue = n * price;
-    let revenueBeforeDiscounts = (n * price) + (shipCustomerFirst + (parcels - 1) * shipCustomerExtra);
-
-    let customerDiscounts = [];
-    document.querySelectorAll("#customerDiscountsContainer .customer-discount").forEach(el => {
-      customerDiscounts.push({
-        type: el.querySelector(".type").value,
-        bx: parseFloat(el.querySelector(".bx").value) || 0,
-        by: parseFloat(el.querySelector(".by").value) || 0,
-        discountType: el.querySelector(".bxyType").value,
-        value: parseFloat(el.querySelector(".value").value) || 0,
-        minType: "none", minValue: 0, stackable: true
-      });
-    });
-
-    for (let d of customerDiscounts) {
-      let meetsMin = true;
-      if (d.minType === "quantity") meetsMin = n >= d.minValue;
-      if (d.minType === "amount") meetsMin = goodsRevenue >= d.minValue;
-      if (!meetsMin) continue;
-      if (d.type === "bxy" && d.bx > 0 && d.by > 0) {
-        let groupSize = d.bx + d.by;
-        let groups = Math.floor(n / groupSize);
-        let remainder = n % groupSize;
-        let payableUnits = (groups * d.bx) + Math.min(remainder, d.bx);
-        if (d.discountType === "free") { goodsRevenue = payableUnits * price; }
-        else if (d.discountType === "percent") { let du = n - payableUnits; goodsRevenue -= du * price * (d.value / 100); }
-        else if (d.discountType === "fixed") { let du = n - payableUnits; goodsRevenue -= du * d.value; }
-      }
-      if (d.type === "percent") { goodsRevenue *= (1 - d.value / 100); }
-      else if (d.type === "fixed") { goodsRevenue = Math.max(0, goodsRevenue - d.value); }
-      if (!d.stackable) break;
-    }
-
-    let freeShipEnabled = document.getElementById("freeShipToggle").checked;
-    let usePreDiscount = document.getElementById("freeShipBeforeDiscounts")?.checked;
-    let preDiscountItemsRevenue = n * price;
-    let qualifiesForFreeShipping = usePreDiscount ? preDiscountItemsRevenue >= freeShip : goodsRevenue >= freeShip;
-    let shippingRevenue = (freeShipEnabled && qualifiesForFreeShipping)
-      ? 0
-      : (shipCustomerFirst + (parcels - 1) * shipCustomerExtra);
-    goodsRevenue = Math.max(0, goodsRevenue);
-
-    let revenue = goodsRevenue + shippingRevenue;
-
-    let taxPercent = parseFloat(document.getElementById("taxRate").value) || 0;
-    let taxRate = taxPercent / 100;
-    let taxFraction = taxPercent / (100 + taxPercent);
-    let taxIncluded = document.getElementById("taxIncluded").checked;
-    let includeShippingInTax = document.getElementById("includeShippingInTax").checked;
-    let taxBase = includeShippingInTax ? revenue : goodsRevenue;
-    let taxValue = taxIncluded ? taxBase * taxFraction : taxBase * taxRate;
-    let revenueWithTax = taxIncluded
-      ? revenue
-      : (includeShippingInTax ? revenue * (1 + taxRate) : (goodsRevenue * (1 + taxRate) + shippingRevenue));
-
-    let platformPercent = parseFloat(document.getElementById("platformFeePercent").value) || 0;
-    let processorPercent = parseFloat(document.getElementById("processorFeePercent").value) || 0;
-    let fixedFee = parseFloat(document.getElementById("fixedFee").value) || 0;
-    let percentFees = revenue * (platformPercent / 100) + revenue * (processorPercent / 100);
-    let totalFees = percentFees + fixedFee;
-
-    let fulfilmentPerUnit = parseFloat(document.getElementById("fulfilmentPerUnit").value) || 0;
-    let fulfilmentCost = n * fulfilmentPerUnit;
-
-    productCost = Math.max(0, productCost);
-    let totalCost = productCost + shippingCost + fulfilmentCost;
-    let profit = revenue - totalCost - totalFees;
-    if (taxIncluded) { profit -= taxValue; }
-    let profitAfterAds = profit - cpa;
-    let marginWithAds = document.getElementById("marginWithAdsToggle").checked;
-    let profitMargin = revenue > 0 ? ((marginWithAds ? profitAfterAds : profit) / revenue) * 100 : 0;
-
-    if (profit > bestProfit) bestProfit = profit;
-
-    if (selectedQty !== null && n === selectedQty) {
-      breakEvenCPA = Math.max(0, profit);
-      breakEvenROAS = breakEvenCPA > 0 ? revenue / breakEvenCPA : null;
-    }
-
-    rows.push({ n, goodsRevenue, shippingRevenue, revenueBeforeDiscounts, revenue, taxIncluded, taxValue, revenueWithTax, productCost, shippingCost, fulfilmentCost, totalCost, totalFees, profit, profitAfterAds, profitMargin });
-  }
-
-  // Second pass: render rows with correct highlight
-  let colCount = tbody.closest('table').querySelectorAll('thead tr:last-child th').length;
-  for (let i = 0; i < rows.length; i++) {
-    let { n, goodsRevenue, shippingRevenue, revenueBeforeDiscounts, revenue, taxIncluded, taxValue, revenueWithTax, productCost, shippingCost, fulfilmentCost, totalCost, totalFees, profit, profitAfterAds, profitMargin } = rows[i];
-    let isSelected = selectedQty !== null && n === selectedQty;
-    let extraClass = n > 1 ? 'extra-qty-row' : '';
-    let highlightClass = profit === bestProfit ? 'highlight' : '';
-    let row = `<tr class="${extraClass} ${highlightClass} ${isSelected ? 'selectedRow' : ''}">
-      <td>${n}</td>
-      <td style="color:green; background:${hasPrice ? "#e6ffe6" : "#f7f7f7"} !important;">${display(goodsRevenue, hasPrice)}</td>
-      <td style="color:green; background:${hasCustShip ? "#e6ffe6" : "#f7f7f7"} !important;">${display(shippingRevenue, hasCustShip)}</td>
-      <td style="color:gray; background:#f2f2f2;">${display(revenueBeforeDiscounts, hasAnyRevenue)}</td>
-      <td style="color:green; font-weight:bold; background:${hasAnyRevenue ? "#e6ffe6" : "#f7f7f7"} !important;">${display(revenue, hasAnyRevenue)}</td>
-      <td style="color:${taxIncluded ? 'red' : 'gray'}; background:${document.getElementById("taxRate").value === "" ? "#f7f7f7" : (taxIncluded ? "#ffe6e6" : "#f2f2f2")}; font-weight:normal;">${document.getElementById("taxRate").value === "" ? "" : display(taxIncluded ? taxValue : revenueWithTax, hasAnyRevenue)}</td>
-      <td style="color:red; background:${hasCost ? "#ffe6e6" : "#f7f7f7"} !important;">${display(productCost, hasCost)}</td>
-      <td style="color:red; background:${hasYourShip ? "#ffe6e6" : "#f7f7f7"} !important;">${display(shippingCost, hasYourShip)}</td>
-      <td style="color:red; background:${hasFulfilment ? "#ffe6e6" : "#f7f7f7"} !important;">${display(fulfilmentCost, hasFulfilment)}</td>
-      <td style="color:red; font-weight:bold; background:${hasAnyCost ? "#ffe6e6" : "#f7f7f7"} !important;">${display(totalCost, hasAnyCost)}</td>
-      <td style="color:red; background:${hasFees ? "#ffe6e6" : "#f7f7f7"} !important;">${display(totalFees, hasFees)}</td>
-      ${(hasAnyRevenue || hasAnyCost) ? `<td style="color:${profit >= 0 ? 'green' : 'red'}; font-weight:bold; background:${profit >= 0 ? '#e6ffe6' : '#ffe6e6'};">${display(profit, true)}</td>` : `<td>${display(profit, false)}</td>`}
-      ${(hasAnyRevenue || hasAnyCost) ? (document.getElementById("cpa").value === "" ? `<td></td>` : `<td style="color:${profitAfterAds >= 0 ? 'green' : 'red'}; font-weight:bold; background:${profitAfterAds >= 0 ? '#e6ffe6' : '#ffe6e6'};">${display(profitAfterAds, true)}</td>`) : `<td></td>`}
-      ${hasAnyRevenue ? `<td style="color:${profitMargin >= 0 ? 'green' : 'red'}; font-weight:bold; background:${profitMargin >= 0 ? '#e6ffe6' : '#ffe6e6'};">${profitMargin.toFixed(2)}%</td>` : `<td></td>`}
-    </tr>`;
-    tbody.innerHTML += row;
-
-    if (n === 1) {
-      tbody.innerHTML += `<tr id="expandRow"><td colspan="${colCount}" style="padding:0; border:none; background:transparent;"><button id="expandBtn" onclick="toggleExtraRows()" style="width:100%; padding:8px 0; background:#f0f0f0; border:none; border-top:1px solid #ddd; border-bottom:1px dashed #ccc; cursor:pointer; font-size:12px; font-weight:600; color:#555; letter-spacing:0.3px;">&#9660; Show quantities 2–24</button></td></tr>`;
-    }
-  }
-
-  if (selectedQtyVal !== "" && parseInt(selectedQtyVal) > 1) {
-    tableExpanded = true;
-  }
-
-  document.querySelectorAll('.extra-qty-row').forEach(r => {
-    r.style.display = tableExpanded ? '' : 'none';
-  });
-  let btn = document.getElementById('expandBtn');
-  if (btn) btn.textContent = tableExpanded ? '▲ Hide quantities 2–24' : '▼ Show quantities 2–24';
-
-  document.getElementById("breakEven").innerText = selectedQtyVal === "" ? "-" : breakEvenCPA.toFixed(2);
-  document.getElementById("breakEvenROAS").innerText = selectedQtyVal === "" ? "-" : (breakEvenROAS ? breakEvenROAS.toFixed(2) + "x" : "-");
-
-  updateInstructionsVisibility();
-}
-
-document.querySelectorAll("input, select").forEach(el => {
-  el.addEventListener("change", updateGroupHeaders);
-  el.addEventListener("change", handleVisibility);
-  el.addEventListener("input", update);
 });
 
-handleVisibility();
-updateGroupHeaders();
-update();
+const DATABASES=[
+{
+name:"All Search Terms",
+dates:{
+"2026 Q1":[
+"Digital-products-search-terms-2026-Q1.csv",
+"POD-jewelry-search-terms-2026-Q1.csv",
+"tumbler-search-terms-2026-Q1.csv",
+"candle-search-terms-2026-Q1.csv",
+"POD-product-type-search-terms-2026-Q1.csv",
+"Mug-search-terms-2026-Q1.csv",
+"Wall-art-search-terms-2026-Q1.csv",
+"Sticker-Search-Terms-2026-Q1.csv",
+"Sweatshirts-Hoodies-search-terms-2026-Q1.csv",
+"Hat-search-terms-2026-Q1.csv"
+],
+"2025 Q4":[
+"Top-etsy-search-terms-2025-Q4.csv",
+"Digital-products-search-terms-2025-Q4.csv",
+"T-shirt-search-terms-2025-Q4.csv"
+]
+}
+},
+{
+name:"Print on Demand Jewelry Search Terms",
+dates:{
+"2026 Q1":"POD-jewelry-search-terms-2026-Q1.csv"
+}
+},
+{
+name:"[NEW!] Tumbler Search Terms",
+dates:{
+"2026 Q1":"tumbler-search-terms-2026-Q1.csv"
+}
+},
+{
+name:"[NEW!] Candle Search Terms",
+dates:{
+"2026 Q1":"candle-search-terms-2026-Q1.csv"
+}
+},
+{
+name:"General Etsy Search Terms",
+dates:{
+"2025 Q4":"Top-etsy-search-terms-2025-Q4.csv"
+}
+},
+{
+name:"[NEW!] Digital Products Search Terms",
+dates:{
+"2026 Q1":"Digital-products-search-terms-2026-Q1.csv",
+"2025 Q4":"Digital-products-search-terms-2025-Q4.csv"
+}
+},
+{
+name:"Print on Demand Product Type - Top Searched Keyword Only",
+dates:{
+"2026 Q1":"POD-product-type-search-terms-2026-Q1.csv"
+}
+},
+{
+name:"Mug Search Terms",
+dates:{
+"2026 Q1":"Mug-search-terms-2026-Q1.csv"
+}
+},
+{
+name:"Wall Art Search Terms",
+dates:{
+"2026 Q1":"Wall-art-search-terms-2026-Q1.csv"
+}
+},
+{
+name:"Sticker Search Terms",
+dates:{
+"2026 Q1":"Sticker-Search-Terms-2026-Q1.csv"
+}
+},
+{
+name:"T-Shirt Search Terms",
+dates:{
+"2025 Q4":"T-shirt-search-terms-2025-Q4.csv"
+}
+},
+{
+name:"Sweatshirt & Hoodie Search Terms",
+dates:{
+"2026 Q1":"Sweatshirts-Hoodies-search-terms-2026-Q1.csv"
+}
+},
+{
+name:"Hat Search Terms",
+dates:{
+"2026 Q1":"Hat-search-terms-2026-Q1.csv"
+}
+}
+];
 
-function createDiscountBlock(type) {
-  let containerId = type === "customer" ? "customerDiscountsContainer" : "supplierDiscountsContainer";
-  let container = document.getElementById(containerId);
-  let bxyExists = false;
-  if (container) {
-    let blocks = container.querySelectorAll('.customer-discount, .supplier-discount');
-    bxyExists = Array.from(blocks).some(b => b.querySelector('.type')?.value === 'bxy');
-  }
-  let options = bxyExists
-    ? `<option value="percent">% Discount</option><option value="fixed">Fixed Discount</option>`
-    : `<option value="bxy">Buy X Get Y</option><option value="percent">% Discount</option><option value="fixed">Fixed Discount</option>`;
-  return `
-    <div class="${type}-discount">
-      <label class="discount-type-label">Type</label>
-      <select class="type">${options}</select>
-      <div class="bxy-fields">
-        <input class="bx" placeholder="Buy X">
-        <input class="by" placeholder="Get Y">
-        <select class="bxyType">
-          <option value="free">Free</option>
-          <option value="percent">% Off</option>
-          <option value="fixed">Amount Off</option>
-        </select>
-      </div>
-      <div class="value-field">
-        <input class="value" placeholder="Value">
-      </div>
-      <div style="display:flex; gap:6px; margin:6px 0;">
-        <button onclick="moveUp(this)">↑</button>
-        <button onclick="moveDown(this)">↓</button>
-        <button onclick="removeDiscount(this)" style="color:red;">✕</button>
-      </div>
-      <hr>
-    </div>
-  `;
+let tableData=[]
+let currentData=[]
+let sortDir={}
+let currentSortCol=null
+
+let pageSize=500
+let currentPage=1
+
+function init(){
+
+const dbSelect=document.getElementById("databaseSelect")
+
+DATABASES.forEach((db,i)=>{
+const opt=document.createElement("option")
+opt.value=i
+opt.textContent=db.name
+dbSelect.appendChild(opt)
+})
+
+updateDatabaseLabel()
+updateDates()
 }
 
-function updateDiscountVisibility(container) {
-  container.querySelectorAll(".customer-discount, .supplier-discount").forEach(block => {
-    let type = block.querySelector(".type").value;
-    let bxyFields = block.querySelector(".bxy-fields");
-    let valueField = block.querySelector(".value-field");
-    let bxyType = block.querySelector(".bxyType")?.value;
-    if (type === "bxy") {
-      bxyFields.style.display = "block";
-      valueField.style.display = bxyType === "free" ? "none" : "block";
-    } else {
-      bxyFields.style.display = "none";
-      valueField.style.display = "block";
-    }
-  });
+function updateDatabaseLabel(){
+const totalDatabases=DATABASES.length
+document.getElementById("databaseLabel").textContent=`Choose Data Set (${totalDatabases} total)`
 }
 
-document.addEventListener("change", function(e) {
-  if (e.target.classList.contains("bxyType")) { updateDiscountVisibility(document); runBXYEnforcement(); }
-  if (e.target.classList.contains("type")) { updateDiscountVisibility(document); runBXYEnforcement(); }
+function updateDates(){
+
+const dbIndex=document.getElementById("databaseSelect").value
+const db=DATABASES[dbIndex]
+
+const dateSelect=document.getElementById("dateSelect")
+dateSelect.innerHTML=""
+
+Object.keys(db.dates).forEach(date=>{
+
+const opt=document.createElement("option")
+const fileValue=db.dates[date]
+opt.value=Array.isArray(fileValue)?JSON.stringify(fileValue):fileValue
+opt.textContent=date
+
+dateSelect.appendChild(opt)
+
+})
+
+loadData(dateSelect.value)
+}
+
+async function loadData(fileValue){
+
+let files=[]
+try{
+const parsed=JSON.parse(fileValue)
+if(Array.isArray(parsed)){
+files=parsed
+}else{
+files=[fileValue]
+}
+}catch(e){
+files=[fileValue]
+}
+
+let allData=[]
+
+for(const file of files){
+const response=await fetch(file)
+const text=await response.text()
+
+const rows=text.trim().split("\n").map(r=>r.split(","))
+rows.shift()
+
+const fileData=rows.map(r=>({
+keyword:r[0],
+searches:parseFloat(r[1]),
+results:parseFloat(r[2]),
+ratio:parseFloat(r[3])
+}))
+.filter(r=>!isNaN(r.searches) && !isNaN(r.results) && !isNaN(r.ratio))
+
+allData=allData.concat(fileData)
+}
+
+if(files.length>1){
+const keywordMap=new Map()
+allData.forEach(row=>{
+const key=row.keyword.toLowerCase()
+if(!keywordMap.has(key)){
+keywordMap.set(key,row)
+}
+})
+tableData=Array.from(keywordMap.values())
+}else{
+tableData=allData
+}
+
+currentData=[...tableData]
+currentPage=1
+
+renderTable()
+}
+
+function renderTable(){
+
+const body=document.getElementById("tableBody")
+body.innerHTML=""
+
+const fragment=document.createDocumentFragment()
+
+const start=(currentPage-1)*pageSize
+const pageData=currentData.slice(start,start+pageSize)
+
+pageData.forEach((row,index)=>{
+
+const tr=document.createElement("tr")
+
+const td1=document.createElement("td")
+const copyBtn=document.createElement("button")
+copyBtn.className="copyBtn"
+copyBtn.textContent="Copy"
+copyBtn.onclick=()=>copyKeyword(row.keyword)
+td1.appendChild(copyBtn)
+td1.appendChild(document.createTextNode(" "+row.keyword))
+
+const td2=document.createElement("td")
+td2.textContent=row.searches.toLocaleString()
+
+const td3=document.createElement("td")
+td3.textContent=row.results.toLocaleString()
+
+const td4=document.createElement("td")
+td4.textContent=row.ratio
+
+tr.appendChild(td1)
+tr.appendChild(td2)
+tr.appendChild(td3)
+tr.appendChild(td4)
+
+fragment.appendChild(tr)
+
+})
+
+body.appendChild(fragment)
+
+updatePageInfo()
+updateResultCount(pageData.length)
+updatePaginationButtons()
+}
+
+function updatePageInfo(){
+
+const totalPages=Math.ceil(currentData.length/pageSize)
+
+document.getElementById("pageInfo").textContent=
+"Page "+currentPage+" of "+(totalPages||1)
+}
+
+function updateResultCount(visible){
+
+const total=currentData.length
+
+document.getElementById("resultCount").textContent=
+"Showing "+visible.toLocaleString()+" of "+total.toLocaleString()+" keywords"
+}
+
+function updatePaginationButtons(){
+const totalPages=Math.ceil(currentData.length/pageSize)
+document.getElementById("prevBtn").disabled = currentPage === 1
+document.getElementById("nextBtn").disabled = currentPage >= totalPages
+}
+
+function nextPage(){
+
+const totalPages=Math.ceil(currentData.length/pageSize)
+
+if(currentPage<totalPages){
+currentPage++
+renderTable()
+}
+}
+
+function prevPage(){
+
+if(currentPage>1){
+currentPage--
+renderTable()
+}
+}
+
+function copyKeyword(text){
+
+window.allowCopy = true;
+
+navigator.clipboard.writeText(text).then(()=>{
+window.allowCopy = false;
 });
 
-function addCustomerDiscount() {
-  document.getElementById("customerDiscountsContainer").insertAdjacentHTML("beforeend", createDiscountBlock("customer"));
-  updateDiscountVisibility(document);
-  runBXYEnforcement();
 }
 
-function addSupplierDiscount() {
-  document.getElementById("supplierDiscountsContainer").insertAdjacentHTML("beforeend", createDiscountBlock("supplier"));
-  updateDiscountVisibility(document);
-  runBXYEnforcement();
+function applyFilters(){
+
+let filtered=[...tableData]
+
+const minSearch=parseFloat(document.getElementById("minSearch").value)||0
+const maxResults=parseFloat(document.getElementById("maxResults").value)||Infinity
+const minRatio=parseFloat(document.getElementById("minRatio").value)||0
+const keyword=document.getElementById("keywordFilter").value.toLowerCase()
+
+filtered=filtered.filter(row=>{
+return row.searches>=minSearch &&
+row.results<=maxResults &&
+row.ratio>=minRatio &&
+row.keyword.toLowerCase().includes(keyword)
+})
+
+currentData=filtered
+currentPage=1
+renderTable()
 }
 
-document.addEventListener("input", function(e) {
-  if (e.target.closest("#customerDiscountsContainer") || e.target.closest("#supplierDiscountsContainer")) {
-    updateGroupHeaders();
-    update();
-  }
-});
-
-function removeDiscount(btn) {
-  btn.closest('.customer-discount, .supplier-discount').remove();
-  updateGroupHeaders(); update(); runBXYEnforcement();
+function debounce(func,delay){
+let timeout;
+return function(){
+clearTimeout(timeout)
+timeout=setTimeout(func,delay)
+}
 }
 
-function moveUp(btn) {
-  let el = btn.closest('.customer-discount, .supplier-discount');
-  let prev = el.previousElementSibling;
-  if (prev) el.parentNode.insertBefore(el, prev);
-  updateGroupHeaders(); update(); runBXYEnforcement();
+const debouncedFilter=debounce(applyFilters,300)
+
+function sortTable(col,type){
+
+sortDir[col]=!sortDir[col]
+currentSortCol=col
+
+currentData.sort((a,b)=>{
+
+let A=Object.values(a)[col]
+let B=Object.values(b)[col]
+
+if(type==="num"){
+return sortDir[col]?A-B:B-A
 }
 
-function moveDown(btn) {
-  let el = btn.closest('.customer-discount, .supplier-discount');
-  let next = el.nextElementSibling;
-  if (next) el.parentNode.insertBefore(next, el);
-  updateGroupHeaders(); update(); runBXYEnforcement();
+return sortDir[col]?A.localeCompare(B):B.localeCompare(A)
+})
+
+updateSortUI()
+renderTable()
 }
 
-function getDiscountOptions(includeBXY) {
-  return includeBXY
-    ? `<option value="bxy">Buy X Get Y</option><option value="percent">% Discount</option><option value="fixed">Fixed Discount</option>`
-    : `<option value="percent">% Discount</option><option value="fixed">Fixed Discount</option>`;
+function updateSortUI(){
+
+document.querySelectorAll("#keywordTable th").forEach((th,i)=>{
+th.classList.remove("sorted")
+const icon=th.querySelector(".sort-icon")
+icon.textContent="⇅"
+})
+
+if(currentSortCol!==null){
+
+const th=document.querySelectorAll("#keywordTable th")[currentSortCol]
+th.classList.add("sorted")
+
+const icon=th.querySelector(".sort-icon")
+icon.textContent=sortDir[currentSortCol]?"↑":"↓"
+}
 }
 
-function enforceSingleBXY(containerId) {
-  let container = document.getElementById(containerId);
-  if (!container) return;
-  let blocks = container.querySelectorAll('.customer-discount, .supplier-discount');
-  let bxyExists = Array.from(blocks).some(b => b.querySelector('.type')?.value === 'bxy');
-  blocks.forEach(block => {
-    let select = block.querySelector('.type');
-    let currentValue = select.value;
-    let shouldIncludeBXY = !bxyExists || currentValue === 'bxy';
-    select.innerHTML = getDiscountOptions(shouldIncludeBXY);
-    if (shouldIncludeBXY || currentValue !== 'bxy') { select.value = currentValue; }
-    else { select.value = 'percent'; }
-  });
+document.getElementById("databaseSelect").addEventListener("change",updateDates)
+
+document.getElementById("dateSelect").addEventListener("change",function(){
+loadData(this.value)
+})
+
+document.querySelectorAll("#minSearch,#maxResults,#minRatio,#keywordFilter")
+.forEach(el=>el.addEventListener("input",debouncedFilter))
+
+document.getElementById("clearFiltersBtn").addEventListener("click",clearAllFilters)
+
+function clearAllFilters(){
+document.getElementById("minSearch").value=""
+document.getElementById("maxResults").value=""
+document.getElementById("minRatio").value=""
+document.getElementById("keywordFilter").value=""
+
+currentData=[...tableData]
+sortDir={}
+currentSortCol=null
+currentPage=1
+
+updateSortUI()
+renderTable()
 }
 
-document.addEventListener("change", function(e) {
-  if (e.target.classList.contains("type")) {
-    enforceSingleBXY("customerDiscountsContainer");
-    enforceSingleBXY("supplierDiscountsContainer");
-  }
-});
+init()
 
-function runBXYEnforcement() {
-  enforceSingleBXY("customerDiscountsContainer");
-  enforceSingleBXY("supplierDiscountsContainer");
-}
 </script>
-
 </body>
 </html>
