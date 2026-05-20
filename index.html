@@ -805,18 +805,23 @@ ratio:parseFloat(r[3])
 allData=allData.concat(fileData)
 }
 
-if(files.length>1){
 const keywordMap=new Map()
+
 allData.forEach(row=>{
 const key=row.keyword.toLowerCase()
+
 if(!keywordMap.has(key)){
 keywordMap.set(key,row)
+}else{
+const existing=keywordMap.get(key)
+
+if(row.searches > existing.searches){
+keywordMap.set(key,row)
+}
 }
 })
+
 tableData=Array.from(keywordMap.values())
-}else{
-tableData=allData
-}
 
 currentData=[...tableData]
 currentPage=1
