@@ -285,9 +285,89 @@ td:first-child{
 font-weight: 500;
 }
 
-td:nth-child(2), td:nth-child(3), td:nth-child(4){
+td.num-cell{
 font-variant-numeric: tabular-nums;
 color: #616161;
+}
+
+.conversion-filters{
+display: flex;
+flex-wrap: wrap;
+align-items: center;
+gap: 12px 22px;
+margin: 0 0 20px;
+padding: 14px 18px;
+background: white;
+border: 2px solid #e0e0e0;
+border-radius: 8px;
+}
+
+.conversion-filters > span{
+font-size: 13px;
+font-weight: 600;
+text-transform: uppercase;
+letter-spacing: 0.5px;
+color: #424242;
+}
+
+.conversion-filters label{
+display: inline-flex;
+flex-direction: row;
+align-items: center;
+gap: 8px;
+margin: 0;
+font-size: 14px;
+font-weight: 500;
+text-transform: none;
+letter-spacing: 0;
+color: #212121;
+cursor: pointer;
+}
+
+.conversion-filters input{
+width: 16px;
+height: 16px;
+margin: 0;
+padding: 0;
+accent-color: #00897b;
+cursor: pointer;
+}
+
+.conversion-badge{
+display: inline-flex;
+align-items: center;
+gap: 8px;
+font-weight: 500;
+color: #212121;
+}
+
+.conversion-badge::before{
+content: '';
+width: 8px;
+height: 8px;
+border-radius: 50%;
+background: #9e9e9e;
+flex-shrink: 0;
+}
+
+.conversion-badge.very-low::before{
+background: #e53935;
+}
+
+.conversion-badge.typical::before{
+background: #9e9e9e;
+}
+
+.conversion-badge.high::before{
+background: #43a047;
+}
+
+.conversion-badge.very-high::before{
+background: #1b5e20;
+}
+
+.is-hidden{
+display: none !important;
 }
 
 .copyBtn{
@@ -550,6 +630,14 @@ Some terms have been reviewed for intellectual property and relevance, but not a
 
 </div>
 
+<div id="conversionFilters" class="conversion-filters is-hidden">
+<span>Conversion rate</span>
+<label><input type="checkbox" class="conversion-filter" value="Very low" checked> Very low</label>
+<label><input type="checkbox" class="conversion-filter" value="Typical" checked> Typical</label>
+<label><input type="checkbox" class="conversion-filter" value="High" checked> High</label>
+<label><input type="checkbox" class="conversion-filter" value="Very high" checked> Very high</label>
+</div>
+
 <button id="clearFiltersBtn" class="clear-filters-btn">Clear All Filters</button>
 
 <div class="table-section">
@@ -563,10 +651,11 @@ Some terms have been reviewed for intellectual property and relevance, but not a
 <table id="keywordTable">
 <thead>
 <tr>
-<th onclick="sortTable(0,'text')">Keyword <span class="sort-icon">⇅</span></th>
-<th onclick="sortTable(1,'num')">Searches <span class="sort-icon">⇅</span></th>
-<th onclick="sortTable(2,'num')">Results <span class="sort-icon">⇅</span></th>
-<th onclick="sortTable(3,'num')">Search:Result <span class="sort-icon">⇅</span></th>
+<th onclick="sortTable(0)">Keyword <span class="sort-icon">⇅</span></th>
+<th onclick="sortTable(1)">Searches <span class="sort-icon">⇅</span></th>
+<th onclick="sortTable(2)">Results <span class="sort-icon">⇅</span></th>
+<th id="conversionHeader" class="is-hidden" onclick="sortTable(3)">Conversion rate <span class="sort-icon">⇅</span></th>
+<th onclick="sortTable(4)">Search:Result <span class="sort-icon">⇅</span></th>
 </tr>
 </thead>
 
@@ -623,6 +712,9 @@ const DATABASES=[
 {
 name:"All Search Terms",
 dates:{
+"2026 Q3":[
+"Top-etsy-search-terms-2026-Q3.csv"
+],
 "2026 Q2":[
 "Top-etsy-search-terms-2026-Q2.csv",
 "Wall-art-search-terms-2026-Q2.csv",
@@ -650,6 +742,7 @@ dates:{
 {
 name:"General Etsy Search Terms",
 dates:{
+"2026 Q3":"Top-etsy-search-terms-2026-Q3.csv",
 "2026 Q2":"Top-etsy-search-terms-2026-Q2.csv",
 "2025 Q4":"Top-etsy-search-terms-2025-Q4.csv"
 }
@@ -729,9 +822,74 @@ let tableData=[]
 let currentData=[]
 let sortDir={}
 let currentSortCol=null
+let hasConversion=false
 
 let pageSize=500
 let currentPage=1
+
+const CONVERSIONS={
+"very low":{label:"Very low",rank:1},
+"typical":{label:"Typical",rank:2},
+"high":{label:"High",rank:3},
+"very high":{label:"Very high",rank:4}
+}
+
+const SORT_FIELDS=["keyword","searches","results","conversionRank","ratio"]
+const SORT_TYPES=["text","num","num","num","num"]
+
+function normHeader(header){
+return header.trim().toLowerCase().replace(/\s+/g,"")
+}
+
+function headerIndex(headers, names){
+const normalized=headers.map(normHeader)
+for(const name of names){
+const index=normalized.indexOf(normHeader(name))
+if(index!==-1) return index
+}
+return -1
+}
+
+function parseCsv(text){
+const lines=text.trim().split(/\r?\n/).filter(line=>line.trim())
+const headers=lines[0].split(",")
+const keywordIdx=headerIndex(headers,["keyword"])
+const searchesIdx=headerIndex(headers,["searches"])
+const resultsIdx=headerIndex(headers,["results"])
+const ratioIdx=headerIndex(headers,["search:result","searches:results"])
+const conversionIdx=headerIndex(headers,["conversion rate"])
+
+const rows=[]
+
+for(let i=1;i<lines.length;i++){
+const cols=lines[i].split(",").map(col=>col.trim())
+const searches=parseFloat(cols[searchesIdx])
+const results=parseFloat(cols[resultsIdx])
+const ratio=parseFloat(cols[ratioIdx])
+if(isNaN(searches) || isNaN(results) || isNaN(ratio) || !cols[keywordIdx]) continue
+
+const row={
+keyword:cols[keywordIdx],
+searches:searches,
+results:results,
+ratio:ratio,
+conversion:"",
+conversionRank:0
+}
+
+if(conversionIdx!==-1){
+const conversion=CONVERSIONS[(cols[conversionIdx]||"").toLowerCase()]
+if(conversion){
+row.conversion=conversion.label
+row.conversionRank=conversion.rank
+}
+}
+
+rows.push(row)
+}
+
+return {rows, hasConversion:conversionIdx!==-1}
+}
 
 function init(){
 
@@ -790,24 +948,17 @@ files=[fileValue]
 }
 
 let allData=[]
+let sawConversion=false
 
 for(const file of files){
 const response=await fetch(file)
 const text=await response.text()
-
-const rows=text.trim().split("\n").map(r=>r.split(","))
-rows.shift()
-
-const fileData=rows.map(r=>({
-keyword:r[0],
-searches:parseFloat(r[1]),
-results:parseFloat(r[2]),
-ratio:parseFloat(r[3])
-}))
-.filter(r=>!isNaN(r.searches) && !isNaN(r.results) && !isNaN(r.ratio))
-
-allData=allData.concat(fileData)
+const parsed=parseCsv(text)
+if(parsed.hasConversion) sawConversion=true
+allData=allData.concat(parsed.rows)
 }
+
+hasConversion=sawConversion
 
 const keywordMap=new Map()
 
@@ -828,9 +979,23 @@ keywordMap.set(key,row)
 tableData=Array.from(keywordMap.values())
 
 currentData=[...tableData]
+sortDir={}
+currentSortCol=null
 currentPage=1
 
+updateConversionUI()
+updateSortUI()
 renderTable()
+}
+
+function updateConversionUI(){
+document.getElementById("conversionFilters").classList.toggle("is-hidden", !hasConversion)
+document.getElementById("conversionHeader").classList.toggle("is-hidden", !hasConversion)
+if(hasConversion){
+document.querySelectorAll(".conversion-filter").forEach(el=>{
+el.checked=true
+})
+}
 }
 
 function renderTable(){
@@ -856,18 +1021,31 @@ td1.appendChild(copyBtn)
 td1.appendChild(document.createTextNode(" "+row.keyword))
 
 const td2=document.createElement("td")
+td2.className="num-cell"
 td2.textContent=row.searches.toLocaleString()
 
 const td3=document.createElement("td")
+td3.className="num-cell"
 td3.textContent=row.results.toLocaleString()
-
-const td4=document.createElement("td")
-td4.textContent=row.ratio
 
 tr.appendChild(td1)
 tr.appendChild(td2)
 tr.appendChild(td3)
-tr.appendChild(td4)
+
+if(hasConversion){
+const tdConversion=document.createElement("td")
+const badge=document.createElement("span")
+const conversionLabel=row.conversion||""
+badge.className="conversion-badge "+conversionLabel.toLowerCase().replace(/\s+/g,"-")
+badge.textContent=conversionLabel
+tdConversion.appendChild(badge)
+tr.appendChild(tdConversion)
+}
+
+const tdRatio=document.createElement("td")
+tdRatio.className="num-cell"
+tdRatio.textContent=row.ratio
+tr.appendChild(tdRatio)
 
 fragment.appendChild(tr)
 
@@ -920,6 +1098,12 @@ renderTable()
 }
 }
 
+function selectedConversions(){
+return new Set(
+[...document.querySelectorAll(".conversion-filter:checked")].map(el=>el.value)
+)
+}
+
 function copyKeyword(text){
 
 window.allowCopy = true;
@@ -938,12 +1122,15 @@ const minSearch=parseFloat(document.getElementById("minSearch").value)||0
 const maxResults=parseFloat(document.getElementById("maxResults").value)||Infinity
 const minRatio=parseFloat(document.getElementById("minRatio").value)||0
 const keyword=document.getElementById("keywordFilter").value.toLowerCase()
+const conversions=selectedConversions()
 
 filtered=filtered.filter(row=>{
+const conversionOk=!hasConversion || conversions.has(row.conversion)
 return row.searches>=minSearch &&
 row.results<=maxResults &&
 row.ratio>=minRatio &&
-row.keyword.toLowerCase().includes(keyword)
+row.keyword.toLowerCase().includes(keyword) &&
+conversionOk
 })
 
 currentData=filtered
@@ -961,21 +1148,24 @@ timeout=setTimeout(func,delay)
 
 const debouncedFilter=debounce(applyFilters,300)
 
-function sortTable(col,type){
+function sortTable(col){
 
 sortDir[col]=!sortDir[col]
 currentSortCol=col
 
+const field=SORT_FIELDS[col]
+const type=SORT_TYPES[col]
+
 currentData.sort((a,b)=>{
 
-let A=Object.values(a)[col]
-let B=Object.values(b)[col]
+let A=a[field]
+let B=b[field]
 
 if(type==="num"){
 return sortDir[col]?A-B:B-A
 }
 
-return sortDir[col]?A.localeCompare(B):B.localeCompare(A)
+return sortDir[col]?String(A).localeCompare(String(B)):String(B).localeCompare(String(A))
 })
 
 updateSortUI()
@@ -1009,6 +1199,9 @@ loadData(this.value)
 document.querySelectorAll("#minSearch,#maxResults,#minRatio,#keywordFilter")
 .forEach(el=>el.addEventListener("input",debouncedFilter))
 
+document.querySelectorAll(".conversion-filter")
+.forEach(el=>el.addEventListener("change",debouncedFilter))
+
 document.getElementById("clearFiltersBtn").addEventListener("click",clearAllFilters)
 
 function clearAllFilters(){
@@ -1016,6 +1209,9 @@ document.getElementById("minSearch").value=""
 document.getElementById("maxResults").value=""
 document.getElementById("minRatio").value=""
 document.getElementById("keywordFilter").value=""
+document.querySelectorAll(".conversion-filter").forEach(el=>{
+el.checked=true
+})
 
 currentData=[...tableData]
 sortDir={}
